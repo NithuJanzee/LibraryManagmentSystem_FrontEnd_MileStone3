@@ -1,0 +1,60 @@
+<div class="row mb-4">
+    <div class="col-md-4 mb-3">
+        <select class="form-select" id="authorFilter">
+            <option value="">Author</option>
+            <option value="Harper Lee">Harper Lee</option>
+            <option value="George Orwell">George Orwell</option>
+            <option value="Jane Austen">Jane Austen</option>
+        </select>
+    </div>
+    <div class="col-md-4 mb-3">
+        <select class="form-select" id="genreFilter">
+            <option value="">Genre</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <option value="Romance">Romance</option>
+        </select>
+    </div>
+    <div class="col-md-4 mb-3">
+        <select class="form-select" id="yearFilter">
+            <option value="">Publication Year</option>
+            <option value="1960">1960</option>
+            <option value="1949">1949</option>
+            <option value="1813">1813</option>
+        </select>
+    </div>
+</div>
+
+<div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4" id="bookList">
+    <div class="col">
+        <div class="card h-100">
+            <!-- <img src="https://source.unsplash.com/random/200x300/?book" class="card-img-top" alt="To Kill a Mockingbird"> -->
+            <div class="card-body">
+                <h5 class="card-title">To Kill a Mockingbird</h5>
+                <p class="card-text">
+                    <strong>Author:</strong> Harper Lee<br>
+                    <strong>Genre:</strong> Fiction<br>
+                    <strong>Year:</strong> 1960
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="star-rating">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                        <span class="ms-1">4.5</span>
+                    </div>
+                    <button class="btn btn-outline-danger btn-sm">
+                        <i class="bi bi-heart"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-footer bg-transparent border-top-0">
+                <button class="btn btn-primary btn-sm me-2">Rent</button>
+                <button class="btn btn-outline-primary btn-sm">Buy</button>
+            </div>
+        </div>
+    </div>
+    <!-- Repeat similar card structure for other books -->
+</div>

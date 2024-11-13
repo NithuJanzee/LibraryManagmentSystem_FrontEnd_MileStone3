@@ -1,0 +1,44 @@
+.navbar {
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 4px rgba(41, 40, 40, 0.1);
+}
+
+.navbar-brand, .nav-link {
+    color: var(--secondary-color) !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover, .nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px; 
+    width: 0;
+    height: 2px;
+    background-color: yellow; 
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: yellow; 
+}
+
+.nav-link:hover::after {
+    width: 100%; 
+}
+/* .navtoggle{
+    color: black;
+    background-color: black;
+} */
+
