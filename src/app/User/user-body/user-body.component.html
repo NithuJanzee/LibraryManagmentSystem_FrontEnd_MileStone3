@@ -25,10 +25,9 @@
     </div>
 </div>
 
-<div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4" id="bookList">
+<div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4" id="bookList">
     <div class="col">
-        <div class="card h-100">
-            <!-- <img src="https://source.unsplash.com/random/200x300/?book" class="card-img-top" alt="To Kill a Mockingbird"> -->
+        <div class="card h-100 hover-effect">
             <div class="card-body">
                 <h5 class="card-title">To Kill a Mockingbird</h5>
                 <p class="card-text">
@@ -56,5 +55,63 @@
             </div>
         </div>
     </div>
-    <!-- Repeat similar card structure for other books -->
+    <!-- Repeat for other books -->
+    <div class="col">
+        <div class="card h-100 hover-effect">
+            <div class="card-body">
+                <h5 class="card-title">1984</h5>
+                <p class="card-text">
+                    <strong>Author:</strong> George Orwell<br>
+                    <strong>Genre:</strong> Science Fiction<br>
+                    <strong>Year:</strong> 1949
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="star-rating">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <span class="ms-1">4.8</span>
+                    </div>
+                    <button class="btn btn-outline-danger btn-sm">
+                        <i class="bi bi-heart"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-footer bg-transparent border-top-0">
+                <button class="btn btn-primary btn-sm me-2">Rent</button>
+                <button class="btn btn-outline-primary btn-sm">Buy</button>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100 hover-effect">
+            <div class="card-body">
+                <h5 class="card-title">Pride and Prejudice</h5>
+                <p class="card-text">
+                    <strong>Author:</strong> Jane Austen<br>
+                    <strong>Genre:</strong> Romance<br>
+                    <strong>Year:</strong> 1813
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="star-rating">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star"></i>
+                        <span class="ms-1">4.3</span>
+                    </div>
+                    <button class="btn btn-outline-danger btn-sm">
+                        <i class="bi bi-heart"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-footer bg-transparent border-top-0">
+                <button class="btn btn-primary btn-sm me-2">Rent</button>
+                <button class="btn btn-outline-primary btn-sm">Buy</button>
+            </div>
+        </div>
+    </div>
+    <!-- Add 2 more books following the same structure -->
 </div>
+

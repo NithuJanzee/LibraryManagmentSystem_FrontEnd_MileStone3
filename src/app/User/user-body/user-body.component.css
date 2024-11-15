@@ -47,3 +47,14 @@ body {
 .star-rating {
     color: var(--accent-color);
 }
+
+.hover-effect {
+    transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+}
+
+.hover-effect:hover {
+    transform: scale(1.05);
+    border-color: yellow; 
+}
