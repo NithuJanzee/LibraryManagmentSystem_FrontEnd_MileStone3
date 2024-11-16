@@ -3,17 +3,19 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserServiceService } from '../../_service/user-service.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-user-creation',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, RouterLink],
   templateUrl: './user-creation.component.html',
   styleUrl: './user-creation.component.css'
 })
 export class UserCreationComponent {
   private userAccount = inject(UserServiceService)
-   toaster = inject(ToastrService)
+  private toaster = inject(ToastrService)
+  private router = inject(Router)
 
   UserCreation: FormGroup
   constructor(private FormBuilder: FormBuilder) {
@@ -30,11 +32,12 @@ export class UserCreationComponent {
     })
   }
 
-  onSubmit(){
+  onSubmit() {
     let User = this.UserCreation.value;
     this.userAccount.userCreation(User).subscribe(
-      p=>{
+      p => {
         this.toaster.success("Account Created Successfully \n Please Login")
+        this.router.navigate(['User-Login'])
       }
     )
   }
