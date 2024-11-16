@@ -9,7 +9,8 @@
 
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
                                     <i class="bi bi-book-fill"></i><br>
-                                    continue your learning journey</p>
+                                    continue your learning journey
+                                </p>
 
                                 <form class="mx-1 mx-md-4" [formGroup]="UserLogin">
 
@@ -24,23 +25,21 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="password" id="password" class="form-control" 
-                                         name="password" placeholder="Password" formControlName="password" required/>
+                                            <input type="password" id="password" class="form-control" name="password"
+                                                placeholder="Password" formControlName="password" required />
                                         </div>
                                     </div>
 
-                                   
+
 
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                        <button type="submit" 
-                                        [disabled]="UserLogin.invalid"
-                                         data-mdb-button-init data-mdb-ripple-init
-                                         (click)="Login()"
-                                            class="btn btn-primary btn-lg">Register</button>
+                                        <button type="submit" [disabled]="UserLogin.invalid" data-mdb-button-init
+                                            data-mdb-ripple-init (click)="Login()" class="btn btn-primary btn-lg">Login
+                                        </button>
                                     </div>
 
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                      <p>Already have an account? <a href="" [routerLink]="['']">Login</a></p>
+                                        <p>Already have an account? <a href="" [routerLink]="['/User-SignUp']">Login</a></p>
                                     </div>
 
                                 </form>
@@ -48,8 +47,7 @@
                             </div>
                             <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                                <img src="Login.png"
-                                    class="img-fluid" alt="Sample image">
+                                <img src="Login.png" class="img-fluid" alt="Sample image">
 
                             </div>
                         </div>

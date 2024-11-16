@@ -12,3 +12,7 @@ export interface UserLogin {
   nic: String,
   password: String
 }
+
+export interface LoggedUsers{
+  token:string
+}

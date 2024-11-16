@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { UserAccount, UserLogin } from '../_Inerface/UserInterface';
+import { LoggedUsers, UserAccount, UserLogin } from '../_Inerface/UserInterface';
 import { environment } from '../../environments/environment.development';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class UserServiceService {
   private http = inject(HttpClient)
   baseUrl = environment.apiUrl;
   toster = inject(ToastrService)
+  currentUser = signal<LoggedUsers|null>(null)
 
 
   userCreation(user:UserAccount){
@@ -18,6 +20,19 @@ export class UserServiceService {
   }
 
   UserLogin(user:UserLogin){
-    return this.http.post(this.baseUrl + "User/UserLogin",user)
+    return this.http.post(this.baseUrl + "User/UserLogin",user).pipe(
+      map((user:any) => {
+        if(user){
+          localStorage.setItem('LoggedUser',JSON.stringify(user))
+          this.currentUser.set(user)
+        }
+        
+      })
+    )
+  }
+
+  Logout(){
+    localStorage.removeItem('LoggedUser');
+    this.currentUser.set(null);
   }
 }

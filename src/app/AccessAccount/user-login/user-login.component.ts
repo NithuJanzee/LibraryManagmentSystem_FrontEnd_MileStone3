@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { Router, RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserServiceService } from '../../_service/user-service.service';
-import { UserLogin } from '../../_Inerface/UserInterface';
 
 @Component({
   selector: 'app-user-login',
@@ -28,8 +27,12 @@ private userAccount = inject(UserServiceService)
   Login(){
     let userData = this.UserLogin.value;
     this.userAccount.UserLogin(userData).subscribe(
-      p=>{
-        this.toaster.success("Login Successful")
+      {
+        next:response=>{
+          this.toaster.success("Login Successful")
+          this.router.navigateByUrl('')
+        },
+        error:error=> this.toaster.error(error.error.Message)
       }
     )
   }

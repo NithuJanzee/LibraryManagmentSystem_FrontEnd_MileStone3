@@ -4,6 +4,7 @@ import { UserCreationComponent } from './AccessAccount/user-creation/user-creati
 import { UserLoginComponent } from './AccessAccount/user-login/user-login.component';
 
 export const routes: Routes = [
-    {path:'',component:UserCreationComponent},
-    {path:'User-Login',component:UserLoginComponent}
+    {path:'User-Login',component:UserLoginComponent},
+    {path:'User-SignUp',component:UserCreationComponent},
+    {path:'',component:UserHomeComponent}
 ];
