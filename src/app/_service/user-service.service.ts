@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { UserAccount } from '../_Inerface/UserInterface';
+import { UserAccount, UserLogin } from '../_Inerface/UserInterface';
 import { environment } from '../../environments/environment.development';
 
 @Injectable({
@@ -17,4 +17,7 @@ export class UserServiceService {
     return this.http.post(this.baseUrl +"User/PostNewUser",user)
   }
 
+  UserLogin(user:UserLogin){
+    return this.http.post(this.baseUrl + "User/UserLogin",user)
+  }
 }
