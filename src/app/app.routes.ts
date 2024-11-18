@@ -10,10 +10,12 @@ import { ReturnManagementComponent } from './Admin/AdminContent/return-managemen
 import { SubscriptionsComponent } from './Admin/AdminContent/subscriptions/subscriptions.component';
 import { PurchaseHistoryComponent } from './Admin/AdminContent/purchase-history/purchase-history.component';
 import { UserMessagingComponent } from './Admin/AdminContent/user-messaging/user-messaging.component';
+import { BookDetailsComponent } from './Book/book-details/book-details.component';
 
 export const routes: Routes = [
     {path:'User-Login',component:UserLoginComponent},
     {path:'User-SignUp',component:UserCreationComponent},
+    {path:'BookDetails',component:BookDetailsComponent},
     {path:'',component:UserHomeComponent},
     
     {

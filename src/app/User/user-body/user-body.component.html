@@ -27,17 +27,19 @@
 </div>
 
 <!-- Book Cards -->
-<div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4" id="bookList" (click)="Hello()">
+@if(UserService.currentUser()){
+<div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4" id="bookList"
+  (click)="BookDetails()">
   <div *ngFor="let Book of BookService.Books(); trackBy: trackByBookId" class="col">
     <div class="card h-100 hover-effect">
       <!-- Book Image -->
       <div class="card-header p-0 bg-transparent border-bottom-0 text-center">
         <!-- <img
-            [src]="Book.photoUrls"
-            alt="Book Cover"
-            class="img-fluid"
-            style="max-height: 150px; object-fit: contain;"
-          /> -->
+              [src]="Book.photoUrls"
+              alt="Book Cover"
+              class="img-fluid"
+              style="max-height: 150px; object-fit: contain;"
+            /> -->
         <img src="BookCover.webp" alt="image" class="img-fluid" style="max-width: 200px; object-fit: contain;">
 
       </div>
@@ -53,10 +55,10 @@
           <div class="star-rating">
             <ng-container *ngFor="let star of getStarArray(Book.averageRating)">
               <i class="bi" [ngClass]="{
-                    'bi-star-fill': star === 'full',
-                    'bi-star-half': star === 'half',
-                    'bi-star': star === 'empty'
-                  }" style="color: rgb(102, 102, 20);"></i>
+                      'bi-star-fill': star === 'full',
+                      'bi-star-half': star === 'half',
+                      'bi-star': star === 'empty'
+                    }" style="color: rgb(102, 102, 20);"></i>
             </ng-container>
             <span class="ms-2">{{ Book.averageRating.toFixed(1) }}</span>
           </div>
@@ -72,3 +74,65 @@
     </div>
   </div>
 </div>
+}
+@else {
+<div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4" id="bookList"
+  (click)="NonLoggedUser()">
+  <div *ngFor="let Book of BookService.Books(); trackBy: trackByBookId" class="col">
+    <div class="card h-100 hover-effect">
+      <!-- Book Image -->
+      <div class="card-header p-0 bg-transparent border-bottom-0 text-center">
+        <img src="BookCover.webp" alt="image" class="img-fluid" style="max-width: 200px; object-fit: contain;">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ Book.bookTitle }}</h5>
+        <p class="card-text">
+          <strong>Author:</strong> {{ Book.authorName }}<br />
+          <strong>Genre:</strong> {{ Book.genreName }}<br />
+          <strong>Year:</strong> {{ Book.publishDate }}
+        </p>
+        <div class="d-flex justify-content-between align-items-center">
+          <!-- Star Rating -->
+          <div class="star-rating">
+            <ng-container *ngFor="let star of getStarArray(Book.averageRating)">
+              <i class="bi" [ngClass]="{
+                      'bi-star-fill': star === 'full',
+                      'bi-star-half': star === 'half',
+                      'bi-star': star === 'empty'
+                    }" style="color: rgb(102, 102, 20);"></i>
+            </ng-container>
+            <span class="ms-2">{{ Book.averageRating.toFixed(1) }}</span>
+          </div>
+          <button class="btn btn-outline-danger btn-sm">
+            <i class="bi bi-heart"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div *ngIf="showModal" class="modal fade show" tabindex="-1" id="loginModal" style="display: block;"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg rounded-lg">
+      <div class="modal-header border-0 pb-3">
+        <h5 class="modal-title text-center text-dark" id="exampleModalLabel">Please Login To Continue</h5>
+        <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <p class="text-muted mb-4">You need to log in to access this feature. Please sign in to continue.</p>
+        <button class="btn btn-success btn-lg w-75 mb-3" (click)="LoginNavigation()">Login</button>
+        <br>
+        <button class="btn btn-outline-secondary btn-lg w-75" (click)="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Backdrop -->
+<div *ngIf="showModal" class="modal-backdrop fade show"></div>
+
+}
