@@ -1,0 +1,115 @@
+/* General reset */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff5e5e; /* Light red for branding */
+}
+
+.navbar-brand i {
+    font-size: 24px;
+    color: #ff5e5e;
+}
+
+.navbar .bi-bell,
+.navbar .bi-person-circle {
+    color: #333;
+    cursor: pointer;
+}
+
+.notification-badge {
+    background-color: #ff5e5e; /* Light red badge color */
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #ffecec; /* Light red background for sidebar */
+    padding: 20px;
+    height: 100vh;
+    width: 250px;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.sidebar a.active {
+    background-color: #ffcccc; /* Active light red background */
+    border-radius: 8px;
+    font-weight: bold;
+    color: #ff5e5e;
+}
+
+.sidebar a:hover {
+    background-color: #ffcccc;
+    color: #ff5e5e;
+}
+
+.sidebar i {
+    margin-right: 10px;
+}
+
+/* Dashboard Cards */
+.dashboard {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+.dashboard .card {
+    background-color: #ffecec; /* Light red card background */
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    color: #333;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard .card i {
+    font-size: 24px;
+    color: #ff5e5e;
+    margin-bottom: 10px;
+}
+
+.dashboard .card h1 {
+    font-size: 36px;
+    color: #ff5e5e;
+}
+
+/* Footer */
+footer {
+    background-color: #ffecec;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    border-top: 1px solid #ffcccc;
+}
+
+footer a {
+    color: #ff5e5e;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
