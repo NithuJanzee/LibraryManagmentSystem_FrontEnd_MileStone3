@@ -4,7 +4,6 @@ import { ToastrService } from 'ngx-toastr';
 import { DecodedToken, LoggedUsers, UserAccount, UserLogin } from '../_Inerface/UserInterface';
 import { environment } from '../../environments/environment.development';
 import { map } from 'rxjs';
-import { jwtDecode } from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +33,6 @@ export class UserServiceService {
   Logout() {
     localStorage.removeItem('LoggedUser');
     this.currentUser.set(null);
+    this.LoggedUser.set(null);
   }
 }
