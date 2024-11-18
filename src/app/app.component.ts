@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { UserServiceService } from './_service/user-service.service';
+import { jwtDecode } from "jwt-decode";
 
 @Component({
   selector: 'app-root',
@@ -22,5 +23,9 @@ export class AppComponent implements OnInit{
     if(!User)return
     const UserToken = JSON.parse(User);
     this.UserService.currentUser.set(UserToken);
+
+    
+    const decoded:any = jwtDecode(UserToken.token);
+    this.UserService.LoggedUser.set(decoded)
   }
 }

@@ -13,7 +13,7 @@ body {
 }
 
 .hero-section {
-    background: linear-gradient(to bottom, rgba(69, 10, 10, 0.829), rgba(63, 6, 6, 0.6)); 
+    background: linear-gradient(to bottom, rgba(28, 26, 26, 0.829), rgba(55, 50, 50, 0.6)); 
     background-size: cover;
     background-position: center;
     color: white;

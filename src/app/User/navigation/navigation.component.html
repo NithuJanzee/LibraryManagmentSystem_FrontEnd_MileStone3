@@ -1,12 +1,13 @@
 <header>
     @if (UserService.currentUser()) {
-         <!-- Desktop and Tablet Navbar -->
+    <!-- Desktop and Tablet Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <i class="bi bi-book me-2"></i> Binary Bookshelf
             </a>
-            <button class="navbar-toggler navtoggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler navtoggle" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -16,73 +17,72 @@
                     <li class="nav-item"><a class="nav-link" href="#">Community</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Wishlist</a></li>
                     <li class="nav-item">
-                       <button class="btn btn-danger" (click)="Logout()">
-                        LogOut
-                       </button>
+                        <button class="btn btn-danger mx-2" (click)="Logout()">
+                            LogOut
+                        </button>
+
+                        <p>user Name {{UserService.LoggedUser()?.family_name}}</p>
                     </li>
                 </ul>
             </div>
-            
+
         </div>
     </nav>
 
     <!-- Mobile Navbar (Offcanvas) -->
     <nav class="navbar bg-body-tertiary fixed-top d-lg-none">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Offcanvas navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-book me-2"></i> Binary Bookshelf
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+                    <a class="navbar-brand" href="#">
+                        <i class="bi bi-book me-2"></i> Binary Bookshelf
+                    </a>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Transactions</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Community</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Wishlist</a></li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
+                            <button class="btn btn-danger" (click)="Logout()">
+                                LogOut
+                            </button>
                         </li>
                     </ul>
-                    <form class="d-flex mt-3" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
                 </div>
             </div>
         </div>
     </nav>
     }@else{
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <i class="bi bi-book me-2"></i> Binary Bookshelf
-                </a>
-                <button class="navbar-toggler navtoggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#" [routerLink]="['/User-Login']"><button type="button" class="btn btn-light">Sign In</button></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#" [routerLink]="['/User-SignUp']"><button type="button" class="btn btn-light" >Sign Up</button></a></li>
-                    </ul>
-                </div>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-book me-2"></i> Binary Bookshelf
+            </a>
+            <button class="navbar-toggler navtoggle" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#" [routerLink]="['/User-Login']"><button
+                                type="button" class="btn btn-light">Sign In</button></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" [routerLink]="['/User-SignUp']"><button
+                                type="button" class="btn btn-light">Sign Up</button></a></li>
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
     }
-   
+
 </header>

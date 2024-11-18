@@ -13,6 +13,19 @@ export interface UserLogin {
   password: String
 }
 
-export interface LoggedUsers{
-  token:string
+export interface LoggedUsers {
+  token: string
+}
+
+export interface DecodedToken {
+  NIC: string;
+  Phone: string;
+  email: string;
+  exp: number;
+  family_name: string;
+  given_name: string;
+  iat: number;
+  nameid: string;
+  nbf: number;
+  role: string;
 }

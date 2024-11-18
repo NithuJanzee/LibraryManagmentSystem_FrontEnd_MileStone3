@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { LoggedUsers, UserAccount, UserLogin } from '../_Inerface/UserInterface';
+import { DecodedToken, LoggedUsers, UserAccount, UserLogin } from '../_Inerface/UserInterface';
 import { environment } from '../../environments/environment.development';
 import { map } from 'rxjs';
+import { jwtDecode } from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
@@ -12,26 +13,25 @@ export class UserServiceService {
   private http = inject(HttpClient)
   baseUrl = environment.apiUrl;
   toster = inject(ToastrService)
-  currentUser = signal<LoggedUsers|null>(null)
+  currentUser = signal<LoggedUsers | null>(null)
+  LoggedUser = signal<DecodedToken | null>(null)
 
-
-  userCreation(user:UserAccount){
-    return this.http.post(this.baseUrl +"User/PostNewUser",user)
+  userCreation(user: UserAccount) {
+    return this.http.post(this.baseUrl + "User/PostNewUser", user)
   }
 
-  UserLogin(user:UserLogin){
-    return this.http.post(this.baseUrl + "User/UserLogin",user).pipe(
-      map((user:any) => {
-        if(user){
-          localStorage.setItem('LoggedUser',JSON.stringify(user))
+  UserLogin(user: UserLogin) {
+    return this.http.post(this.baseUrl + "User/UserLogin", user).pipe(
+      map((user: any) => {
+        if (user) {
+          localStorage.setItem('LoggedUser', JSON.stringify(user))
           this.currentUser.set(user)
         }
-        
       })
     )
   }
 
-  Logout(){
+  Logout() {
     localStorage.removeItem('LoggedUser');
     this.currentUser.set(null);
   }
