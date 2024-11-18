@@ -16,7 +16,7 @@
 }
 
 .search-input:focus {
-    border-color: yellow; 
-    box-shadow: 0 0 5px yellow; 
+    border-color:rgb(6, 33, 4); 
+    box-shadow: 0 0 5px rgb(6, 33, 4); 
     outline: none;
 }

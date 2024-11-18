@@ -1,0 +1,4 @@
+.input-focus:focus {
+    border-color: green; /* Changes border to green when focused */
+    box-shadow: 0 0 5px green; /* Optional: Adds a green glow around the input */
+  }

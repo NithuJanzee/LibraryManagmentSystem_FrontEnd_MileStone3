@@ -40,8 +40,8 @@
               class="img-fluid"
               style="max-height: 150px; object-fit: contain;"
             /> -->
-        <img src="BookCover.webp" alt="image" class="img-fluid" style="max-width: 200px; object-fit: contain;">
-
+        <img src="BookCover.webp" alt="image" class="img-fluid"
+          style="max-width: 100%; height: auto; object-fit: cover;">
       </div>
       <div class="card-body">
         <h5 class="card-title">{{ Book.bookTitle }}</h5>
@@ -82,7 +82,14 @@
     <div class="card h-100 hover-effect">
       <!-- Book Image -->
       <div class="card-header p-0 bg-transparent border-bottom-0 text-center">
-        <img src="BookCover.webp" alt="image" class="img-fluid" style="max-width: 200px; object-fit: contain;">
+        <!-- <img
+            [src]="Book.photoUrls"
+            alt="Book Cover"
+            class="img-fluid"
+            style="max-height: 150px; object-fit: contain;"
+          /> -->
+        <img src="BookCover.webp" alt="image" class="img-fluid"
+          style="max-width: 100%; height: auto; object-fit: cover;">
       </div>
       <div class="card-body">
         <h5 class="card-title">{{ Book.bookTitle }}</h5>

@@ -48,7 +48,7 @@ body {
 
 .hover-effect:hover {
     transform: scale(1.05);
-    border-color: yellow; 
+    border-color: rgb(4, 53, 22); 
 }
 
 
