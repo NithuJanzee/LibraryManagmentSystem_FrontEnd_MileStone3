@@ -35,4 +35,8 @@ export class UserBodyComponent implements OnInit{
       ...Array(emptyStars).fill('empty'),
     ];
   }
+
+  Hello(){
+    console.log("work")
+  }
 }

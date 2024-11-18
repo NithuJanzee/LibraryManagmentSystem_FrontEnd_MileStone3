@@ -10,7 +10,6 @@ import { ReturnManagementComponent } from './Admin/AdminContent/return-managemen
 import { SubscriptionsComponent } from './Admin/AdminContent/subscriptions/subscriptions.component';
 import { PurchaseHistoryComponent } from './Admin/AdminContent/purchase-history/purchase-history.component';
 import { UserMessagingComponent } from './Admin/AdminContent/user-messaging/user-messaging.component';
-import { UserHeadComponent } from './User/user-head/user-head.component';
 
 export const routes: Routes = [
     {path:'User-Login',component:UserLoginComponent},

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavigationComponent } from "../navigation/navigation.component";
 import { UserHeadComponent } from "../user-head/user-head.component";
 import { UserBodyComponent } from "../user-body/user-body.component";
+import { NgxSpinner, NgxSpinnerComponent } from 'ngx-spinner';
 
 @Component({
   selector: 'app-user-home',
