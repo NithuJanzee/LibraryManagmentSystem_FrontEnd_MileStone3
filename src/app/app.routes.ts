@@ -12,6 +12,7 @@ import { PurchaseHistoryComponent } from './Admin/AdminContent/purchase-history/
 import { UserMessagingComponent } from './Admin/AdminContent/user-messaging/user-messaging.component';
 import { BookDetailsComponent } from './Book/book-details/book-details.component';
 import { AdminLoginComponent } from './AccessAccount/admin-login/admin-login.component';
+import { adminGuard } from './_gurard/admin.guard';
 
 export const routes: Routes = [
     {path:'User-Login',component:UserLoginComponent},
@@ -23,6 +24,7 @@ export const routes: Routes = [
     {
         path:'admin',
         component:AdminHomeComponent,
+        canActivate:[adminGuard],
         children:[
             {path:'DashBoard',component:DashboardComponent},
             {path:'BookManageMent',component:BooksManagementComponent},

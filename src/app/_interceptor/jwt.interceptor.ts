@@ -14,4 +14,4 @@ export const jwtInterceptor: HttpInterceptorFn = (req, next) => {
   return next(req);
 };
 
-//dont forgot to add the app.config.ts interceptor
+//don't forgot to add the app.config.ts interceptor
