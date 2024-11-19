@@ -53,7 +53,7 @@ export class UserBodyComponent implements OnInit {
     ];
   }
 
-  BookDetails() {
-    this.router.navigateByUrl('BookDetails')
+  BookDetails(bookId:number) {
+    this.router.navigateByUrl(`/BookDetails/${bookId}`)
   }
 }

@@ -11,11 +11,13 @@ import { SubscriptionsComponent } from './Admin/AdminContent/subscriptions/subsc
 import { PurchaseHistoryComponent } from './Admin/AdminContent/purchase-history/purchase-history.component';
 import { UserMessagingComponent } from './Admin/AdminContent/user-messaging/user-messaging.component';
 import { BookDetailsComponent } from './Book/book-details/book-details.component';
+import { AdminLoginComponent } from './AccessAccount/admin-login/admin-login.component';
 
 export const routes: Routes = [
     {path:'User-Login',component:UserLoginComponent},
     {path:'User-SignUp',component:UserCreationComponent},
-    {path:'BookDetails',component:BookDetailsComponent},
+    {path:'BookDetails/:id',component:BookDetailsComponent},
+    {path:'admin-login',component:AdminLoginComponent},
     {path:'',component:UserHomeComponent},
     
     {

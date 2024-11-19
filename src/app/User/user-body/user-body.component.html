@@ -28,96 +28,85 @@
 
 <!-- Book Cards -->
 @if(UserService.currentUser()){
-<div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4" id="bookList"
-  (click)="BookDetails()">
+  <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4" id="bookList">
   <div *ngFor="let Book of BookService.Books(); trackBy: trackByBookId" class="col">
-    <div class="card h-100 hover-effect">
+    <div class="card h-100 hover-effect"  (click)="BookDetails(Book.bookId)">
       <!-- Book Image -->
       <div class="card-header p-0 bg-transparent border-bottom-0 text-center">
-        <!-- <img
-              [src]="Book.photoUrls"
-              alt="Book Cover"
-              class="img-fluid"
-              style="max-height: 150px; object-fit: contain;"
-            /> -->
-        <img src="BookCover.webp" alt="image" class="img-fluid"
-          style="max-width: 100%; height: auto; object-fit: cover;">
+        <img
+          [src]="Book.photoUrls"
+          alt="Book Cover"
+          class="img-fluid rounded-top"
+          style="height: 200px; object-fit: cover; width: 100%;"
+        />
+         <!-- hard codded image for testing -->
+        <!-- <img src="BookCover.webp" alt="image" class="img-fluid"
+          style="max-width: 100%; height: auto; object-fit: cover;"> -->
       </div>
-      <div class="card-body">
-        <h5 class="card-title">{{ Book.bookTitle }}</h5>
-        <p class="card-text">
-          <strong>Author:</strong> {{ Book.authorName }}<br />
-          <strong>Genre:</strong> {{ Book.genreName }}<br />
-          <strong>Year:</strong> {{ Book.publishDate }}
+      <!-- Book Details -->
+      <div class="card-body text-center">
+        <h6 class="card-title text-truncate mb-2">{{ Book.bookTitle }}</h6>
+        <p class="card-text small text-muted">
+          {{ Book.authorName }} | {{ Book.genreName }}
         </p>
-        <div class="d-flex justify-content-between align-items-center">
-          <!--Star Rating -->
-          <div class="star-rating">
-            <ng-container *ngFor="let star of getStarArray(Book.averageRating)">
-              <i class="bi" [ngClass]="{
-                      'bi-star-fill': star === 'full',
-                      'bi-star-half': star === 'half',
-                      'bi-star': star === 'empty'
-                    }" style="color: rgb(102, 102, 20);"></i>
-            </ng-container>
-            <span class="ms-2">{{ Book.averageRating.toFixed(1) }}</span>
-          </div>
-          <button class="btn btn-outline-danger btn-sm">
-            <i class="bi bi-heart"></i>
-          </button>
+        <div class="d-flex justify-content-center align-items-center">
+          <!-- Star Rating -->
+          <ng-container *ngFor="let star of getStarArray(Book.averageRating)">
+            <i class="bi" [ngClass]="{
+                    'bi-star-fill': star === 'full',
+                    'bi-star-half': star === 'half',
+                    'bi-star': star === 'empty'
+                  }" style="color: rgb(102, 102, 20); font-size: 0.8rem;"></i>
+          </ng-container>
+          <span class="ms-1 small">{{ Book.averageRating.toFixed(1) }}</span>
         </div>
       </div>
-      <div class="card-footer bg-transparent border-top-0">
-        <button class="btn btn-primary btn-sm me-2">Rent</button>
+      <!-- Actions -->
+      <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between">
+        <button class="btn btn-primary btn-sm">Rent</button>
         <button class="btn btn-outline-primary btn-sm">Buy</button>
       </div>
     </div>
   </div>
 </div>
+
 }
 @else {
-<div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4" id="bookList"
+  <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4" id="bookList"
   (click)="NonLoggedUser()">
   <div *ngFor="let Book of BookService.Books(); trackBy: trackByBookId" class="col">
     <div class="card h-100 hover-effect">
       <!-- Book Image -->
-      <div class="card-header p-0 bg-transparent border-bottom-0 text-center">
-        <!-- <img
-            [src]="Book.photoUrls"
-            alt="Book Cover"
-            class="img-fluid"
-            style="max-height: 150px; object-fit: contain;"
-          /> -->
-        <img src="BookCover.webp" alt="image" class="img-fluid"
-          style="max-width: 100%; height: auto; object-fit: cover;">
+      <div class="card-header p-0 bg-transparent text-center">
+        <img
+          [src]="Book.photoUrls"
+          alt="Book Cover"
+          class="img-fluid rounded-top"
+          style="height: 200px; object-fit: cover; width: 100%;"
+        />
       </div>
-      <div class="card-body">
-        <h5 class="card-title">{{ Book.bookTitle }}</h5>
-        <p class="card-text">
-          <strong>Author:</strong> {{ Book.authorName }}<br />
-          <strong>Genre:</strong> {{ Book.genreName }}<br />
-          <strong>Year:</strong> {{ Book.publishDate }}
+      <!-- Book Details -->
+      <div class="card-body text-center">
+        <h6 class="card-title text-truncate mb-2">{{ Book.bookTitle }}</h6>
+        <p class="card-text small text-muted mb-3">
+          {{ Book.authorName }} | {{ Book.genreName }} | {{ Book.publishDate }}
         </p>
-        <div class="d-flex justify-content-between align-items-center">
-          <!-- Star Rating -->
-          <div class="star-rating">
-            <ng-container *ngFor="let star of getStarArray(Book.averageRating)">
-              <i class="bi" [ngClass]="{
-                      'bi-star-fill': star === 'full',
-                      'bi-star-half': star === 'half',
-                      'bi-star': star === 'empty'
-                    }" style="color: rgb(102, 102, 20);"></i>
-            </ng-container>
-            <span class="ms-2">{{ Book.averageRating.toFixed(1) }}</span>
-          </div>
-          <button class="btn btn-outline-danger btn-sm">
-            <i class="bi bi-heart"></i>
-          </button>
+        <!-- Star Rating -->
+        <div class="d-flex justify-content-center align-items-center mb-2">
+          <ng-container *ngFor="let star of getStarArray(Book.averageRating)">
+            <i class="bi" [ngClass]="{
+                    'bi-star-fill': star === 'full',
+                    'bi-star-half': star === 'half',
+                    'bi-star': star === 'empty'
+                  }" style="color: rgb(102, 102, 20); font-size: 0.8rem;"></i>
+          </ng-container>
+          <span class="ms-1 small">{{ Book.averageRating.toFixed(1) }}</span>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 <!-- Modal -->
 <div *ngIf="showModal" class="modal fade show" tabindex="-1" id="loginModal" style="display: block;"

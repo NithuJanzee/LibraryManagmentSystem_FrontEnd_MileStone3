@@ -1,4 +1,30 @@
 .input-focus:focus {
-    border-color: green; /* Changes border to green when focused */
-    box-shadow: 0 0 5px green; /* Optional: Adds a green glow around the input */
-  }
+  border-color: green;
+  box-shadow: 0 0 5px green;
+}
+
+.user-icon {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+}
+
+.user-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+ 
+  transition: transform 0.4s ease-in-out;
+ 
+}
+
+.user-icon:hover {
+  transform: scale(1.1);
+  color: #b81212;
+ 
+}
+
+.user-icon i {
+  font-size: 40px;
+}

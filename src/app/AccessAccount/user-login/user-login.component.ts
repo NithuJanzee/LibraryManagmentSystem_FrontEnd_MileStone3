@@ -36,4 +36,8 @@ private userAccount = inject(UserServiceService)
       }
     )
   }
+
+  AdminLogin(){
+    this.router.navigateByUrl('admin-login')
+  }
 }

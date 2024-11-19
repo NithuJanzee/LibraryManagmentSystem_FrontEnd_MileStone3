@@ -35,10 +35,13 @@ export class UserCreationComponent {
   onSubmit() {
     let User = this.UserCreation.value;
     this.userAccount.userCreation(User).subscribe(
-      p => {
+     {
+      next: response => {
         this.toaster.success("Account Created Successfully \n Please Login")
         this.router.navigate(['User-Login'])
-      }
+      },
+      // error: error => this.toaster.error(error.Message)
+     }
     )
   }
 }
