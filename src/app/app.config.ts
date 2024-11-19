@@ -8,12 +8,13 @@ import { provideToastr } from 'ngx-toastr';
 import { errorInterceptor } from './_interceptor/error.interceptor';
 import { loadingScreenInterceptor } from './_interceptor/loading-screen.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { jwtInterceptor } from './_interceptor/jwt.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(withInterceptors([errorInterceptor,loadingScreenInterceptor])),
+    provideHttpClient(withInterceptors([errorInterceptor,loadingScreenInterceptor,jwtInterceptor])),
     importProvidersFrom(HttpClientModule, CarouselModule.forRoot()),
     provideAnimations(),
     provideToastr({

@@ -17,11 +17,23 @@
                     <li class="nav-item"><a class="nav-link" href="#">Community</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Wishlist</a></li>
                     <li class="nav-item">
-                        <button class="btn btn-danger mx-2" (click)="Logout()">
-                            LogOut
-                        </button>
 
-                        <p>user Name {{UserService.LoggedUser()?.given_name}}</p>
+                        <div class="dropdown">
+                            <button class="btn btn-link text-dark p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-circle fs-5"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end shadow-lg rounded-3 border-0">
+                                <li class="px-3 py-2">
+                                    <p class="mb-0 text-muted font-weight-bold">{{ UserService.LoggedUser()?.given_name }}</p>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <button class="btn btn-outline-danger w-100 py-2" (click)="Logout()">LogOut</button>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -80,6 +92,37 @@
                     <li class="nav-item"><a class="nav-link" href="#" [routerLink]="['/User-SignUp']"><button
                                 type="button" class="btn btn-outline-success">Sign Up</button></a></li>
                 </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Mobile Navbar (Offcanvas) -->
+    <nav class="navbar bg-body-tertiary fixed-top d-lg-none">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-book me-2"></i> Binary Bookshelf
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <a class="navbar-brand" href="#">
+                        <i class="bi bi-book me-2"></i> Binary Bookshelf
+                    </a>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#" [routerLink]="['/User-Login']"><button
+                                    type="button" class="btn btn-success">Sign In</button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" [routerLink]="['/User-SignUp']"><button
+                                    type="button" class="btn btn-outline-success">Sign Up</button></a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>

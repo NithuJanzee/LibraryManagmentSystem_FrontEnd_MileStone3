@@ -37,3 +37,24 @@
 .nav-link:hover::after {
     width: 100%; 
 }
+
+
+.dropdown-menu {
+    width: 250px; 
+    min-width: 250px;
+}
+
+
+.dropdown-menu li p {
+    font-size: 1rem;
+    color: #495057;
+}
+
+.dropdown-menu .btn-outline-danger {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown-menu .btn-outline-danger:hover {
+    background-color: #dc3545; 
+    color: #fff; 
+}
