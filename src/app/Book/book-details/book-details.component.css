@@ -1,0 +1,156 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.product-image {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 4px 6px rgba(0,0,0,.1);
+    border-radius: 8px;
+}
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid #dee2e6;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+.thumbnail:hover {
+    border-color: #198754;
+}
+.price {
+    font-size: 2rem;
+    color: #198754;
+    font-weight: bold;
+}
+.original-price {
+    text-decoration: line-through;
+    color: #6c757d;
+    font-size: 1.25rem;
+}
+.discount {
+    color: #dc3545;
+    font-weight: bold;
+}
+.btn-custom {
+    background-color: #198754;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+.btn-custom:hover {
+    background-color: #146c43;
+    color: white;
+}
+.rating {
+    color: #ffc107;
+    font-size: 1.25rem;
+}
+.review-form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+.feature-icon {
+    font-size: 1.5rem;
+    color: #198754;
+    margin-right: 10px;
+}
+.review-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.progress {
+    height: 8px;
+}
+.progress-bar {
+    background-color: #ffc107;
+}
+
+
+
+
+
+
+
+/* Desktop Navbar */
+#desktopNavbar {
+    background-color: rgba(43, 71, 71, 1);
+}
+
+/* Desktop Navbar Links */
+#desktopNavbar .navbar-nav .nav-link {
+    color: white;
+}
+
+#desktopNavbar .navbar-nav .nav-link:hover {
+    color: #ffd700; 
+}
+
+#desktopNavbar .navbar-toggler-icon {
+    background-color: white; 
+}
+
+#desktopNavbar .navbar-brand {
+    color: white;
+}
+
+#desktopNavbar .dropdown-menu {
+    background-color: rgba(43, 71, 71, 1); 
+}
+
+
+/* Mobile Navbar */
+#mobileNavbar {
+    background-color: rgba(43, 71, 71, 1); 
+}
+
+/* Mobile Navbar Links */
+#mobileNavbar .navbar-nav .nav-link {
+    color: white; 
+}
+
+#mobileNavbar .navbar-nav .nav-link:hover {
+    color: #ffd700; 
+}
+
+#mobileNavbar .navbar-toggler-icon {
+    background-color: white; 
+}
+
+#mobileNavbar .navbar-brand {
+    color: rgb(20, 19, 19);
+}
+
+/* Offcanvas */
+#offcanvasNavbar .offcanvas-header {
+    background-color: rgba(43, 71, 71, 1);
+}
+
+#offcanvasNavbar .offcanvas-body {
+    background-color: rgba(43, 71, 71, 1); 
+}
+
+#offcanvasNavbar .navbar-nav .nav-link {
+    color: white;
+}
+
+#offcanvasNavbar .navbar-nav .nav-link:hover {
+    color: #ffd700; 
+}

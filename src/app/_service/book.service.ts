@@ -16,4 +16,8 @@ export class BookService {
     next: response => this.Books.set(response)
    })
   }
+
+  getBookById(id:number){
+    return this.http.get<Book>(this.baseUrl + `Book/GetBookByID?id=${id}`);
+  }
 }

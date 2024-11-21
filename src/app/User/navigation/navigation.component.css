@@ -12,7 +12,7 @@
 }
 
 .navbar-brand i{
-    color: rgb(9, 243, 9);
+    color: rgb(29, 231, 29);
 }
 
 .nav-link {
@@ -75,7 +75,7 @@
 }
 
 #NavigationBar .navbar-brand {
-    color: rgb(9, 243, 9); 
+    color: rgb(29, 231, 29); 
     font-weight: bold; 
 }
 
@@ -85,7 +85,7 @@
 }
 
 #NavigationBar .navbar-nav .nav-link:hover {
-    color: rgb(59, 252, 59);
+    color: rgb(29, 231, 29);
 }
 
 #NavigationBar .dropdown-menu {
@@ -103,11 +103,11 @@
 
 #navname {
     font-size: 1.5rem;
-    color: rgb(52, 236, 52);
+    color: rgb(29, 231, 29);
 }
 
 .navbar-toggler-icon {
-    background-color: rgb(29, 231, 29);
+    background-color: white;
 }
 
 
