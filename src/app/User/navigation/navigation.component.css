@@ -1,15 +1,18 @@
-
-#NavigationBar{
-    background-color: var(--primary-color);
-    box-shadow: 0 2px 4px rgba(41, 40, 40, 0.1);
-}
-.navbar-brand, .nav-link {
+ .nav-link {
     color: var(--secondary-color) !important;
     transition: color 0.3s ease;
 }
-
-.navbar-brand:hover, .nav-link:hover {
+ .nav-link:hover {
     color: var(--accent-color) !important;
+}
+
+
+.navbar-brand{
+    color: rgb(9, 243, 9);
+}
+
+.navbar-brand i{
+    color: rgb(9, 243, 9);
 }
 
 .nav-link {
@@ -57,4 +60,57 @@
 .dropdown-menu .btn-outline-danger:hover {
     background-color: #dc3545; 
     color: #fff; 
+}
+
+.navigationArea{
+    background-color:rgba(43,71,71,255);
+}
+
+
+#NavigationBar {
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+#NavigationBar .navbar-brand {
+    color: rgb(9, 243, 9); 
+    font-weight: bold; 
+}
+
+#NavigationBar .navbar-nav .nav-link {
+    color: white;
+   
+}
+
+#NavigationBar .navbar-nav .nav-link:hover {
+    color: rgb(59, 252, 59);
+}
+
+#NavigationBar .dropdown-menu {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+#NavigationBar .dropdown-menu .dropdown-item {
+    color: white; 
+}
+
+#NavigationBar .dropdown-menu .dropdown-item:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#navname {
+    font-size: 1.5rem;
+    color: rgb(52, 236, 52);
+}
+
+.navbar-toggler-icon {
+    background-color: rgb(29, 231, 29);
+}
+
+
+#navbarNav{
+    color: white;
 }
