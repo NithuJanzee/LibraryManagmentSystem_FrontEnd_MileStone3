@@ -1,98 +1,66 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: var(--text-color);
-    background-color: var(--secondary-color);
+.book-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  height: 100%;
 }
 
-.card {
-    border: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+.book-cover {
+  height: 400px;
+  object-fit: cover;
+  transition: all 0.3s ease;
 }
 
-.btn-primary {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
-    color: var(--primary-color);
+.book-card:hover .book-cover {
+  transform: scale(1.05);
 }
 
-.btn-primary:hover {
-    background-color: var(--hover-color);
-    border-color: var(--hover-color);
+.card-img-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
 }
 
-.btn-outline-primary {
-    color: var(--accent-color);
-    border-color: var(--accent-color);
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
-.btn-outline-primary:hover {
-    background-color: var(--accent-color);
-    color: var(--primary-color);
+.card-text {
+  font-size: 1rem;
+  color: var(--muted-color);
 }
 
 .star-rating {
-    color: var(--accent-color);
+  color: #ffc107;
+  font-size: 0.9rem;
 }
 
-.hover-effect {
-    transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
-    border: 2px solid transparent;
-    border-radius: 0.5rem;
+.btn-rent {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-color);
 }
 
-.hover-effect:hover {
-    transform: scale(1.05);
-    border-color: rgb(4, 53, 22); 
+.btn-rent:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: var(--text-color);
 }
 
+.btn-buy {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+}
 
-/* Modal Backdrop with Blur Effect */
-.modal-backdrop {
-    backdrop-filter: blur(5px); 
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  
- 
-  .modal-dialog-centered {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
-  @keyframes slideInFromTop {
-    0% {
-      transform: translateY(-50px); 
-      opacity: 0;
-    }
-    60% {
-      transform: translateY(10px);
-      opacity: 0.8;
-    }
-    100% {
-      transform: translateY(0); 
-      opacity: 1;
-    }
-  }
-  
-  .modal-dialog {
-    animation: slideInFromTop 0.3s ease-out; 
-    animation-fill-mode: both; 
-  }
-  
-  
-  
-  .modal-dialog {
-    animation: slideInFromTop 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) both;
-  }
-  
-  
-  .modal-dialog {
-    animation: slideInFromTop 0.5s ease-out;
-  }
+.btn-buy:hover {
+  background-color: #45a049;
+  color: var(--text-color);
+}
