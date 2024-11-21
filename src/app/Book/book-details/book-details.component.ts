@@ -2,12 +2,13 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { BookService } from '../../_service/book.service';
 import { ActivatedRoute } from '@angular/router';
 import { Book } from '../../_Inerface/BookInterFace';
+import { NgFor } from '@angular/common';
 
 
 @Component({
   selector: 'app-book-details',
   standalone: true,
-  imports: [],
+  imports: [NgFor],
   templateUrl: './book-details.component.html',
   styleUrl: './book-details.component.css'
 })

@@ -12,7 +12,8 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-person-fill mx-1"></i>Profile</a></li>
-                <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-journal-text mx-1"></i>Transactions</a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><i
+                            class="bi bi-journal-text mx-1"></i>Transactions</a></li>
                 <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-people mx-1"></i>Community</a></li>
                 <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-heart-fill mx-1"></i>Wishlist</a></li>
                 <li class="nav-item">
@@ -25,7 +26,9 @@
                             <li class="px-3 py-2">
                                 <p class="mb-0 text-muted font-weight-bold"></p>
                             </li>
-                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             <li>
                                 <button class="btn btn-outline-danger w-100 py-2">LogOut</button>
                             </li>
@@ -76,26 +79,47 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Home</a></li>
-            <li class="breadcrumb-item"><a  class="text-decoration-none">{{BookById()?.genreName}}</a></li>
+            <li class="breadcrumb-item"><a class="text-decoration-none">{{BookById()?.genreName}}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{BookById()?.bookTitle}}</li>
         </ol>
     </nav>
 
-    <div class="row">
+    <div class="row">      
+  <!-- Image Slider  -->
         <div class="col-md-6">
-            <img src="https://via.placeholder.com/600x600" alt="Rathna CR Book" class="product-image mb-3">
-            <div class="d-flex justify-content-between">
-                <img src="https://via.placeholder.com/120x120" alt="Thumbnail 1" class="thumbnail">
-                <img src="https://via.placeholder.com/120x120" alt="Thumbnail 2" class="thumbnail">
-                <img src="https://via.placeholder.com/120x120" alt="Thumbnail 3" class="thumbnail">
-                <img src="https://via.placeholder.com/120x120" alt="Thumbnail 4" class="thumbnail">
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <!--  Indicators -->
+                <div class="carousel-indicators">
+                    <button type="button" *ngFor="let photo of BookById()?.photoUrls; let i = index" [attr.data-bs-target]="'#carouselExampleDark'" [attr.data-bs-slide-to]="i" [class.active]="i === 0" [attr.aria-label]="'Slide ' + (i + 1)"></button>
+                </div>
+        
+                <!--  Inner -->
+                <div class="carousel-inner">
+                    <div *ngFor="let photo of BookById()?.photoUrls; let i = index" class="carousel-item" [class.active]="i === 0" data-bs-interval="10000">
+                        <img [src]="photo" class="d-block w-100" alt="Book Image">
+                    </div>
+                </div>
+                <!--  Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
+        
+
+
+
         <div class="col-md-6">
             <!-- Main Tittle -->
             <h1 class="mb-3">
                 <i class="bi bi-journal-richtext"></i>
-                {{BookById()?.bookTitle}}</h1>
+                {{BookById()?.bookTitle}}
+            </h1>
             <div class="mb-3">
                 <span class="rating">
                     <i class="fas fa-star"></i>
@@ -104,19 +128,28 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </span>
-                <span class="ms-2"><h3>{{BookById()?.averageRating}} out of 5 ({{BookById()?.totalRatings}})
-                    <i class="bi bi-star-fill" id="RattingStar"></i></h3>
+                <span class="ms-2">
+                    <h3>{{BookById()?.averageRating}} out of 5 ({{BookById()?.totalRatings}})
+                        <i class="bi bi-star-fill" id="RattingStar"></i>
+                    </h3>
                 </span>
             </div>
             <div class="mb-4">
                 <h4>Details</h4>
                 <ul class="list-unstyled">
-                    <li><i class="fas fa-check feature-icon"></i><h5>Author : {{BookById()?.authorName}}</h5></li>
-                    <li><i class="fas fa-check feature-icon"></i><h5>Genre : {{BookById()?.genreName}}</h5></li>
-                    <li><i class="fas fa-check feature-icon"></i><h5>Description : {{BookById()?.description}}</h5></li>
+                    <li><i class="fas fa-check feature-icon"></i>
+                        <h5>Author : {{BookById()?.authorName}}</h5>
+                    </li>
+                    <li><i class="fas fa-check feature-icon"></i>
+                        <h5>Genre : {{BookById()?.genreName}}</h5>
+                    </li>
+                    <li><i class="fas fa-check feature-icon"></i>
+                        <h5>Description : {{BookById()?.description}}</h5>
+                    </li>
                 </ul>
             </div>
-            <p class="price mb-2">Rs. 203 <span class="original-price ms-2">Rs. 270</span> <span class="discount ms-2">-25%</span></p>
+            <p class="price mb-2">Rs. 203 <span class="original-price ms-2">Rs. 270</span> <span
+                    class="discount ms-2">-25%</span></p>
             <p class="mb-4"><strong>Brand:</strong> Rathna | <strong>SKU:</strong> RTH-CR-120-SR</p>
             <div class="mb-3">
                 <label for="quantity" class="form-label">Quantity:</label>
@@ -152,51 +185,51 @@
                     <div class="d-flex align-items-center mb-2">
                         <span class="me-2">5 star</span>
                         <div class="progress flex-grow-1">
-                            <div class="progress-bar" role="progressbar" 
-                            [style.width.%]="BookById()?.ratingPercentages?.[5] || 0" 
-                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar"
+                                [style.width.%]="BookById()?.ratingPercentages?.[5] || 0" aria-valuenow="100"
+                                aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <span class="ms-2">{{BookById()?.ratingPercentages?.[5] || 0}}</span>
                     </div>
                     <div class="d-flex align-items-center mb-2">
                         <span class="me-2">4 star</span>
                         <div class="progress flex-grow-1">
-                            <div class="progress-bar" role="progressbar" 
-                            [style.width.%]="BookById()?.ratingPercentages?.[4] || 0"  
-                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar"
+                                [style.width.%]="BookById()?.ratingPercentages?.[4] || 0" aria-valuenow="20"
+                                aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <span class="ms-2">{{BookById()?.ratingPercentages?.[4] || 0}}</span>
                     </div>
                     <div class="d-flex align-items-center mb-2">
                         <span class="me-2">3 star</span>
                         <div class="progress flex-grow-1">
-                            <div class="progress-bar" role="progressbar" 
-                            [style.width.%]="BookById()?.ratingPercentages?.[3] || 0"  
-                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar"
+                                [style.width.%]="BookById()?.ratingPercentages?.[3] || 0" aria-valuenow="20"
+                                aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <span class="ms-2">{{BookById()?.ratingPercentages?.[3] || 0}}</span>
                     </div>
                     <div class="d-flex align-items-center mb-2">
                         <span class="me-2">2 star</span>
                         <div class="progress flex-grow-1">
-                            <div class="progress-bar" role="progressbar" 
-                            [style.width.%]="BookById()?.ratingPercentages?.[2] || 0"  
-                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar"
+                                [style.width.%]="BookById()?.ratingPercentages?.[2] || 0" aria-valuenow="20"
+                                aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <span class="ms-2">{{BookById()?.ratingPercentages?.[2] || 0}}</span>
                     </div>
                     <div class="d-flex align-items-center">
                         <span class="me-2">1 star</span>
                         <div class="progress flex-grow-1">
-                            <div class="progress-bar" role="progressbar" 
-                            [style.width.%]="BookById()?.ratingPercentages?.[1] || 0"  
-                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar"
+                                [style.width.%]="BookById()?.ratingPercentages?.[1] || 0" aria-valuenow="20"
+                                aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <span class="ms-2">{{BookById()?.ratingPercentages?.[1] || 0}}</span>
                     </div>
                 </div>
             </div>
-           
+
             <div class="review-card mb-3">
                 <div class="d-flex mb-3">
                     <img src="https://via.placeholder.com/50x50" alt="User Avatar" class="user-avatar me-3">
@@ -213,7 +246,10 @@
                     </div>
                 </div>
                 <h6>Excellent quality and value for money</h6>
-                <p>I've been using Rathna notebooks for years, and this CR Book is no exception to their high standards. The paper quality is excellent, with minimal bleed-through even when using fountain pens. The ruling is consistent and the binding is sturdy. Highly recommended for students and professionals alike.</p>
+                <p>I've been using Rathna notebooks for years, and this CR Book is no exception to their high standards.
+                    The paper quality is excellent, with minimal bleed-through even when using fountain pens. The ruling
+                    is consistent and the binding is sturdy. Highly recommended for students and professionals alike.
+                </p>
             </div>
             <div class="review-card mb-3">
                 <div class="d-flex mb-3">
@@ -231,7 +267,9 @@
                     </div>
                 </div>
                 <h6>Good for everyday use</h6>
-                <p>This notebook serves its purpose well. The paper quality is good for regular writing, though it might not be ideal for heavy ink users. The cover is durable and has withstood daily use in my backpack. My only complaint is that the ruling could be a bit darker for better visibility.</p>
+                <p>This notebook serves its purpose well. The paper quality is good for regular writing, though it might
+                    not be ideal for heavy ink users. The cover is durable and has withstood daily use in my backpack.
+                    My only complaint is that the ruling could be a bit darker for better visibility.</p>
             </div>
         </div>
     </div>
@@ -242,7 +280,8 @@
         <div class="row">
             <div class="col-md-4">
                 <h5>About Us</h5>
-                <p>We are dedicated to providing high-quality stationery products to meet all your writing and organizational needs.</p>
+                <p>We are dedicated to providing high-quality stationery products to meet all your writing and
+                    organizational needs.</p>
             </div>
             <div class="col-md-4">
                 <h5>Quick Links</h5>
