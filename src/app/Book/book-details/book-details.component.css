@@ -154,3 +154,14 @@ body {
 #offcanvasNavbar .navbar-nav .nav-link:hover {
     color: #ffd700; 
 }
+
+#RattingStar{
+    color: yellow;
+}
+.details-list h5 {
+    margin: 5px 0;
+}
+
+.list-unstyled li {
+    margin-bottom: 5px;
+}

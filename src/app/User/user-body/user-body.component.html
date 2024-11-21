@@ -32,7 +32,7 @@
     <div *ngFor="let Book of BookService.Books(); trackBy: trackByBookId" class="col">
       <div class="card h-100 book-card text-white" (click)="BookDetails(Book.bookId)">
         <!-- Book Image -->
-        <img [src]="Book.photoUrls" alt="Book Cover" class="card-img book-cover" />
+        <img [src]="Book.photoUrls[0]" alt="Book Cover" class="card-img book-cover" />
         <!-- Book Overlay -->
         <div class="card-img-overlay">
           <h5 class="card-title">{{ Book.bookTitle }}</h5>

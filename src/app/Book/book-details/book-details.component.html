@@ -92,7 +92,10 @@
             </div>
         </div>
         <div class="col-md-6">
-            <h1 class="mb-3">{{BookById()?.bookTitle}}</h1>
+            <!-- Main Tittle -->
+            <h1 class="mb-3">
+                <i class="bi bi-journal-richtext"></i>
+                {{BookById()?.bookTitle}}</h1>
             <div class="mb-3">
                 <span class="rating">
                     <i class="fas fa-star"></i>
@@ -101,19 +104,20 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </span>
-                <span class="ms-2">{{BookById()?.averageRating}} out of 5 ({{BookById()?.totalRatings}})</span>
+                <span class="ms-2"><h3>{{BookById()?.averageRating}} out of 5 ({{BookById()?.totalRatings}})
+                    <i class="bi bi-star-fill" id="RattingStar"></i></h3>
+                </span>
+            </div>
+            <div class="mb-4">
+                <h4>Details</h4>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check feature-icon"></i><h5>Author : {{BookById()?.authorName}}</h5></li>
+                    <li><i class="fas fa-check feature-icon"></i><h5>Genre : {{BookById()?.genreName}}</h5></li>
+                    <li><i class="fas fa-check feature-icon"></i><h5>Description : {{BookById()?.description}}</h5></li>
+                </ul>
             </div>
             <p class="price mb-2">Rs. 203 <span class="original-price ms-2">Rs. 270</span> <span class="discount ms-2">-25%</span></p>
             <p class="mb-4"><strong>Brand:</strong> Rathna | <strong>SKU:</strong> RTH-CR-120-SR</p>
-            <div class="mb-4">
-                <h5>Key Features:</h5>
-                <ul class="list-unstyled">
-                    <li><i class="fas fa-check feature-icon"></i> 120 Pages</li>
-                    <li><i class="fas fa-check feature-icon"></i> Single Ruled</li>
-                    <li><i class="fas fa-check feature-icon"></i> High-quality paper</li>
-                    <li><i class="fas fa-check feature-icon"></i> Durable cover</li>
-                </ul>
-            </div>
             <div class="mb-3">
                 <label for="quantity" class="form-label">Quantity:</label>
                 <select class="form-select" id="quantity">
@@ -192,30 +196,7 @@
                     </div>
                 </div>
             </div>
-            <div class="review-form mb-4">
-                <h3 class="mb-3">Write a Review</h3>
-                <form>
-                    <div class="mb-3">
-                        <label for="rating" class="form-label">Your Rating:</label>
-                        <select class="form-select" id="rating">
-                            <option value="5">5 Stars - Excellent</option>
-                            <option value="4">4 Stars - Very Good</option>
-                            <option value="3">3 Stars - Good</option>
-                            <option value="2">2 Stars - Fair</option>
-                            <option value="1">1 Star - Poor</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="review-title" class="form-label">Review Title:</label>
-                        <input type="text" class="form-control" id="review-title" placeholder="Summarize your review">
-                    </div>
-                    <div class="mb-3">
-                        <label for="comment" class="form-label">Your Review:</label>
-                        <textarea class="form-control" id="comment" rows="4" placeholder="What did you like or dislike about this product?"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-custom">Submit Review</button>
-                </form>
-            </div>
+           
             <div class="review-card mb-3">
                 <div class="d-flex mb-3">
                     <img src="https://via.placeholder.com/50x50" alt="User Avatar" class="user-avatar me-3">
