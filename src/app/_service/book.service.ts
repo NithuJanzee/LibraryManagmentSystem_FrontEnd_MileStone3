@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { Book } from '../_Inerface/BookInterFace';
+import { LendingRequest } from '../_Inerface/BookTransactionInterface';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,9 @@ export class BookService {
 
   getBookById(id:number){
     return this.http.get<Book>(this.baseUrl + `Book/GetBookByID?id=${id}`);
+  }
+
+  RequestLendingBook(data:LendingRequest){
+    return this.http.post(this.baseUrl + `BookLending/LendingRequest`,data);
   }
 }

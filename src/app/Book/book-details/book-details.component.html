@@ -84,33 +84,38 @@
         </ol>
     </nav>
 
-    <div class="row">      
-  <!-- Image Slider  -->
+    <div class="row">
+        <!-- Image Slider  -->
         <div class="col-md-6">
             <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 <!--  Indicators -->
                 <div class="carousel-indicators">
-                    <button type="button" *ngFor="let photo of BookById()?.photoUrls; let i = index" [attr.data-bs-target]="'#carouselExampleDark'" [attr.data-bs-slide-to]="i" [class.active]="i === 0" [attr.aria-label]="'Slide ' + (i + 1)"></button>
+                    <button type="button" *ngFor="let photo of BookById()?.photoUrls; let i = index"
+                        [attr.data-bs-target]="'#carouselExampleDark'" [attr.data-bs-slide-to]="i"
+                        [class.active]="i === 0" [attr.aria-label]="'Slide ' + (i + 1)"></button>
                 </div>
-        
+
                 <!--  Inner -->
                 <div class="carousel-inner">
-                    <div *ngFor="let photo of BookById()?.photoUrls; let i = index" class="carousel-item" [class.active]="i === 0" data-bs-interval="10000">
+                    <div *ngFor="let photo of BookById()?.photoUrls; let i = index" class="carousel-item"
+                        [class.active]="i === 0" data-bs-interval="10000">
                         <img [src]="photo" class="d-block w-100" alt="Book Image">
                     </div>
                 </div>
                 <!--  Controls -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
         </div>
-        
+
 
 
 
@@ -148,21 +153,28 @@
                     </li>
                 </ul>
             </div>
-            <p class="price mb-2">Rs. 203 <span class="original-price ms-2">Rs. 270</span> <span
-                    class="discount ms-2">-25%</span></p>
-            <p class="mb-4"><strong>Brand:</strong> Rathna | <strong>SKU:</strong> RTH-CR-120-SR</p>
+            <p class="price mb-2">Price Here <span class="original-price ms-2">Price</span> <span
+                    class="discount ms-2">Discount For Selceted user</span></p>
+            <p class="mb-4"><strong>Brand:</strong> Price herer | <strong>SKU:</strong> Price</p>
             <div class="mb-3">
-                <label for="quantity" class="form-label">Quantity:</label>
-                <select class="form-select" id="quantity">
+                <label for="quantity" class="form-label">
+                    <h1>Rental Days Here Use Radio button</h1>
+                </label>
+                <!-- <select class="form-select" id="quantity">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
-                </select>
+                </select> -->
             </div>
-            <button class="btn btn-custom me-2"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+            <div>
+                <label for="requestDay">Enter number of days to request the book:</label>
+                <input type="number" id="requestDay" [(ngModel)]="requestDay" min="1" />
+            </div>
+            <button class="btn btn-custom me-2" (click)="LendingRequest()"><i class="fas fa-shopping-cart"></i>LendingRequest</button>
             <button class="btn btn-outline-secondary"><i class="fas fa-bolt"></i> Buy Now</button>
+         
         </div>
     </div>
 

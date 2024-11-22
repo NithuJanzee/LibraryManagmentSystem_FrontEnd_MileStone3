@@ -13,6 +13,7 @@ export class UserServiceService {
   baseUrl = environment.apiUrl;
   toster = inject(ToastrService)
   currentUser = signal<LoggedUsers | null>(null)
+  //Decoded Token data
   LoggedUser = signal<DecodedToken | null>(null)
 
   userCreation(user: UserAccount) {
