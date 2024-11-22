@@ -168,3 +168,53 @@ body {
 
 
 
+/* Custom styling for radio buttons */
+.custom-radio .form-check-input {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+  
+  /* Hover effect */
+  .custom-radio .form-check-input:hover {
+    border-color: #28a745;
+    cursor: pointer;
+  }
+  
+  /* Style for checked radio button */
+  .custom-radio .form-check-input:checked {
+    background-color: #28a745;
+    border-color: #28a745;
+    transition: all 0.3s ease;
+  }
+  
+  /* Style for label */
+  .custom-radio .form-check-label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  /* On hover, change label color */
+  .custom-radio .form-check-label:hover {
+    color: #28a745;
+  }
+  
+  /* Adjusting the container to make the spacing more professional */
+  .RadioButton {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .fa-crown{
+    color: rgb(99, 99, 10);
+  }
+  .fa-star{
+    color: gold;
+  }

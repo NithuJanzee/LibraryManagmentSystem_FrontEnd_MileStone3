@@ -126,55 +126,153 @@
                 {{BookById()?.bookTitle}}
             </h1>
             <div class="mb-3">
-                <span class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </span>
                 <span class="ms-2">
-                    <h3>{{BookById()?.averageRating}} out of 5 ({{BookById()?.totalRatings}})
-                        <i class="bi bi-star-fill" id="RattingStar"></i>
+
+                    <span class="rating">
+                        @if(BookById()?.averageRating == 1){
+                        <i class="fa-solid fa-star"></i>
+                        }
+                        @if(BookById()?.averageRating == 2){
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        }
+                        @if(BookById()?.averageRating == 3){
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        }
+                        @if(BookById()?.averageRating == 4){
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        }
+                        @if(BookById()?.averageRating == 5){
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        }
+                    </span>
+                    <h3>{{ BookById()?.averageRating || 0 }} out of 5 (Based on {{ BookById()?.totalRatings || 0 }}
+                        reviews)
                     </h3>
                 </span>
             </div>
+
+
             <div class="mb-4">
                 <h4>Details</h4>
                 <ul class="list-unstyled">
-                    <li><i class="fas fa-check feature-icon"></i>
+                    <li>
                         <h5>Author : {{BookById()?.authorName}}</h5>
                     </li>
-                    <li><i class="fas fa-check feature-icon"></i>
+                    <li>
                         <h5>Genre : {{BookById()?.genreName}}</h5>
                     </li>
-                    <li><i class="fas fa-check feature-icon"></i>
+                    <li>
                         <h5>Description : {{BookById()?.description}}</h5>
                     </li>
                 </ul>
             </div>
             <p class="price mb-2">Price Here <span class="original-price ms-2">Price</span> <span
-                    class="discount ms-2">Discount For Selceted user</span></p>
-            <p class="mb-4"><strong>Brand:</strong> Price herer | <strong>SKU:</strong> Price</p>
-            <div class="mb-3">
-                <label for="quantity" class="form-label">
-                    <h1>Rental Days Here Use Radio button</h1>
-                </label>
-                <!-- <select class="form-select" id="quantity">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select> -->
-            </div>
-            <div>
-                <label for="requestDay">Enter number of days to request the book:</label>
-                <input type="number" id="requestDay" [(ngModel)]="requestDay" min="1" />
-            </div>
-            <button class="btn btn-custom me-2" (click)="LendingRequest()"><i class="fas fa-shopping-cart"></i>LendingRequest</button>
-            <button class="btn btn-outline-secondary"><i class="fas fa-bolt"></i> Buy Now</button>
-         
+                    class="discount ms-2">Discount For Selected User</span></p>
+            <p class="mb-4"><strong>Brand:</strong> Brand Here | <strong>SKU:</strong> SKU Here</p>
+
+            <!-- RadioButton -->
+            @if(UserService.LoggedUser()?.role === 'FreeUser'){
+                <div class="RadioButton p">
+                    <div class="form-check custom-radio">
+                        <input class="form-check-input" type="radio" name="requestDay" id="requestDay1"
+                            [(ngModel)]="requestDay" value="3">
+                        <label class="form-check-label" for="requestDay3">
+                            <i class="bi bi-person-fill-check"></i>
+                            3 Day
+                        </label>
+                    </div>
+                    <div class="form-check custom-radio">
+                        <input class="form-check-input" type="radio" name="requestDay" id="requestDay2"
+                            [(ngModel)]="requestDay" value="7">
+                        <label class="form-check-label" for="requestDay3">
+                            <i class="bi bi-person-fill-check"></i>
+                            7 Days
+                        </label>
+                    </div>
+                    <div class="form-check custom-radio">
+                        <input class="form-check-input" type="radio" name="requestDay" id="requestDay3"
+                            [(ngModel)]="requestDay" value="10" disabled>
+                        <label class="form-check-label" for="requestDay10">
+                            <i class="fa-solid fa-crown"></i>
+                            10 Days
+                        </label>
+                    </div>
+                    <div class="form-check custom-radio">
+                        <input class="form-check-input" type="radio" name="requestDay" id="requestDay4"
+                            [(ngModel)]="requestDay" value="15" disabled>
+                        <label class="form-check-label" for="requestDay4">
+                            <i class="fa-solid fa-crown"></i>
+                            15 Days
+                        </label>
+                    </div>
+                    <div class="form-check custom-radio">
+                        <input class="form-check-input" type="radio" name="requestDay" id="requestDay5"
+                            [(ngModel)]="requestDay" value="30" disabled>
+                        <label class="form-check-label" for="requestDay5">
+                            <i class="fa-solid fa-crown"></i>
+                            30 Days
+                        </label>
+                    </div>
+                </div>
+                <!-- endRadio Free-->
+            }@else {
+                <div class="RadioButton p">
+                    <div class="form-check custom-radio">
+                        <input class="form-check-input" type="radio" name="requestDay" id="requestDay1"
+                            [(ngModel)]="requestDay" value="3">
+                        <label class="form-check-label" for="requestDay3">
+                            <i class="bi bi-person-fill-check"></i>
+                            3 Day
+                        </label>
+                    </div>
+                    <div class="form-check custom-radio">
+                        <input class="form-check-input" type="radio" name="requestDay" id="requestDay2"
+                            [(ngModel)]="requestDay" value="7">
+                        <label class="form-check-label" for="requestDay3">
+                            <i class="bi bi-person-fill-check"></i>
+                            7 Days
+                        </label>
+                    </div>
+                    <div class="form-check custom-radio">
+                        <input class="form-check-input" type="radio" name="requestDay" id="requestDay3"
+                            [(ngModel)]="requestDay" value="10" >
+                        <label class="form-check-label" for="requestDay10">
+                            <i class="fa-solid fa-crown"></i>
+                            10 Days
+                        </label>
+                    </div>
+                    <div class="form-check custom-radio">
+                        <input class="form-check-input" type="radio" name="requestDay" id="requestDay4"
+                            [(ngModel)]="requestDay" value="15" >
+                        <label class="form-check-label" for="requestDay4">
+                            <i class="fa-solid fa-crown"></i>
+                            15 Days
+                        </label>
+                    </div>
+                    <div class="form-check custom-radio">
+                        <input class="form-check-input" type="radio" name="requestDay" id="requestDay5"
+                            [(ngModel)]="requestDay" value="30">
+                        <label class="form-check-label" for="requestDay5">
+                            <i class="fa-solid fa-crown"></i>
+                            30 Days
+                        </label>
+                    </div>
+                </div>
+                <!-- endRadio -->
+            }
+            <button class="btn btn-success me-2 mt-2" (click)="LendingRequest()">
+                <i class="fas fa-shopping-cart"></i>LendingRequest</button>
+            <button class="btn btn-outline-warning me-2 mt-2"><i class="fas fa-bolt"></i> Buy Now</button>
         </div>
     </div>
 
@@ -185,11 +283,31 @@
                 <div class="col-md-4 text-center">
                     <h3 class="display-4 mb-0">{{ BookById()?.averageRating}}</h3>
                     <div class="rating mb-2">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+                        @if(BookById()?.averageRating == 1){
+                        <i class="fa-solid fa-star"></i>
+                        }
+                        @if(BookById()?.averageRating == 2){
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        }
+                        @if(BookById()?.averageRating == 3){
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        }
+                        @if(BookById()?.averageRating == 4){
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        }
+                        @if(BookById()?.averageRating == 5){
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        }
                     </div>
                     <p>Based on {{BookById()?.totalRatings}} reviews</p>
                 </div>

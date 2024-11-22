@@ -2,17 +2,18 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { BookService } from '../../_service/book.service';
 import { ActivatedRoute } from '@angular/router';
 import { Book } from '../../_Inerface/BookInterFace';
-import { NgFor } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { UserServiceService } from '../../_service/user-service.service';
 import { FormsModule } from '@angular/forms';
 import { LendingRequest } from '../../_Inerface/BookTransactionInterface';
 import { ToastrService } from 'ngx-toastr';
+import { jwtDecode } from 'jwt-decode';
 
 
 @Component({
   selector: 'app-book-details',
   standalone: true,
-  imports: [NgFor,FormsModule],
+  imports: [NgFor, FormsModule,CommonModule],
   templateUrl: './book-details.component.html',
   styleUrl: './book-details.component.css'
 })
@@ -33,34 +34,43 @@ export class BookDetailsComponent implements OnInit {
   Bookservice = inject(BookService)
 
   ngOnInit(): void {
+    this.UserData()
     if (this.BookById()?.bookId != this.ParamBookId)
       this.Bookservice.getBookById(this.ParamBookId).subscribe({
         next: res => this.BookById.set(res)
       })
-
     console.log(this.UserService.LoggedUser())
   }
   get roundedAverageRating(): number {
     return Math.round(this.bookDetails?.averageRating || 0);
   }
 
-  LendingRequest():void{
+  LendingRequest(): void {
 
     const user = Number(this.UserService.LoggedUser()?.nameid)
     const book = this.ParamBookId
     const Day = this.requestDay
 
-    const Data:LendingRequest = {
-      userID:user,
-      bookID:book,
-      requestDay:Day
+    const Data: LendingRequest = {
+      userID: user,
+      bookID: book,
+      requestDay: Day
     }
 
     this.Bookservice.RequestLendingBook(Data).subscribe({
-     next:res =>{
-      this.toster.success("Lending request successful")
-     },
-     error:err => this.toster.error("Lending request failed")
+      next: res => {
+        this.toster.success("Lending request successful")
+      },
+      error: err => this.toster.error("Lending request failed")
     })
   }
+
+  UserData() {
+    const User = localStorage.getItem('LoggedUser')
+    if (!User) return
+    const UserToken = JSON.parse(User);
+    const decoded: any = jwtDecode(UserToken.token);
+    this.UserService.LoggedUser.set(decoded)
+  }
+
 }
