@@ -182,93 +182,93 @@
 
             <!-- RadioButton -->
             @if(UserService.LoggedUser()?.role === 'FreeUser'){
-                <div class="RadioButton p">
-                    <div class="form-check custom-radio">
-                        <input class="form-check-input" type="radio" name="requestDay" id="requestDay1"
-                            [(ngModel)]="requestDay" value="3">
-                        <label class="form-check-label" for="requestDay3">
-                            <i class="bi bi-person-fill-check"></i>
-                            3 Day
-                        </label>
-                    </div>
-                    <div class="form-check custom-radio">
-                        <input class="form-check-input" type="radio" name="requestDay" id="requestDay2"
-                            [(ngModel)]="requestDay" value="7">
-                        <label class="form-check-label" for="requestDay3">
-                            <i class="bi bi-person-fill-check"></i>
-                            7 Days
-                        </label>
-                    </div>
-                    <div class="form-check custom-radio">
-                        <input class="form-check-input" type="radio" name="requestDay" id="requestDay3"
-                            [(ngModel)]="requestDay" value="10" disabled>
-                        <label class="form-check-label" for="requestDay10">
-                            <i class="fa-solid fa-crown"></i>
-                            10 Days
-                        </label>
-                    </div>
-                    <div class="form-check custom-radio">
-                        <input class="form-check-input" type="radio" name="requestDay" id="requestDay4"
-                            [(ngModel)]="requestDay" value="15" disabled>
-                        <label class="form-check-label" for="requestDay4">
-                            <i class="fa-solid fa-crown"></i>
-                            15 Days
-                        </label>
-                    </div>
-                    <div class="form-check custom-radio">
-                        <input class="form-check-input" type="radio" name="requestDay" id="requestDay5"
-                            [(ngModel)]="requestDay" value="30" disabled>
-                        <label class="form-check-label" for="requestDay5">
-                            <i class="fa-solid fa-crown"></i>
-                            30 Days
-                        </label>
-                    </div>
+            <div class="RadioButton p">
+                <div class="form-check custom-radio">
+                    <input class="form-check-input" type="radio" name="requestDay" id="requestDay1"
+                        [(ngModel)]="requestDay" value="3">
+                    <label class="form-check-label" for="requestDay3">
+                        <i class="bi bi-person-fill-check"></i>
+                        3 Day
+                    </label>
                 </div>
-                <!-- endRadio Free-->
+                <div class="form-check custom-radio">
+                    <input class="form-check-input" type="radio" name="requestDay" id="requestDay2"
+                        [(ngModel)]="requestDay" value="7">
+                    <label class="form-check-label" for="requestDay3">
+                        <i class="bi bi-person-fill-check"></i>
+                        7 Days
+                    </label>
+                </div>
+                <div class="form-check custom-radio">
+                    <input class="form-check-input" type="radio" name="requestDay" id="requestDay3"
+                        [(ngModel)]="requestDay" value="10" disabled>
+                    <label class="form-check-label" for="requestDay10">
+                        <i class="fa-solid fa-crown"></i>
+                        10 Days
+                    </label>
+                </div>
+                <div class="form-check custom-radio">
+                    <input class="form-check-input" type="radio" name="requestDay" id="requestDay4"
+                        [(ngModel)]="requestDay" value="15" disabled>
+                    <label class="form-check-label" for="requestDay4">
+                        <i class="fa-solid fa-crown"></i>
+                        15 Days
+                    </label>
+                </div>
+                <div class="form-check custom-radio">
+                    <input class="form-check-input" type="radio" name="requestDay" id="requestDay5"
+                        [(ngModel)]="requestDay" value="30" disabled>
+                    <label class="form-check-label" for="requestDay5">
+                        <i class="fa-solid fa-crown"></i>
+                        30 Days
+                    </label>
+                </div>
+            </div>
+            <!-- endRadio Free-->
             }@else {
-                <div class="RadioButton p">
-                    <div class="form-check custom-radio">
-                        <input class="form-check-input" type="radio" name="requestDay" id="requestDay1"
-                            [(ngModel)]="requestDay" value="3">
-                        <label class="form-check-label" for="requestDay3">
-                            <i class="bi bi-person-fill-check"></i>
-                            3 Day
-                        </label>
-                    </div>
-                    <div class="form-check custom-radio">
-                        <input class="form-check-input" type="radio" name="requestDay" id="requestDay2"
-                            [(ngModel)]="requestDay" value="7">
-                        <label class="form-check-label" for="requestDay3">
-                            <i class="bi bi-person-fill-check"></i>
-                            7 Days
-                        </label>
-                    </div>
-                    <div class="form-check custom-radio">
-                        <input class="form-check-input" type="radio" name="requestDay" id="requestDay3"
-                            [(ngModel)]="requestDay" value="10" >
-                        <label class="form-check-label" for="requestDay10">
-                            <i class="fa-solid fa-crown"></i>
-                            10 Days
-                        </label>
-                    </div>
-                    <div class="form-check custom-radio">
-                        <input class="form-check-input" type="radio" name="requestDay" id="requestDay4"
-                            [(ngModel)]="requestDay" value="15" >
-                        <label class="form-check-label" for="requestDay4">
-                            <i class="fa-solid fa-crown"></i>
-                            15 Days
-                        </label>
-                    </div>
-                    <div class="form-check custom-radio">
-                        <input class="form-check-input" type="radio" name="requestDay" id="requestDay5"
-                            [(ngModel)]="requestDay" value="30">
-                        <label class="form-check-label" for="requestDay5">
-                            <i class="fa-solid fa-crown"></i>
-                            30 Days
-                        </label>
-                    </div>
+            <div class="RadioButton p">
+                <div class="form-check custom-radio">
+                    <input class="form-check-input" type="radio" name="requestDay" id="requestDay1"
+                        [(ngModel)]="requestDay" value="3">
+                    <label class="form-check-label" for="requestDay3">
+                        <i class="bi bi-person-fill-check"></i>
+                        3 Day
+                    </label>
                 </div>
-                <!-- endRadio -->
+                <div class="form-check custom-radio">
+                    <input class="form-check-input" type="radio" name="requestDay" id="requestDay2"
+                        [(ngModel)]="requestDay" value="7">
+                    <label class="form-check-label" for="requestDay3">
+                        <i class="bi bi-person-fill-check"></i>
+                        7 Days
+                    </label>
+                </div>
+                <div class="form-check custom-radio">
+                    <input class="form-check-input" type="radio" name="requestDay" id="requestDay3"
+                        [(ngModel)]="requestDay" value="10">
+                    <label class="form-check-label" for="requestDay10">
+                        <i class="fa-solid fa-crown"></i>
+                        10 Days
+                    </label>
+                </div>
+                <div class="form-check custom-radio">
+                    <input class="form-check-input" type="radio" name="requestDay" id="requestDay4"
+                        [(ngModel)]="requestDay" value="15">
+                    <label class="form-check-label" for="requestDay4">
+                        <i class="fa-solid fa-crown"></i>
+                        15 Days
+                    </label>
+                </div>
+                <div class="form-check custom-radio">
+                    <input class="form-check-input" type="radio" name="requestDay" id="requestDay5"
+                        [(ngModel)]="requestDay" value="30">
+                    <label class="form-check-label" for="requestDay5">
+                        <i class="fa-solid fa-crown"></i>
+                        30 Days
+                    </label>
+                </div>
+            </div>
+            <!-- endRadio -->
             }
             <button class="btn btn-success me-2 mt-2" (click)="LendingRequest()">
                 <i class="fas fa-shopping-cart"></i>LendingRequest</button>
@@ -360,47 +360,45 @@
                 </div>
             </div>
 
+            @for (item of BookById()?.comments; track $index) {
             <div class="review-card mb-3">
                 <div class="d-flex mb-3">
-                    <img src="https://via.placeholder.com/50x50" alt="User Avatar" class="user-avatar me-3">
                     <div>
-                        <h5 class="mb-0">John Doe</h5>
+                        <h5 class="mb-0">{{item.userFirstName}}</h5>
                         <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            @if(item.useRatting == 1){
+                            <i class="fa-solid fa-star"></i>
+                            }
+                            @if(item.useRatting == 2){
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            }
+                            @if(item.useRatting == 3){
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            }
+                            @if(item.useRatting == 4){
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            }
+                            @if(item.useRatting == 5){
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            }
                         </div>
-                        <small class="text-muted">Reviewed on May 15, 2023</small>
+                        <small class="text-muted">Reviewed on {{item.createdAt | date}}</small>
                     </div>
                 </div>
-                <h6>Excellent quality and value for money</h6>
-                <p>I've been using Rathna notebooks for years, and this CR Book is no exception to their high standards.
-                    The paper quality is excellent, with minimal bleed-through even when using fountain pens. The ruling
-                    is consistent and the binding is sturdy. Highly recommended for students and professionals alike.
-                </p>
+                <p>{{item.commentText}}</p>
             </div>
-            <div class="review-card mb-3">
-                <div class="d-flex mb-3">
-                    <img src="https://via.placeholder.com/50x50" alt="User Avatar" class="user-avatar me-3">
-                    <div>
-                        <h5 class="mb-0">Jane Smith</h5>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                        <small class="text-muted">Reviewed on May 10, 2023</small>
-                    </div>
-                </div>
-                <h6>Good for everyday use</h6>
-                <p>This notebook serves its purpose well. The paper quality is good for regular writing, though it might
-                    not be ideal for heavy ink users. The cover is durable and has withstood daily use in my backpack.
-                    My only complaint is that the ruling could be a bit darker for better visibility.</p>
-            </div>
+            }
+
         </div>
     </div>
 </div>

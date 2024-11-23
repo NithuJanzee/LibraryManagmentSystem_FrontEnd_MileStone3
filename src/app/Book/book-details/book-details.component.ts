@@ -2,7 +2,7 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { BookService } from '../../_service/book.service';
 import { ActivatedRoute } from '@angular/router';
 import { Book } from '../../_Inerface/BookInterFace';
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule, DatePipe, NgFor } from '@angular/common';
 import { UserServiceService } from '../../_service/user-service.service';
 import { FormsModule } from '@angular/forms';
 import { LendingRequest } from '../../_Inerface/BookTransactionInterface';
@@ -13,7 +13,7 @@ import { jwtDecode } from 'jwt-decode';
 @Component({
   selector: 'app-book-details',
   standalone: true,
-  imports: [NgFor, FormsModule,CommonModule],
+  imports: [NgFor, FormsModule,CommonModule,DatePipe],
   templateUrl: './book-details.component.html',
   styleUrl: './book-details.component.css'
 })

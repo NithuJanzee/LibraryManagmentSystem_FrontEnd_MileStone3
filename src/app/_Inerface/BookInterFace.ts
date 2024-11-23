@@ -11,4 +11,14 @@ export interface Book {
   totalRatings: number;
   photoUrls: BookPhoto[]; 
   ratingPercentages: { [key: number]: number }; 
+  comments : comments[]
+
 }
+
+export interface comments {
+  commentText:String
+  createdAt:string
+  userFirstName:string
+  useRatting:number
+}
+
