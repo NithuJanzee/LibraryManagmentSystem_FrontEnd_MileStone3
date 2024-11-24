@@ -1,77 +1,49 @@
 <div class="container my-4">
-    <!-- Table View (Visible on Large Screens) -->
-    <div class="d-none d-lg-block table-container">
-      <table>
-        <thead>
-          <tr>
-            <th>Cover</th>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Genre</th>
-            <th>Copies Available</th>
-            <th>Rating</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><img src="Testimg.jpg" alt="Book cover" class="book-cover"></td>
-            <td>The Great Gatsby</td>
-            <td>F. Scott Fitzgerald</td>
-            <td>Classic Fiction</td>
-            <td>3</td>
-            <td>4.5/5</td>
-            <td><button class="btn">Lend</button></td>
-          </tr>
-          <tr>
-            <td><img src="BookCover.webp" alt="Book cover" class="book-cover"></td>
-            <td>To Kill a Mockingbird</td>
-            <td>Harper Lee</td>
-            <td>Literary Fiction</td>
-            <td>2</td>
-            <td>4.8/5</td>
-            <td><button class="btn">Lend</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  
-    <!-- Card View (Visible on Smaller Screens) -->
-    <div class="d-lg-none card-view">
-      <div class="card mb-3">
-        <div class="row g-0">
-          <div class="col-4">
-            <img src="Testimg.jpg" alt="Book cover" class="book-cover">
-          </div>
-          <div class="col-8">
-            <div class="card-body">
-              <h5 class="card-title">The Great Gatsby</h5>
-              <p class="card-text"><strong>Author:</strong> F. Scott Fitzgerald</p>
-              <p class="card-text"><strong>Genre:</strong> Classic Fiction</p>
-              <p class="card-text"><strong>Copies:</strong> 3</p>
-              <p class="card-text"><strong>Rating:</strong> 4.5/5</p>
-              <button class="btn">Lend</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card mb-3">
-        <div class="row g-0">
-          <div class="col-4">
-            <img src="/placeholder.svg?height=120&width=80" alt="Book cover" class="book-cover">
-          </div>
-          <div class="col-8">
-            <div class="card-body">
-              <h5 class="card-title">To Kill a Mockingbird</h5>
-              <p class="card-text"><strong>Author:</strong> Harper Lee</p>
-              <p class="card-text"><strong>Genre:</strong> Literary Fiction</p>
-              <p class="card-text"><strong>Copies:</strong> 2</p>
-              <p class="card-text"><strong>Rating:</strong> 4.8/5</p>
-              <button class="btn">Lend</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <!-- Table View (Visible on Large Screens) -->
+  <div class="d-none d-xxl-block table-container">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Book Title</th>
+          <th>Author</th>
+          <th>UserID</th>
+          <th>User Name</th>
+          <th>Copies Available</th>
+          <th>Request Days</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (Requests of AdminService.LendingRequestSignal(); track $index) {
+        <tr>
+          <td>{{Requests.bookTitle}}</td>
+          <td>{{Requests.authorName}}</td>
+          <td>BB {{Requests.userId}}</td>
+          <td>{{Requests.userName}}</td>
+          <td>{{Requests.requestDate}}</td>
+          <td>{{Requests.quantity}}</td>
+          <td><button class="btn btn-primary">Lend</button></td>
+        </tr>
+        }
+      </tbody>
+    </table>
   </div>
-  
+
+  <!-- Card View (Visible on Smaller Screens) -->
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 d-xxl-none">
+    @for (item of AdminService.LendingRequestSignal(); track $index) {
+    <div class="col">
+      <div class="card shadow-sm border-light rounded-3 h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{item.bookTitle}}</h5>
+          <p class="card-text"><strong>Author:</strong> {{item.authorName}}</p>
+          <p class="card-text"><strong>UserID:</strong> BB {{item.userId}}</p>
+          <p class="card-text"><strong>Copies Available:</strong> {{item.quantity}}</p>
+          <p class="card-text"><strong>Request Days:</strong> {{item.requestDate}}</p>
+          <button class="btn btn-primary w-100">Lend</button>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-import { Admin, AdminLogin } from '../_Inerface/AdminInterFace';
+import { Admin, AdminLogin, GetAllLendingRequest } from '../_Inerface/AdminInterFace';
 import { map } from 'rxjs';
 
 @Injectable({
@@ -12,6 +12,7 @@ export class AdminService {
   baseUrl = environment.apiUrl;
 
   Admin = signal<Admin|null>(null)
+  LendingRequestSignal = signal<GetAllLendingRequest[]>([])
 
   AdminLogin(admin:AdminLogin){
     return this.http.post(this.baseUrl + "Admin/authenticate", admin).pipe(
@@ -22,5 +23,11 @@ export class AdminService {
         }
       })
     )
+  }
+
+  AllLendingRequest(){
+    return this.http.get<GetAllLendingRequest[]>(this.baseUrl + `BookLending/GetAllLendingRequest`).subscribe({
+      next: res => this.LendingRequestSignal.set(res)
+    })
   }
 }
