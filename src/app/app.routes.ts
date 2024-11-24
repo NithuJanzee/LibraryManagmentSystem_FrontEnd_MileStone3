@@ -13,14 +13,15 @@ import { UserMessagingComponent } from './Admin/AdminContent/user-messaging/user
 import { BookDetailsComponent } from './Book/book-details/book-details.component';
 import { AdminLoginComponent } from './AccessAccount/admin-login/admin-login.component';
 import { adminGuard } from './_gurard/admin.guard';
+import { userGuard } from './_gurard/user.guard';
 
 export const routes: Routes = [
     {path:'User-Login',component:UserLoginComponent},
     {path:'User-SignUp',component:UserCreationComponent},
-    {path:'BookDetails/:id',component:BookDetailsComponent},
+    {path:'BookDetails/:id',component:BookDetailsComponent, canActivate:[userGuard]},
     {path:'admin-login',component:AdminLoginComponent},
     {path:'',component:UserHomeComponent},
-    
+
     {
         path:'admin',
         component:AdminHomeComponent,
