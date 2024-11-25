@@ -17,22 +17,22 @@
                     <th>Request Date</th>
                     <th>Requested Days</th>
                     <th>Due Date</th>
-                    <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>The Great Gatsby</td>
-                    <td>1001</td>
-                    <td>John Doe</td>
-                    <td>Premium</td>
-                    <td>2024-11-20</td>
-                    <td>7</td>
-                    <td>2024-11-27</td>
-                    <td>Approved</td>
-                    <td><button class="btn btn-danger">Extend</button></td>
-                </tr>
+                @for (item of AdminService.BookReturnSignal(); track $index) {
+                    <tr>
+                        <td>{{item.bookTittle}}</td>
+                        <td>{{item.userId}}</td>
+                        <td>{{item.userName}}</td>
+                        <td>{{item.userStatus}}</td>
+                        <td>{{item.lendDate | date}}</td>
+                        <td>{{item.requestedDayes}} Days</td>
+                        <td>{{item.dueDate |date}}</td>
+                        <td><button class="btn btn-danger">Extend</button></td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>

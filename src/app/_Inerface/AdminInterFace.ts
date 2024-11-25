@@ -19,3 +19,13 @@ export interface GetAllLendingRequest{
   userStatus:string
   requestID:number
 }
+
+export interface GetAllReturn{
+  userId: number;
+  userName: string;
+  userStatus: string;
+  bookTittle: string;
+  lendDate: string;
+  requestedDayes: string;
+  dueDate: string;
+}
