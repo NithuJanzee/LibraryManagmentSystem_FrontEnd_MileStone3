@@ -22,7 +22,7 @@ export class BookDetailsComponent implements OnInit {
   ParamBookId: number;
   BookById = signal<Book | null>(null)
   bookDetails: any;
-  requestDay: number = 1;
+  requestDay: number = 3;
   private toster = inject(ToastrService)
 
   UserService = inject(UserServiceService)
