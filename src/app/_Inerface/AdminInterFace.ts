@@ -11,6 +11,7 @@ export interface Admin{
 export interface GetAllLendingRequest{
   userId:number
   userName:string
+  lastName:string
   bookTitle:string
   authorName:string
   quantity:string

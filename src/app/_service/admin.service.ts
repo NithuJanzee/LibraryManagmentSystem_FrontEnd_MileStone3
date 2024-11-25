@@ -37,4 +37,6 @@ export class AdminService {
   {
     return this.http.put(this.baseUrl + 'BookLending/UpdateLended/'+id,{})
   }
+
+  
 }

@@ -61,7 +61,7 @@ export class BookDetailsComponent implements OnInit {
       next: res => {
         this.toster.success("Lending request successful")
       },
-      error: err => this.toster.error("Lending request failed")
+      error: err => this.toster.error("You already lent this book")
     })
   }
 

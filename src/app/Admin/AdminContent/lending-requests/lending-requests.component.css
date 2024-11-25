@@ -168,6 +168,21 @@ body {
 
 .search-bar:focus {
     outline: none;
-    border-color: #3498db; /* Highlight border on focus */
+    border-color: #3498db;
     box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+}
+
+.h1Void {
+    text-align: center; 
+    font-size: 2.5rem; 
+    font-weight: 700; 
+    color: #2c3e50; 
+    margin: 20px 0;
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    padding: 10px 20px; 
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    background-color: #ecf0f1;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
