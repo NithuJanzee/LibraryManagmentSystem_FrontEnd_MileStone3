@@ -25,8 +25,8 @@ export class AdminService {
     )
   }
 
-  AllLendingRequest(){
-    return this.http.get<GetAllLendingRequest[]>(this.baseUrl + `BookLending/GetAllLendingRequest`).subscribe({
+  AllLendingRequest(search:string){
+    return this.http.get<GetAllLendingRequest[]>(this.baseUrl + `BookLending/GetAllLendingRequest?searchText=${search}`).subscribe({
       next: res =>{
         this.LendingRequestSignal.set(res)
       } 
@@ -37,8 +37,4 @@ export class AdminService {
   {
     return this.http.put(this.baseUrl + 'BookLending/UpdateLended/'+id,{})
   }
-
-  // AllReturningBooks(){
-  //   return this.http.put(this.baseUrl + '')
-  // }
 }

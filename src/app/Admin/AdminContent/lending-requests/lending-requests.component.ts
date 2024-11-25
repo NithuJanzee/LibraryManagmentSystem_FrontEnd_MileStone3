@@ -13,15 +13,16 @@ import { ToastrService } from 'ngx-toastr';
 export class LendingRequestsComponent implements OnInit{
    AdminService = inject(AdminService)
    toster = inject(ToastrService)
+   search:string = ''
 
   ngOnInit(): void {
     if(this.AdminService.LendingRequestSignal().length == 0){
-      this.loadAllLendingRequest()
+      this.loadAllLendingRequest('')
     }
   }
 
-  loadAllLendingRequest(){
-    this.AdminService.AllLendingRequest()
+  loadAllLendingRequest(search:string){
+    this.AdminService.AllLendingRequest(search)
   }
 
   AcceptRequest(id:number){
@@ -29,7 +30,7 @@ export class LendingRequestsComponent implements OnInit{
       next:res => this.toster.success("Accept Successfull"),
       error:err => {
         this.toster.success("Accept")
-        this.loadAllLendingRequest()
+        this.loadAllLendingRequest('')
       }
     })
   }

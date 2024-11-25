@@ -1,9 +1,8 @@
 <h2 class="h2">Book Lending Requests</h2>
 <div class="button-container">
-    <button class="btn btn-free">Free Users</button>
-    <button class="btn btn-premium">Premium Users</button>
-    <button class="btn btn-all"(click)="loadAllLendingRequest()">All Users</button>
-    <input type="text" class="search-bar" placeholder="Search by name or ID">
+    <button class="btn btn-free" (click)="loadAllLendingRequest('FreeUser')">Free Users</button>
+    <button class="btn btn-premium" (click)="loadAllLendingRequest('Premium')">Premium Users</button>
+    <button class="btn btn-all"(click)="loadAllLendingRequest('')">All Users</button>
 </div>
 <div class="container my-4">
   <!-- Table View (Visible on Large Screens) -->
