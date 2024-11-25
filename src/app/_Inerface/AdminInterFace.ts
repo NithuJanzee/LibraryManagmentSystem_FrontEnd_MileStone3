@@ -28,4 +28,5 @@ export interface GetAllReturn{
   lendDate: string;
   requestedDayes: string;
   dueDate: string;
+  returnStatus:string
 }

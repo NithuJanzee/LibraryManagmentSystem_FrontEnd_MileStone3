@@ -1,9 +1,20 @@
 <h2 class="h2">Book Return Management</h2>
 <div class="button-container">
-    <button class="btn btn-free">Free Users</button>
-    <button class="btn btn-premium" >Premium Users</button>
-    <button class="btn btn-all">All Users</button>
+    <button class="btn btn-all" (click)="GetAllReturnBooks('')">Reload</button>
+    <button class="btn btn-free" (click)="GetAllReturnBooks('free')">Free Users</button>
+    <button class="btn btn-premium" (click)="GetAllReturnBooks('Premium')">Premium Users</button>
+
+    <!-- Search Section -->
+    <div class="search-container">
+        <input 
+            type="text" 
+            class="form-control search-input" 
+            placeholder="Search by name, status..." 
+            [(ngModel)]="searchText" />
+        <button class="btn btn-search" (click)="GetAllReturnBooks(searchText)">Search</button>
+    </div>
 </div>
+
 <div class="container my-5">
     <!-- Table for smaller screens -->
     <div class="table-container d-none d-xxl-block">
@@ -14,9 +25,10 @@
                     <th>User ID</th>
                     <th>User Name</th>
                     <th>User Status</th>
-                    <th>Request Date</th>
+                    <th>Lend Date</th>
                     <th>Requested Days</th>
                     <th>Due Date</th>
+                    <th>Return Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -30,6 +42,7 @@
                         <td>{{item.lendDate | date}}</td>
                         <td>{{item.requestedDayes}} Days</td>
                         <td>{{item.dueDate |date}}</td>
+                        <td>{{item.returnStatus}}</td>
                         <td><button class="btn btn-danger">Extend</button></td>
                     </tr>
                 }

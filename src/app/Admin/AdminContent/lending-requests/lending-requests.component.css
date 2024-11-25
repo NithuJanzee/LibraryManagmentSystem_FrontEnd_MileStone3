@@ -186,3 +186,29 @@ body {
     background-color: #ecf0f1;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+/* Search Bar Styling */
+.search-bar {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 250px;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #3498db; /* Highlight border on focus */
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .search-input {
+    width: 200px;
+  }

@@ -110,3 +110,13 @@
     border-color: #3498db; /* Highlight border on focus */
     box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
 }
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .search-input {
+    width: 200px;
+  }
