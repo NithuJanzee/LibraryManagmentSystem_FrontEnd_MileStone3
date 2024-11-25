@@ -27,7 +27,18 @@ export class AdminService {
 
   AllLendingRequest(){
     return this.http.get<GetAllLendingRequest[]>(this.baseUrl + `BookLending/GetAllLendingRequest`).subscribe({
-      next: res => this.LendingRequestSignal.set(res)
+      next: res =>{
+        this.LendingRequestSignal.set(res)
+      } 
     })
   }
+  
+  AcceptLending(id:number)
+  {
+    return this.http.put(this.baseUrl + 'BookLending/UpdateLended/'+id,{})
+  }
+
+  // AllReturningBooks(){
+  //   return this.http.put(this.baseUrl + '')
+  // }
 }

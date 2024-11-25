@@ -25,4 +25,6 @@ export class BookService {
   RequestLendingBook(data:LendingRequest){
     return this.http.post(this.baseUrl + `BookLending/LendingRequest`,data);
   }
+
+ 
 }

@@ -15,4 +15,6 @@ export interface GetAllLendingRequest{
   authorName:string
   quantity:string
   requestDate:string
+  userStatus:string
+  requestID:number
 }

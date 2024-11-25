@@ -1,63 +1,173 @@
-/* Table Styles */
-.table-container table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: white;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-.table-container th, .table-container td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #e0e0e0;
-}
-.table-container th {
-    background-color: #e14149;
-    color: white;
-}
-.table-container tr:nth-child(even) {
-    background-color: #f8f8ff;
-}
-.table-container tr:hover {
-    background-color: #e6f2ff;
-}
-.book-cover {
-    width: 80px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 4px;
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --sidebar-width: 280px;
 }
 
-/* Button Styles */
-.btn {
-    padding: 8px 12px;
-    background-color: #ff1e4f;
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: var(--primary-color);
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.main-content {
+    margin-left: var(--sidebar-width);
+    padding: 2rem;
+}
+
+.logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.nav-link {
+    color: rgba(255,255,255,0.8);
+    padding: 0.8rem 1rem;
+    margin: 0.2rem 0;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.nav-link.active {
+    background: var(--accent-color);
+    color: white;
+}
+
+.table {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+.table thead {
+    background: var(--primary-color);
+    color: white;
+}
+
+.table th {
+    font-weight: 600;
+    padding: 1rem;
+}
+
+.table td {
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+.btn-lend {
+    background: var(--accent-color);
     color: white;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-.btn:hover {
-    background-color: #8795be;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
 }
 
-/* Search Bar Styles */
-.search-bar {
-    margin-bottom: 20px;
-    display: flex;
+.btn-lend:hover {
+    background: #2980b9;
+    transform: translateY(-1px);
+}
+
+.notification-badge {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-}
-.search-bar input {
-    width: 300px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px 0 0 4px;
-}
-.search-bar button {
-    padding: 10px 20px;
-    background-color: #1e90ff;
+    width: 20px;
+    height: 20px;
+    background: #e74c3c;
     color: white;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    margin-left: 0.5rem;
+}
+
+.h2 {
+    text-align: center;
+    font-size: 2rem; 
+    font-weight: bold; 
+    color: #333; 
+    padding: 10px 20px; 
+    border-bottom: 2px solid #e74c3c; 
+    margin-bottom: 20px; 
+    letter-spacing: 1px; 
+    text-transform: uppercase; 
+    background: linear-gradient(to right, #ffffff, #f9f9f9);
+    border-radius: 5px; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Space between buttons */
+    margin-bottom: 20px;
+}
+
+/* Buttons Styling */
+.btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
     border: none;
-    border-radius: 0 4px 4px 0;
+    border-radius: 5px;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-free {
+    background-color: #3498db; /* Blue for Free Users */
+    color: #fff;
+}
+
+.btn-premium {
+    background-color: #f1c40f; /* Yellow for Premium Users */
+    color: #fff;
+}
+
+.btn-all {
+    background-color: #2ecc71; /* Green for All Users */
+    color: #fff;
+}
+
+/* Button Hover Effects */
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Search Bar Styling */
+.search-bar {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 250px;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #3498db; /* Highlight border on focus */
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
 }
