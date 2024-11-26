@@ -1,0 +1,12 @@
+body {
+    background-color: #f8f9fa;
+}
+.card {
+    transition: box-shadow 0.3s;
+}
+.card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+.badge {
+    font-size: 0.875em;
+}

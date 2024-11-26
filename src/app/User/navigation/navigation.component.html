@@ -13,8 +13,13 @@
                 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-person-fill mx-1"></i>Profile</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-journal-text mx-1"></i>Transactions</a></li>
+                        <li class="nav-item"><a class="nav-link" href=""><i class="bi bi-house-heart mx-1"></i>Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href=""><i class="bi bi-person-fill mx-1"></i>Profile</a></li>
+
+                        <li class="nav-item"><a class="nav-link" href=""
+                             [routerLink]="['user/transactions']"> 
+                            <i class="bi bi-journal-text mx-1"></i>Transactions</a></li>
+
                         <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-people mx-1"></i>Community</a></li>
                         <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-heart-fill mx-1"></i>Wishlist</a></li>
                         <li class="nav-item">
@@ -123,4 +128,7 @@
             </div>
         </nav>
         }
+</div>
+<div class="UserContent">
+    <router-outlet></router-outlet>
 </div>

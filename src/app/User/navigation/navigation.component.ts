@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { UserServiceService } from '../../_service/user-service.service';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink,RouterOutlet],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css'
 })
