@@ -43,7 +43,7 @@
                         <td>{{item.requestedDayes}} Days</td>
                         <td>{{item.dueDate |date}}</td>
                         <td>{{item.returnStatus}}</td>
-                        <td><button class="btn btn-danger">Extend</button></td>
+                        <td><button class="btn btn-danger" (click)="GetBookReturn(item.lendID)">Return</button></td>
                     </tr>
                 }
             </tbody>
@@ -52,31 +52,21 @@
 
     <!-- Cards for xxl screens -->
     <div class="card-container d-xxl-none">
-        <div class="card">
-            <div class="card-header">Book Title: The Great Gatsby</div>
-            <div class="card-body">
-                <p><strong>User ID:</strong> 1001</p>
-                <p><strong>User Name:</strong> John Doe</p>
-                <p><strong>User Status:</strong> Premium</p>
-                <p><strong>Request Date:</strong> 2024-11-20</p>
-                <p><strong>Requested Days:</strong> 7</p>
-                <p><strong>Due Date:</strong> 2024-11-27</p>
-                <p><strong>Status:</strong> Approved</p>
-                <button class="btn-action">Extend</button>
+        @for (item of AdminService.BookReturnSignal(); track $index) {
+            <div class="card">
+                <div class="card-header">Book Title: The Great Gatsby</div>
+                <div class="card-body">
+                    <p><strong>Book Title:</strong>{{item.bookTittle}}</p>
+                    <p><strong>User ID:</strong> {{item.userId}}</p>
+                    <p><strong>User Name:</strong> {{item.userName}}</p>
+                    <p><strong>User Status:</strong> {{item.userStatus}}</p>
+                    <p><strong>Lend Date:</strong>{{item.lendDate | date}}</p>
+                    <p><strong>Requested Days:</strong>{{item.requestedDayes}}</p>
+                    <p><strong>Due Date:</strong>{{item.dueDate | date}}</p>
+                    <p><strong>Status:</strong>{{item.returnStatus}}</p>
+                    <button class="btn-action">Return</button>
+                </div>
             </div>
-        </div>
-        <div class="card">
-            <div class="card-header">Book Title: 1984</div>
-            <div class="card-body">
-                <p><strong>User ID:</strong> 1002</p>
-                <p><strong>User Name:</strong> Jane Smith</p>
-                <p><strong>User Status:</strong> Free</p>
-                <p><strong>Request Date:</strong> 2024-11-22</p>
-                <p><strong>Requested Days:</strong> 14</p>
-                <p><strong>Due Date:</strong> 2024-12-06</p>
-                <p><strong>Status:</strong> Pending</p>
-                <button class="btn-action">Approve</button>
-            </div>
-        </div>
+        }
     </div>
 </div>

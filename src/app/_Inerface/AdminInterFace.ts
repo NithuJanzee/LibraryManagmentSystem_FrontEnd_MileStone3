@@ -21,6 +21,7 @@ export interface GetAllLendingRequest{
 }
 
 export interface GetAllReturn{
+  lendID:number
   userId: number;
   userName: string;
   userStatus: string;

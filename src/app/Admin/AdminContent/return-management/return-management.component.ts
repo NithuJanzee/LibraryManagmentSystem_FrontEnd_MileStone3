@@ -27,4 +27,16 @@ export class ReturnManagementComponent implements OnInit {
   GetAllReturnBooks(search: string) {
     this.AdminService.GetAllReturn(search)
   }
+
+  GetBookReturn(lendId:number){
+    this.AdminService.GetBookReturn(lendId).subscribe({
+      next:res=>{
+         this.toster.success("Book Returned")
+      },
+      error: err=>{
+        this.toster.error(err.error.error)
+        this.GetAllReturnBooks('')
+      }
+    })
+  }
 }

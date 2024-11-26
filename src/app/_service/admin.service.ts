@@ -46,4 +46,9 @@ export class AdminService {
       }
     })
   }
+
+  GetBookReturn(lendId:number)
+  {
+    return this.http.post(this.baseUrl + `HistoryContoller/UpdateHistory/${lendId}`,{})
+  }
 }
