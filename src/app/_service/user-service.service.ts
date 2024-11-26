@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { DecodedToken, LoggedUsers, UserAccount, UserLogin } from '../_Inerface/UserInterface';
+import { DecodedToken, LoggedUsers, UserAccount, UserLogin, UserTransactionById } from '../_Inerface/UserInterface';
 import { environment } from '../../environments/environment.development';
 import { map } from 'rxjs';
 
@@ -15,6 +15,9 @@ export class UserServiceService {
   currentUser = signal<LoggedUsers | null>(null)
   //Decoded Token data
   LoggedUser = signal<DecodedToken | null>(null)
+
+  UserTransactionSignal = signal<UserTransactionById[]>([])
+  UserTransactionRequested = signal<UserTransactionById[]>([])
 
   userCreation(user: UserAccount) {
     return this.http.post(this.baseUrl + "User/PostNewUser", user)
@@ -35,5 +38,11 @@ export class UserServiceService {
     localStorage.removeItem('LoggedUser');
     this.currentUser.set(null);
     this.LoggedUser.set(null);
+  }
+
+  GetAllTransactionWithUserId(userID:number, search?:string){
+    return this.http.get<UserTransactionById[]>(`${this.baseUrl}BookLending/LendingByUserId?userID=${userID}${search ? `&search=${search}` : ''}`).subscribe({
+      next:res=> this.UserTransactionSignal.set(res)
+    })
   }
 }

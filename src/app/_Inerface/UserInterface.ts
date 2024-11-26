@@ -29,3 +29,17 @@ export interface DecodedToken {
   nbf: number;
   role: string;
 }
+
+export interface UserTransactionById{
+  lendID:number
+  bookTitle:string
+  authorName:string
+  status:number
+  requestDate:string
+  requestDays:string
+  rentDate:string
+  dueDate:string
+  todayDateminus2:string
+  todayDateminus1:string
+  actualDate:string
+}
