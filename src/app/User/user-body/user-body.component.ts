@@ -5,11 +5,12 @@ import { Router, RouterOutlet } from '@angular/router';
 import { UserServiceService } from '../../_service/user-service.service';
 import { jwtDecode } from 'jwt-decode';
 import { NavigationComponent } from "../navigation/navigation.component";
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user-body',
   standalone: true,
-  imports: [CommonModule, NavigationComponent],
+  imports: [CommonModule, NavigationComponent,FormsModule],
   templateUrl: './user-body.component.html',
   styleUrl: './user-body.component.css'
 })
@@ -18,6 +19,7 @@ export class UserBodyComponent implements OnInit {
   private router = inject(Router)
   UserService = inject(UserServiceService)
   showModal: boolean = false;
+  searchQuery:string='';
 
   ngOnInit(): void {
     if (this.BookService.Books().length == 0) this.LoadBooks('');

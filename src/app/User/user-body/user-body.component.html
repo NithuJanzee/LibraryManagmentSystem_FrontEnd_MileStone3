@@ -10,8 +10,8 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="input-group mb-3">
-          <input type="text" class="form-control search-bar" placeholder="Search books, authors, genres...">
-          <button class="btn search-btn" type="button">
+          <input type="text" class="form-control search-bar" placeholder="Search books, authors, genres..." [(ngModel)]="searchQuery">
+          <button class="btn search-btn" type="button" (click)="LoadBooks(searchQuery)">
             <i class="bi bi-search me-2"></i>Search
           </button>
         </div>
