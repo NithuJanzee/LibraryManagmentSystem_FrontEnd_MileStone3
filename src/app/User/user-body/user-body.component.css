@@ -67,7 +67,6 @@
 
 
 .hero {
-  background-image: url('https://source.unsplash.com/random/1920x1080/?library,books');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -82,7 +81,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(18, 30, 30, 255);
+  background: linear-gradient(to bottom, #064e3b, #0f172a);
   z-index: 0;
 }
 
@@ -139,7 +138,7 @@
 }
 
 .bodyArea {
-  background: linear-gradient(to bottom, rgba(41, 69, 69, 255), rgba(41, 69, 69, 255));
+  background: linear-gradient(to bottom, #064e3b, #0f172a);
   padding: 30px;
   box-shadow: 0 10px 60px rgba(0, 0, 0, 0.1);
 }

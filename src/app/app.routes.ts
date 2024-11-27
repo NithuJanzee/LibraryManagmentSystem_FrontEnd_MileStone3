@@ -22,15 +22,16 @@ export const routes: Routes = [
         path:'user',
         component:NavigationComponent,
         children:[
-            {path:'transactions',component:TransactionComponent}
+            {path:'transactions',component:TransactionComponent},
+            
         ]
     },
-
+    
     {path:'admin-login',component:AdminLoginComponent},
     {path:'',component:UserBodyComponent},
     {path:'User-Login',component:UserLoginComponent},
     {path:'User-SignUp',component:UserCreationComponent},
-    {path:'BookDetails/:id',component:BookDetailsComponent, canActivate:[userGuard]},
+    {path:'BookDetails/:id',component:BookDetailsComponent,canActivate:[userGuard]},
 
 
     {

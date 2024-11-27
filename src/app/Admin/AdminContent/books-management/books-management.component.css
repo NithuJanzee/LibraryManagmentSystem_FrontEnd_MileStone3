@@ -1,0 +1,31 @@
+#body {
+    background-color: var(--background);
+}
+.navbar {
+    background-color: #000;
+}
+.navbar-brand, .nav-link {
+    color: #fff !important;
+}
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+.table th {
+    background-color: #f1f3f5;
+}
+.badge-available {
+    background-color: #d4edda;
+    color: #155724;
+}
+.badge-borrowed {
+    background-color: #fff3cd;
+    color: #856404;
+}
+.book-actions .btn {
+    padding: 0.25rem 0.5rem;
+}
