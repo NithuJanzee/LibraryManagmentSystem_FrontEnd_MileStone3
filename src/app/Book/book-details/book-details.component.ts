@@ -1,6 +1,6 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { BookService } from '../../_service/book.service';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { Book } from '../../_Inerface/BookInterFace';
 import { CommonModule, DatePipe, NgFor } from '@angular/common';
 import { UserServiceService } from '../../_service/user-service.service';
@@ -24,6 +24,7 @@ export class BookDetailsComponent implements OnInit {
   bookDetails: any;
   requestDay: number = 3;
   private toster = inject(ToastrService)
+  private navigator = inject(Router)
 
   UserService = inject(UserServiceService)
 
@@ -60,6 +61,7 @@ export class BookDetailsComponent implements OnInit {
     this.Bookservice.RequestLendingBook(Data).subscribe({
       next: res => {
         this.toster.success("Lending request successful")
+        this.navigator.navigateByUrl('user/transactions')
       },
       error: err => this.toster.error("You already lent this book")
     })
