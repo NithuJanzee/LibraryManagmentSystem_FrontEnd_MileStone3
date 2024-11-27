@@ -1,73 +1,190 @@
-body {
-    background-color: #f8f9fa;
-}
 
-.card {
-    transition: box-shadow 0.3s;
-}
-
-.card:hover {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-}
-
-.badge {
-    font-size: 0.875em;
-}
-
-/* Search Bar Styling */
-.search-bar {
-    padding: 10px;
-    font-size: 1rem;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    width: 250px;
-    transition: all 0.3s ease-in-out;
-}
-
-.search-bar:focus {
-    outline: none;
-    border-color: #3498db;
-    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
-}
-
-.h1Void {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #2c3e50;
-    margin: 20px 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 10px 20px;
-    border: 2px solid #3498db;
+.container {
+    background-color: #f8f9fa; 
+    padding: 2rem;
     border-radius: 8px;
-    background-color: #ecf0f1;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Search Bar Styling */
-.search-bar {
-    padding: 10px;
-    font-size: 1rem;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    width: 250px;
-    transition: all 0.3s ease-in-out;
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #343a40; 
 }
 
-.search-bar:focus {
-    outline: none;
-    border-color: #3498db;
-    /* Highlight border on focus */
-    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
-}
 
 .search-container {
     display: flex;
+    gap: 0.5rem;
+    justify-content: center;
     align-items: center;
-    gap: 5px;
+    margin-bottom: 2rem;
 }
 
 .search-input {
-    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+.btn-search {
+    background-color: #198754;
+    color: white;
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-search:hover {
+    background-color: #145c36;
+}
+
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+
+.card.lending-card {
+    border: 1px solid #e6e6e6;
+    background-color: #ffffff;
+}
+
+.card.lending-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-color: #198754; 
+}
+
+.card.lending-card .badge.bg-success {
+    background-color: #198754 !important;
+}
+
+
+.card.requested-card {
+    border: 1px solid #e6e6e6;
+    background-color: #ffffff;
+}
+
+.card.requested-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-color: #0d6efd; 
+}
+
+.card.requested-card .badge.bg-info {
+    background-color: #0d6efd !important; 
+}
+
+.card .badge {
+    font-size: 0.85rem;
+    padding: 0.4em 0.75em;
+    border-radius: 50px;
+}
+
+
+.card .badge.bg-success {
+    background-color: #198754;
+}
+
+.card .badge.bg-warning {
+    background-color: #d4a517;
+}
+
+.card .badge.bg-danger {
+    background-color: #aa2e25;
+}
+
+.card .badge.bg-info {
+    background-color: #0d6efd;
+}
+
+
+.card.lending-card:hover .badge.bg-success {
+    background-color: #145c36 !important; 
+}
+
+.card.requested-card:hover .badge.bg-info {
+    background-color: #0b5ed7 !important; 
+}
+
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.card-text {
+    color: #6c757d; 
+}
+
+
+.text-end {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.text-success {
+    color: #198754 !important;
+}
+
+.text-primary {
+    color: #0d6efd !important;
+}
+
+.small {
+    font-size: 0.875rem;
+}
+
+
+
+
+
+/* Lending Heading Styles */
+.Lending {
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 600;
+    color: #343a40; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    border-bottom: 2px solid #198754; 
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.Lending.text-center {
+    text-align: center;
+}
+
+.mb-4 {
+    margin-bottom: 2rem;
+}
+
+/* Requested Heading Styles */
+.Requested {
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 600;
+    color: #495057;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #007bff;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.Requested.text-center {
+    text-align: center;
+}
+
+.mb-4 {
+    margin-bottom: 2rem;
 }

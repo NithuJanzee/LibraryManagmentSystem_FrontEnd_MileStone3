@@ -39,7 +39,7 @@ export interface UserTransactionById{
   requestDays:string
   rentDate:string
   dueDate:string
-  todayDateminus2:string
-  todayDateminus1:string
+  todayDatepluse2:string
+  todayDatepluse1:string
   actualDate:string
 }

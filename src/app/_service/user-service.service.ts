@@ -17,7 +17,7 @@ export class UserServiceService {
   LoggedUser = signal<DecodedToken | null>(null)
 
   UserTransactionSignal = signal<UserTransactionById[]>([])
-  UserTransactionRequested = signal<UserTransactionById[]>([])
+ // UserTransactionRequested = signal<UserTransactionById[]>([])
 
   userCreation(user: UserAccount) {
     return this.http.post(this.baseUrl + "User/PostNewUser", user)
