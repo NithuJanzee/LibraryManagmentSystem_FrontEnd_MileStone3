@@ -12,6 +12,8 @@ export interface Book {
   photoUrls: BookPhoto[]; 
   ratingPercentages: { [key: number]: number }; 
   comments : comments[]
+  isLending:boolean
+  isRequested:boolean
 
 }
 

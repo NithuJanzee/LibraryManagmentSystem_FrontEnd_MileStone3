@@ -13,7 +13,7 @@ import { jwtDecode } from 'jwt-decode';
 @Component({
   selector: 'app-book-details',
   standalone: true,
-  imports: [NgFor, FormsModule,CommonModule,DatePipe],
+  imports: [NgFor, FormsModule, CommonModule, DatePipe],
   templateUrl: './book-details.component.html',
   styleUrl: './book-details.component.css'
 })
@@ -35,11 +35,11 @@ export class BookDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.UserData()
+    const user = Number(this.UserService.LoggedUser()?.nameid)
     if (this.BookById()?.bookId != this.ParamBookId)
-      this.Bookservice.getBookById(this.ParamBookId).subscribe({
+      this.Bookservice.getBookById(this.ParamBookId, user).subscribe({
         next: res => this.BookById.set(res)
       })
-    console.log(this.UserService.LoggedUser())
   }
   get roundedAverageRating(): number {
     return Math.round(this.bookDetails?.averageRating || 0);

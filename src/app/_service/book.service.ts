@@ -18,8 +18,8 @@ export class BookService {
    })
   }
 
-  getBookById(id:number){
-    return this.http.get<Book>(this.baseUrl + `Book/GetBookByID?id=${id}`);
+  getBookById(BookId:number,UserId:number){
+    return this.http.get<Book>(this.baseUrl + `Book/GetBookByID?bookId=${BookId}&userId=${UserId}`);
   }
 
   RequestLendingBook(data:LendingRequest){
