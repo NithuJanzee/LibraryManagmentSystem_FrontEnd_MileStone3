@@ -64,3 +64,82 @@
   background-color: #45a049;
   color: var(--text-color);
 }
+
+
+.hero {
+  background-image: url('https://source.unsplash.com/random/1920x1080/?library,books');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 100px 0;
+  color: white;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(18, 30, 30, 255);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.search-bar {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.5));
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  color: var(--text-color);
+  padding: 15px;
+  font-size: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 1px 4px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.search-bar:focus {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.7));
+  border-color: var(--accent-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), inset 0 1px 6px rgba(255, 255, 255, 0.8);
+}
+
+.search-bar::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-btn {
+  background-color: #45a049;
+  border: none;
+  color: var(--text-color);
+  padding: 15px 30px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+  background-color: #d0ebd2;
+}
+
+.bodyArea {
+  background: linear-gradient(to bottom, rgba(41, 69, 69, 255), rgba(41, 69, 69, 255));
+  padding: 30px;
+  box-shadow: 0 10px 60px rgba(0, 0, 0, 0.1);
+}

@@ -12,8 +12,8 @@ export class BookService {
   Books = signal<Book[]>([])
   baseUrl = environment.apiUrl;
 
-  getAllBooks(){
-   return this.http.get<Book[]>(this.baseUrl + "Book/all").subscribe({
+  getAllBooks(query:string){
+   return this.http.get<Book[]>(this.baseUrl + `Book/all?searchText=${query}`).subscribe({
     next: response => this.Books.set(response)
    })
   }

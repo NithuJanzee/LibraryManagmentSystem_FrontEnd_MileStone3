@@ -1,15 +1,15 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { UserServiceService } from '../../_service/user-service.service';
 import { ToastrService } from 'ngx-toastr';
 import { jwtDecode } from 'jwt-decode';
 import { DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+
 @Component({
   selector: 'app-transaction',
   standalone: true,
-  imports: [RouterLink, DatePipe,FormsModule],
+  imports: [DatePipe,FormsModule],
   templateUrl: './transaction.component.html',
   styleUrl: './transaction.component.css'
 })

@@ -1,13 +1,15 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { BookService } from '../../_service/book.service';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { UserServiceService } from '../../_service/user-service.service';
+import { jwtDecode } from 'jwt-decode';
+import { NavigationComponent } from "../navigation/navigation.component";
 
 @Component({
   selector: 'app-user-body',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NavigationComponent],
   templateUrl: './user-body.component.html',
   styleUrl: './user-body.component.css'
 })
@@ -18,11 +20,12 @@ export class UserBodyComponent implements OnInit {
   showModal: boolean = false;
 
   ngOnInit(): void {
-    if (this.BookService.Books().length == 0) this.LoadBooks();
+    if (this.BookService.Books().length == 0) this.LoadBooks('');
+    this.UserData()
   }
 
-  LoadBooks() {
-    this.BookService.getAllBooks()
+  LoadBooks(search:string) {
+    this.BookService.getAllBooks(search)
   }
 
   trackByBookId(index: number, book: any): number {
@@ -55,5 +58,13 @@ export class UserBodyComponent implements OnInit {
 
   BookDetails(bookId:number) {
     this.router.navigateByUrl(`/BookDetails/${bookId}`)
+  }
+
+  UserData() {
+    const User = localStorage.getItem('LoggedUser')
+    if (!User) return
+    const UserToken = JSON.parse(User);
+    const decoded: any = jwtDecode(UserToken.token);
+    this.UserService.LoggedUser.set(decoded)
   }
 }

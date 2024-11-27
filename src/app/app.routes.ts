@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { UserHomeComponent } from './User/user-home/user-home.component';
 import { UserCreationComponent } from './AccessAccount/user-creation/user-creation.component';
 import { UserLoginComponent } from './AccessAccount/user-login/user-login.component';
 import { AdminHomeComponent } from './Admin/admin-home/admin-home.component';
@@ -16,6 +15,7 @@ import { adminGuard } from './_gurard/admin.guard';
 import { userGuard } from './_gurard/user.guard';
 import { NavigationComponent } from './User/navigation/navigation.component';
 import { TransactionComponent } from './User-Content/transaction/transaction.component';
+import { UserBodyComponent } from './User/user-body/user-body.component';
 
 export const routes: Routes = [
     {
@@ -27,7 +27,7 @@ export const routes: Routes = [
     },
 
     {path:'admin-login',component:AdminLoginComponent},
-    {path:'',component:UserHomeComponent},
+    {path:'',component:UserBodyComponent},
     {path:'User-Login',component:UserLoginComponent},
     {path:'User-SignUp',component:UserCreationComponent},
     {path:'BookDetails/:id',component:BookDetailsComponent, canActivate:[userGuard]},

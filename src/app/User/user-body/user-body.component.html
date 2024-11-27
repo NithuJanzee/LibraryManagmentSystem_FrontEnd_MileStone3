@@ -1,110 +1,138 @@
-<div class="row mb-4">
-  <!-- Filters -->
-  <div class="col-md-4 mb-3">
-    <select class="form-select" id="authorFilter">
-      <option value="">Author</option>
-      <option value="Harper Lee">Harper Lee</option>
-      <option value="George Orwell">George Orwell</option>
-      <option value="Jane Austen">Jane Austen</option>
-    </select>
-  </div>
-  <div class="col-md-4 mb-3">
-    <select class="form-select" id="genreFilter">
-      <option value="">Genre</option>
-      <option value="Fiction">Fiction</option>
-      <option value="Science Fiction">Science Fiction</option>
-      <option value="Romance">Romance</option>
-    </select>
-  </div>
-  <div class="col-md-4 mb-3">
-    <select class="form-select" id="yearFilter">
-      <option value="">Publication Year</option>
-      <option value="1960">1960</option>
-      <option value="1949">1949</option>
-      <option value="1813">1813</option>
-    </select>
-  </div>
-</div>
-
-<!-- Book Cards -->
-@if(UserService.currentUser()){
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-5" id="bookList">
-    <div *ngFor="let Book of BookService.Books(); trackBy: trackByBookId" class="col">
-      <div class="card h-100 book-card text-white" (click)="BookDetails(Book.bookId)">
-        <!-- Book Image -->
-        <img [src]="Book.photoUrls[0]" alt="Book Cover" class="card-img book-cover" />
-        <!-- Book Overlay -->
-        <div class="card-img-overlay">
-          <h5 class="card-title">{{ Book.bookTitle }}</h5>
-          <p class="card-text">{{ Book.authorName }}</p>
-          <div class="mb-2">
-            <ng-container *ngFor="let star of getStarArray(Book.averageRating)">
-              <i class="bi" [ngClass]="{
-                      'bi-star-fill': star === 'full',
-                      'bi-star-half': star === 'half',
-                      'bi-star': star === 'empty'
-                    }" class="star-rating"></i>
-            </ng-container>
-            <small class="ms-1">{{ Book.averageRating.toFixed(1) }}</small>
-          </div>
-          <div class="d-flex gap-2">
-            <button class="btn btn-rent flex-grow-1">Rent</button>
-            <button class="btn btn-buy flex-grow-1">Buy</button>
-          </div>
+<header>
+  <app-navigation></app-navigation>
+</header>
+<section class="hero text-center">
+  <div class="container hero-content">
+    <h1 class="display-3 fw-bold">Discover Your Next Literary Adventure</h1>
+    <p class="lead mb-4">
+      Explore thousands of books, find your perfect read, and join a community of passionate book lovers.
+    </p>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control search-bar" placeholder="Search books, authors, genres...">
+          <button class="btn search-btn" type="button">
+            <i class="bi bi-search me-2"></i>Search
+          </button>
         </div>
       </div>
     </div>
   </div>
-  
+</section>
+<div class="bodyArea">
+  <div class="container">
+    <main class="container my-5">
 
-}
-@else {
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-5" id="bookList">
-    <div *ngFor="let Book of BookService.Books(); trackBy: trackByBookId" class="col">
-      <div class="card h-100 book-card text-white" (click)="NonLoggedUser()">
-        <!-- Book Image -->
-        <img [src]="Book.photoUrls[0]" alt="Book Cover" class="card-img book-cover" />
-        <!-- Book Overlay -->
-        <div class="card-img-overlay">
-          <h5 class="card-title">{{ Book.bookTitle }}</h5>
-          <p class="card-text">{{ Book.authorName }}</p>
-          <div class="mb-2">
-            <ng-container *ngFor="let star of getStarArray(Book.averageRating)">
-              <i class="bi" [ngClass]="{
+      <div class="row mb-4">
+        <!-- Filters -->
+        <div class="col-md-4 mb-3">
+          <select class="form-select" id="authorFilter">
+            <option value="">Author</option>
+            <option value="Harper Lee">Harper Lee</option>
+            <option value="George Orwell">George Orwell</option>
+            <option value="Jane Austen">Jane Austen</option>
+          </select>
+        </div>
+        <div class="col-md-4 mb-3">
+          <select class="form-select" id="genreFilter">
+            <option value="">Genre</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <option value="Romance">Romance</option>
+          </select>
+        </div>
+        <div class="col-md-4 mb-3">
+          <select class="form-select" id="yearFilter">
+            <option value="">Publication Year</option>
+            <option value="1960">1960</option>
+            <option value="1949">1949</option>
+            <option value="1813">1813</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Book Cards -->
+      @if(UserService.currentUser()){
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-5" id="bookList">
+        <div *ngFor="let Book of BookService.Books(); trackBy: trackByBookId" class="col">
+          <div class="card h-100 book-card text-white" (click)="BookDetails(Book.bookId)">
+            <!-- Book Image -->
+            <img [src]="Book.photoUrls[0]" alt="Book Cover" class="card-img book-cover" />
+            <!-- Book Overlay -->
+            <div class="card-img-overlay">
+              <h5 class="card-title">{{ Book.bookTitle }}</h5>
+              <p class="card-text">{{ Book.authorName }}</p>
+              <div class="mb-2">
+                <ng-container *ngFor="let star of getStarArray(Book.averageRating)">
+                  <i class="bi" [ngClass]="{
                       'bi-star-fill': star === 'full',
                       'bi-star-half': star === 'half',
                       'bi-star': star === 'empty'
                     }" class="star-rating"></i>
-            </ng-container>
-            <small class="ms-1">{{ Book.averageRating.toFixed(1) }}</small>
+                </ng-container>
+                <small class="ms-1">{{ Book.averageRating.toFixed(1) }}</small>
+              </div>
+              <div class="d-flex gap-2">
+                <button class="btn btn-rent flex-grow-1">Rent</button>
+                <button class="btn btn-buy flex-grow-1">Buy</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
 
-<!-- Modal -->
-<div *ngIf="showModal" class="modal fade show" tabindex="-1" id="loginModal" style="display: block;"
-  aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content border-0 shadow-lg rounded-lg">
-      <div class="modal-header border-0 pb-3">
-        <h5 class="modal-title text-center text-dark" id="exampleModalLabel">Please Login To Continue</h5>
-        <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+      }
+      @else {
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-5" id="bookList">
+        <div *ngFor="let Book of BookService.Books(); trackBy: trackByBookId" class="col">
+          <div class="card h-100 book-card text-white" (click)="NonLoggedUser()">
+            <!-- Book Image -->
+            <img [src]="Book.photoUrls[0]" alt="Book Cover" class="card-img book-cover" />
+            <!-- Book Overlay -->
+            <div class="card-img-overlay">
+              <h5 class="card-title">{{ Book.bookTitle }}</h5>
+              <p class="card-text">{{ Book.authorName }}</p>
+              <div class="mb-2">
+                <ng-container *ngFor="let star of getStarArray(Book.averageRating)">
+                  <i class="bi" [ngClass]="{
+                      'bi-star-fill': star === 'full',
+                      'bi-star-half': star === 'half',
+                      'bi-star': star === 'empty'
+                    }" class="star-rating"></i>
+                </ng-container>
+                <small class="ms-1">{{ Book.averageRating.toFixed(1) }}</small>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-body text-center">
-        <p class="text-muted mb-4">You need to log in to access this feature. Please sign in to continue.</p>
-        <button class="btn btn-success btn-lg w-75 mb-3" (click)="LoginNavigation()">Login</button>
-        <br>
-        <button class="btn btn-outline-secondary btn-lg w-75" (click)="closeModal()">Close</button>
+
+
+      <!-- Modal -->
+      <div *ngIf="showModal" class="modal fade show" tabindex="-1" id="loginModal" style="display: block;"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content border-0 shadow-lg rounded-lg">
+            <div class="modal-header border-0 pb-3">
+              <h5 class="modal-title text-center text-dark" id="exampleModalLabel">Please Login To Continue</h5>
+              <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+              <p class="text-muted mb-4">You need to log in to access this feature. Please sign in to continue.</p>
+              <button class="btn btn-success btn-lg w-75 mb-3" (click)="LoginNavigation()">Login</button>
+              <br>
+              <button class="btn btn-outline-secondary btn-lg w-75" (click)="closeModal()">Close</button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+
+
+      <!-- Backdrop -->
+      <div *ngIf="showModal" class="modal-backdrop fade show"></div>
+
+      }
+    </main>
   </div>
 </div>
-
-
-<!-- Backdrop -->
-<div *ngIf="showModal" class="modal-backdrop fade show"></div>
-
-}
