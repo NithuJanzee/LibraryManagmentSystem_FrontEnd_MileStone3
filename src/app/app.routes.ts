@@ -17,6 +17,7 @@ import { NavigationComponent } from './User/navigation/navigation.component';
 import { TransactionComponent } from './User-Content/transaction/transaction.component';
 import { UserBodyComponent } from './User/user-body/user-body.component';
 import { AddBookComponent } from './Admin/AdminContent/books-management/add-book/add-book.component';
+import { EditBookComponent } from './Admin/AdminContent/books-management/edit-book/edit-book.component';
 
 export const routes: Routes = [
     {
@@ -47,7 +48,8 @@ export const routes: Routes = [
             {path:'Subscriptions',component:SubscriptionsComponent},
             {path:'PurchaseHistory',component:PurchaseHistoryComponent},
             {path:'UserMessage',component:UserMessagingComponent},
-            {path:'add-book', component:AddBookComponent}
+            {path:'add-book', component:AddBookComponent},
+            {path:'edit-book/:id',component:EditBookComponent}
         ]
     }
 ];

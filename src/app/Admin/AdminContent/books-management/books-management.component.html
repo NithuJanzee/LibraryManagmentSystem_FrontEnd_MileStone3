@@ -54,7 +54,7 @@
                             <td class="text-center"><span class="badge badge-available"><a href="">View More</a></span></td>
 
                             <td class="text-center book-actions">
-                                <button class="btn btn-sm btn-outline-primary me-2">
+                                <button class="btn btn-sm btn-outline-primary me-2" [routerLink]="['/admin/edit-book/'+ item.bookId]">
                                     <i class="bi bi-pencil"></i>
                                 </button>
                                 <button class="btn btn-sm btn-outline-danger">

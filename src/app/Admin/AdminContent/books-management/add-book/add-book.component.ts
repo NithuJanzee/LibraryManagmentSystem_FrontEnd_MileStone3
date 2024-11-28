@@ -1,8 +1,10 @@
 import { NgFor, NgIf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BookService } from '../../../../_service/book.service';
 import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-book',
@@ -15,6 +17,8 @@ export class AddBookComponent implements OnInit {
   bookForm!: FormGroup;
   imagePreviews: string[] = [];
   images: File[] = [];
+  private toaster = inject(ToastrService)
+  private route = inject(Router)
 
   constructor(private fb: FormBuilder, private bookService: BookService, private http: HttpClient) { }
 
@@ -47,12 +51,13 @@ export class AddBookComponent implements OnInit {
 
       this.bookService.PostNewBook(formData).subscribe({
         next: (response) => {
-          alert('Book added successfully!');
           console.log(response);
+          this.toaster.success('Book added successfully!')
+          this.bookForm.reset()
         },
         error: (error) => {
-          alert('An error while adding the book.');
-          console.error(error);
+          this.toaster.error('An error while adding the book.')
+          console.log(error)
         }
       });
     }

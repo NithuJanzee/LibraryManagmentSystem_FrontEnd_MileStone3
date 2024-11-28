@@ -13,7 +13,9 @@ export class BooksManagementComponent  implements OnInit{
   BookService = inject(BookService)
 
   ngOnInit(): void {
-    this.LoadBooks()
+    if(this.BookService.Books().length == 0){
+      this.LoadBooks()
+    }
   }
 
   LoadBooks(){
