@@ -3,17 +3,18 @@ import { BookPhoto } from "./BookPhoto"
 export interface Book {
   bookId: number;
   bookTitle: string;
-  publishDate: string; 
+  publishDate: string;
   genreName: string;
   authorName: string;
-  description?: string; 
+  description?: string;
   averageRating: number;
   totalRatings: number;
-  photoUrls: BookPhoto[]; 
-  ratingPercentages: { [key: number]: number }; 
+  photoUrls: BookPhoto[];
+  ratingPercentages: { [key: number]: number };
   comments : comments[]
   isLending:boolean
   isRequested:boolean
+  quantity:number
 
 }
 
@@ -24,3 +25,12 @@ export interface comments {
   useRatting:number
 }
 
+export interface PostBook{
+  title: string;
+  publishDate: string;
+  quantity: number;
+  authorId?: number;
+  genreId?: number;
+  description?: string;
+  photos: File[];
+}

@@ -4,7 +4,7 @@
             <h1 class="mb-0">Books Management</h1>
             <p class="text-muted">Manage your library's book collection</p>
         </div>
-        <button class="btn btn-primary">
+        <button class="btn btn-outline-success" [routerLink]="['/admin/add-book']">
             <i class="bi bi-plus-lg me-2"></i>
             Add Book
         </button>
@@ -34,22 +34,26 @@
                 <table class="table table-hover mb-0">
                     <thead>
                         <tr>
-                            <th>Title <i class="bi bi-arrow-down-up ms-1"></i></th>
-                            <th>Author <i class="bi bi-arrow-down-up ms-1"></i></th>
-                            <th>Genre <i class="bi bi-arrow-down-up ms-1"></i></th>
-                            <th>ISBN</th>
-                            <th>Status</th>
-                            <th class="text-end">Actions</th>
+                            <th class="text-center">Title <i class="bi bi-arrow-down-up ms-1"></i></th>
+                            <th class="text-center">Author <i class="bi bi-arrow-down-up ms-1"></i></th>
+                            <th class="text-center">Genre <i class="bi bi-arrow-down-up ms-1"></i></th>
+                            <th class="text-center">Publish Date</th>
+                            <th class="text-center">Quantity</th>
+                            <th class="text-center">View More details</th>
+                            <th class="text-center">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
+                      @for (item of BookService.Books(); track $index) {
                         <tr>
-                            <td>The Great Gatsby</td>
-                            <td>F. Scott Fitzgerald</td>
-                            <td>Classic</td>
-                            <td>978-0743273565</td>
-                            <td><span class="badge badge-available">Available</span></td>
-                            <td class="text-end book-actions">
+                            <td class="text-center">{{item.bookTitle}}</td>
+                            <td class="text-center">{{item.authorName}}</td>
+                            <td class="text-center">{{item.genreName}}</td>
+                            <td class="text-center">{{item.publishDate}}</td>
+                            <td class="text-center">{{item.quantity}}</td>
+                            <td class="text-center"><span class="badge badge-available"><a href="">View More</a></span></td>
+
+                            <td class="text-center book-actions">
                                 <button class="btn btn-sm btn-outline-primary me-2">
                                     <i class="bi bi-pencil"></i>
                                 </button>
@@ -58,36 +62,7 @@
                                 </button>
                             </td>
                         </tr>
-                        <tr>
-                            <td>1984</td>
-                            <td>George Orwell</td>
-                            <td>Science Fiction</td>
-                            <td>978-0451524935</td>
-                            <td><span class="badge badge-borrowed">Borrowed</span></td>
-                            <td class="text-end book-actions">
-                                <button class="btn btn-sm btn-outline-primary me-2">
-                                    <i class="bi bi-pencil"></i>
-                                </button>
-                                <button class="btn btn-sm btn-outline-danger">
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Pride and Prejudice</td>
-                            <td>Jane Austen</td>
-                            <td>Romance</td>
-                            <td>978-0141439518</td>
-                            <td><span class="badge badge-available">Available</span></td>
-                            <td class="text-end book-actions">
-                                <button class="btn btn-sm btn-outline-primary me-2">
-                                    <i class="bi bi-pencil"></i>
-                                </button>
-                                <button class="btn btn-sm btn-outline-danger">
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
+                      }
                     </tbody>
                 </table>
             </div>

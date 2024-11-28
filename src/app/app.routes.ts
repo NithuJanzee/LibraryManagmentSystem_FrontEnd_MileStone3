@@ -16,6 +16,7 @@ import { userGuard } from './_gurard/user.guard';
 import { NavigationComponent } from './User/navigation/navigation.component';
 import { TransactionComponent } from './User-Content/transaction/transaction.component';
 import { UserBodyComponent } from './User/user-body/user-body.component';
+import { AddBookComponent } from './Admin/AdminContent/books-management/add-book/add-book.component';
 
 export const routes: Routes = [
     {
@@ -23,10 +24,10 @@ export const routes: Routes = [
         component:NavigationComponent,
         children:[
             {path:'transactions',component:TransactionComponent},
-            
+
         ]
     },
-    
+
     {path:'admin-login',component:AdminLoginComponent},
     {path:'',component:UserBodyComponent},
     {path:'User-Login',component:UserLoginComponent},
@@ -45,7 +46,8 @@ export const routes: Routes = [
             {path:'ReturnManagement',component:ReturnManagementComponent},
             {path:'Subscriptions',component:SubscriptionsComponent},
             {path:'PurchaseHistory',component:PurchaseHistoryComponent},
-            {path:'UserMessage',component:UserMessagingComponent}
+            {path:'UserMessage',component:UserMessagingComponent},
+            {path:'add-book', component:AddBookComponent}
         ]
     }
 ];

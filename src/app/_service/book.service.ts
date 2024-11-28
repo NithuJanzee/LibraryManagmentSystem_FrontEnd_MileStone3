@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-import { Book } from '../_Inerface/BookInterFace';
+import { Book, PostBook } from '../_Inerface/BookInterFace';
 import { LendingRequest } from '../_Inerface/BookTransactionInterface';
 
 @Injectable({
@@ -26,5 +26,7 @@ export class BookService {
     return this.http.post(this.baseUrl + `BookLending/LendingRequest`,data);
   }
 
- 
+ PostNewBook(book:any){
+  return this.http.post(this.baseUrl + `Book/addBook`,book)
+ }
 }
