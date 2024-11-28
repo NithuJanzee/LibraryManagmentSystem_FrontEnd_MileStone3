@@ -57,7 +57,7 @@
                                 <button class="btn btn-sm btn-outline-primary me-2" [routerLink]="['/admin/edit-book/'+ item.bookId]">
                                     <i class="bi bi-pencil"></i>
                                 </button>
-                                <button class="btn btn-sm btn-outline-danger">
+                                <button class="btn btn-sm btn-outline-danger" (click)="DeleteBook(item.bookId)">
                                     <i class="bi bi-trash"></i>
                                 </button>
                             </td>

@@ -1,20 +1,108 @@
-
+/* General Styling */
 body {
+  font-family: 'Arial', sans-serif;
   background-color: #f8f9fa;
+  color: #212529;
+  margin: 0;
+  padding: 0;
 }
+
+.container {
+  max-width: 960px;
+}
+
 .card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-.btn-primary {
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+
+.card-header {
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 1.5rem;
 }
-.btn-outline-secondary {
-  color: #6c757d;
-  border-color: #6c757d;
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
+
+.card-body {
+  padding: 1.5rem;
+}
+
+/* Form Styling */
+label {
+  font-weight: 500;
+  color: #495057;
+}
+
+.form-label {
+  margin-bottom: 0.5rem;
+}
+
+.form-control,
+.form-select {
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
 .form-control:focus,
 .form-select:focus {
-  border-color: #86b7fe;
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  border-color: #80bdff;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
 }
+
+.text-danger {
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Button Styling */
+.btn {
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  border-radius: 6px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+.btn-outline-secondary {
+  border-color: #6c757d;
+  color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+/* Image Previews */
+.card-img-top {
+  border-bottom: 1px solid #ddd;
+}
+
+.card-body p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #6c757d;
+}
+
+.card.shadow-sm {
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+

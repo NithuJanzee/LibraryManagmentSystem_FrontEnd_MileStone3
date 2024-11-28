@@ -17,12 +17,17 @@
                 </div>
               </div>
               <div class="col-md-6">
-                <label for="author" class="form-label">Author Name</label>
-                <input type="text" id="author" class="form-control" formControlName="author"
-                  placeholder="Enter author name" />
-                <div *ngIf="bookForm.get('author')?.invalid && bookForm.get('author')?.touched" class="text-danger">
-                  Author is required.
-                </div>
+                <label for="genre" class="form-label">Author
+                  <button class="btn btn-outline-warning btn-sm" data-bs-toggle="modal" data-bs-target="#AuthorModal">
+                    <i class="fa-solid fa-plus"></i>Add New Author
+                  </button>
+                </label>
+                <select id="author" class="form-select" formControlName="author">
+                  <option value="" selected disabled>Select author</option>
+                  @for (item of bookService.AuthorSignal(); track $index) {
+                  <option value="{{item.authorID}}">{{item.authorName}}</option>
+                  }
+                </select>
               </div>
             </div>
             <div class="row mb-3">
@@ -37,15 +42,16 @@
               </div>
             </div>
             <div class="mb-3">
-              <label for="genre" class="form-label">Genre</label>
+              <label for="genre" class="form-label">Genre
+                <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#GenreModal">
+                  <i class="fa-solid fa-plus"></i>Add new genre
+                </button>
+              </label>
               <select id="genre" class="form-select" formControlName="genre">
                 <option value="" selected disabled>Select genre</option>
-                <option value="1">Fiction</option>
-                <option value="non-fiction">Non-Fiction</option>
-                <option value="mystery">Mystery</option>
-                <option value="sci-fi">Science Fiction</option>
-                <option value="romance">Romance</option>
-                <option value="biography">Biography</option>
+                @for (item of bookService.GenreSignal(); track $index) {
+                <option value="{{item.genreId}}">{{item.genre}}</option>
+                }
               </select>
             </div>
             <div class="mb-3">
@@ -77,11 +83,59 @@
 
 
             <div class="text-end">
-              <button type="button" class="btn btn-outline-secondary me-2">Cancel</button>
+              <button type="button" class="btn btn-outline-secondary me-2" (click)="cancel()">Cancel</button>
               <button type="submit" class="btn btn-primary" [disabled]="bookForm.invalid">Add Book</button>
             </div>
           </form>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- AuthorModal Modal -->
+<div class="modal fade" id="AuthorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="border-radius: 10px; background-color: #ffffff;">
+      <div class="modal-header" style="border-bottom: 1px solid #f1f1f1;">
+        <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: #333333;">Add New Author</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          style="color: #888;"></button>
+      </div>
+      <div class="modal-body" style="color: #555;">
+        <input type="text" class="form-control" id="recipient-name" [(ngModel)]="NewAuthor">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"
+          style="color: #555;">Close</button>
+        <button type="button" class="btn btn-primary" style="background-color: #007bff; border-color: #007bff;" (click)="AddAuthor()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Genre Modal -->
+<div class="modal fade" id="GenreModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="border-radius: 10px; background-color: #ffffff;">
+      <div class="modal-header" style="border-bottom: 1px solid #f1f1f1;">
+        <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: #333333;">Add New Genre</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          style="color: #888;"></button>
+      </div>
+      <div class="modal-body" style="color: #555;">
+        <input type="text" class="form-control" id="recipient-name">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"
+          style="color: #555;">Close</button>
+        <button type="button" class="btn btn-primary" style="background-color: #007bff; border-color: #007bff;">Save
+          changes</button>
       </div>
     </div>
   </div>

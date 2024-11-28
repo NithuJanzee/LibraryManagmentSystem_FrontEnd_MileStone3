@@ -1,6 +1,6 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BookService } from '../../../../_service/book.service';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-book',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf, NgFor],
+  imports: [ReactiveFormsModule, NgIf, NgFor,FormsModule],
   templateUrl: './add-book.component.html',
   styleUrl: './add-book.component.css'
 })
@@ -19,8 +19,10 @@ export class AddBookComponent implements OnInit {
   images: File[] = [];
   private toaster = inject(ToastrService)
   private route = inject(Router)
+  bookService = inject(BookService)
+  NewAuthor:string = '';
 
-  constructor(private fb: FormBuilder, private bookService: BookService, private http: HttpClient) { }
+  constructor(private fb: FormBuilder, private http: HttpClient) { }
 
   ngOnInit() {
     this.bookForm = this.fb.group({
@@ -32,8 +34,16 @@ export class AddBookComponent implements OnInit {
       description: [''],
       cover: [null],
     });
+
+    if(this.bookService.GenreSignal(),length == 0 || this.bookService.AuthorSignal().length == 0){
+      this.loadDropDowns()
+    }
   }
 
+  loadDropDowns(){
+    this.bookService.GetAllGenre()
+    this.bookService.GetAllAuthor()
+  }
   onSubmit() {
     if (this.bookForm.valid) {
       const formData = new FormData();
@@ -83,5 +93,17 @@ export class AddBookComponent implements OnInit {
         cover: this.images,
       });
     }
+  }
+
+  cancel(){
+    this.bookForm.reset()
+  }
+
+  AddAuthor(){
+    this.bookService.AddNewAuthor(this.NewAuthor).subscribe({
+      next:res=>{
+        this.toaster.success('Author Added Successful')
+      }
+    })
   }
 }

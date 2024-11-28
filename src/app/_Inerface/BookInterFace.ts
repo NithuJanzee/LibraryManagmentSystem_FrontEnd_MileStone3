@@ -34,3 +34,13 @@ export interface PostBook{
   description?: string;
   photos: File[];
 }
+
+export interface Genre{
+  genreId:number
+  genre:string
+}
+
+export interface Author{
+  authorID:number
+  authorName:string
+}
