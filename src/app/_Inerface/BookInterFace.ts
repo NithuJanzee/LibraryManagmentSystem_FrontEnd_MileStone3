@@ -52,3 +52,15 @@ export interface GetBookForEdit{
   quantity:number
   description:string
 }
+
+export interface BookRatting{
+  userId:number
+  bookId:number
+  value:number
+}
+
+export interface postComment{
+  bookId:number
+  userId:number
+  comment:string
+}

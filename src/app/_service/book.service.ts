@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-import { Author, Book, Genre, GetBookForEdit, PostBook } from '../_Inerface/BookInterFace';
+import { Author, Book, BookRatting, comments, Genre, GetBookForEdit, PostBook, postComment } from '../_Inerface/BookInterFace';
 import { LendingRequest } from '../_Inerface/BookTransactionInterface';
 import { Observable } from 'rxjs';
 
@@ -66,9 +66,15 @@ export class BookService {
   }
 
   updateBook(formData: FormData): Observable<any> {
-    return this.http.put(this.baseUrl + 'Book/updateBook',formData);
+    return this.http.put(this.baseUrl + 'Book/updateBook', formData);
   }
 
 
-  
+  Postratting(Ratting: BookRatting) {
+    return this.http.post(this.baseUrl + `Ratting/PostRatting`, Ratting)
+  }
+
+  PostComment(comment: postComment) {
+    return this.http.post(this.baseUrl + `Comment/PostComment`, comment)
+  }
 }

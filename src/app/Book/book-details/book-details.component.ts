@@ -81,6 +81,35 @@ export class BookDetailsComponent implements OnInit {
 
 
   AddReview(){
-    
+    const user = Number(this.UserService.LoggedUser()?.nameid)
+    const book = this.ParamBookId
+    const ratevalue = Number(this.Rattings)
+    const com = this.Comment
+
+    let Reviewdata = {
+      userId:user,
+      bookId:book,
+      value:ratevalue
+    }
+
+    let commentData = {
+      bookId:user,
+      userId:book,
+      comment:com
+    }
+
+    // this.Bookservice.Postratting(Reviewdata).subscribe({
+    //   next:res=>{
+    //     this.toster.success("ratting Added succesfully")
+    //   }
+    // })
+    console.log(commentData)
+    this.Bookservice.PostComment(commentData).subscribe({
+      next:res=>{
+        this.toster.success("Comment added succesfully")
+      }
+    })
+
+
   }
 }
