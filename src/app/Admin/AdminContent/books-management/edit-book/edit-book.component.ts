@@ -1,6 +1,6 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { BookService } from '../../../../_service/book.service';
 import { GetBookForEdit } from '../../../../_Inerface/BookInterFace';
 import { ToastrService } from 'ngx-toastr';
@@ -19,6 +19,7 @@ export class EditBookComponent implements OnInit {
   selectedFile: File | null = null;
   ExitingBook = signal<GetBookForEdit | null>(null);
   toaster = inject(ToastrService)
+  router = inject(Router)
 
   constructor(private formBuider: FormBuilder, private rout: ActivatedRoute) {
     const BookId = this.rout.snapshot.paramMap.get('id');
@@ -85,6 +86,7 @@ export class EditBookComponent implements OnInit {
     this.bookService.updateBook(formData).subscribe({
       next: (response) => {
         this.toaster.success("Book Updated succesfully")
+        this.router.navigateByUrl('admin/BookManageMent')
       },
       error: (err) => {
        this.toaster.error(err);

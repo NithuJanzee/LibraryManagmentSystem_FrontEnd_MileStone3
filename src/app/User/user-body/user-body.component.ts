@@ -7,6 +7,7 @@ import { jwtDecode } from 'jwt-decode';
 import { NavigationComponent } from "../navigation/navigation.component";
 import { FormsModule } from '@angular/forms';
 
+
 @Component({
   selector: 'app-user-body',
   standalone: true,
@@ -36,7 +37,7 @@ export class UserBodyComponent implements OnInit {
 
   NonLoggedUser() {
     console.log('Non Logged user show Modal window');
-    this.showModal = true; 
+    this.showModal = true;
   }
 
   closeModal() {
