@@ -44,3 +44,12 @@ export interface Author{
   authorID:number
   authorName:string
 }
+
+export interface GetBookForEdit{
+  bookTitle:string
+  publishDate:string
+  author:string
+  genre:string
+  quantity:number
+  description:string
+}

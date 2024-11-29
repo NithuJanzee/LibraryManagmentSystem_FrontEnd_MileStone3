@@ -1,1 +1,60 @@
-<p>edit-book works!</p>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header bg-white">
+          <h2 class="card-title mb-0">Edit Book</h2>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="EditForm" (ngSubmit)="onSubmit()">
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="title" class="form-label">Book Title</label>
+                <input type="text" class="form-control" id="bookTitle" formControlName="bookTitle" required />
+              </div>
+              <div class="col-md-6">
+                <label for="author" class="form-label">Author</label>
+                <select class="form-select" id="author" formControlName="author" required>
+                  @for (item of bookService.AuthorSignal(); track $index) {
+                    <option value="{{item.authorID}}">{{item.authorName}}</option>
+                  }
+                </select>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="publishDate" class="form-label">Publish Date</label>
+                <input type="date" class="form-control" id="publishDate" formControlName="publishDate" required />
+              </div>
+              <div class="col-md-6">
+                <label for="quantity" class="form-label">Quantity</label>
+                <input type="number" class="form-control" id="quantity" formControlName="quantity" required />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="genre" class="form-label">Genre</label>
+              <select class="form-select" id="genre" formControlName="genre" required>
+                @for (item of bookService.GenreSignal(); track $index) {
+                  <option value="{{item.genreId}}">{{item.genre}}</option>
+                }
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea class="form-control" id="description" rows="3" formControlName="description"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="image" class="form-label">Additional Photo</label>
+              <input type="file" name="image" id="image" (change)="onFileSelect($event)">
+            </div>
+            <div class="text-end">
+              <button type="button" class="btn btn-outline-secondary me-2">Cancel</button>
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

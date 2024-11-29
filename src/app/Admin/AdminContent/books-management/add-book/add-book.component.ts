@@ -21,6 +21,7 @@ export class AddBookComponent implements OnInit {
   private route = inject(Router)
   bookService = inject(BookService)
   NewAuthor:string = '';
+  NewGenre:string = '';
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
 
@@ -103,11 +104,26 @@ export class AddBookComponent implements OnInit {
     let author = {
       authorName : this.NewAuthor
     }
-    console.log(author)
     this.bookService.AddNewAuthor(author).subscribe({
       next:res=>{
         this.toaster.success('Author Added Successful')
+        this.bookService.GetAllAuthor()
       }
     })
   }
+
+  AddGenre(){
+    let Genre = {
+      genreName:this.NewGenre
+    }
+    this.bookService.AddNewGenre(Genre).subscribe({
+      next:res=>{
+        this.toaster.success('Genre Added succesful')
+        this.bookService.GetAllGenre()
+      }
+    })
+
+  }
+
+
 }

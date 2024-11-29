@@ -129,12 +129,14 @@
           style="color: #888;"></button>
       </div>
       <div class="modal-body" style="color: #555;">
-        <input type="text" class="form-control" id="recipient-name">
+        <input type="text" class="form-control" id="recipient-name" [(ngModel)]="NewGenre">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"
           style="color: #555;">Close</button>
-        <button type="button" class="btn btn-primary" style="background-color: #007bff; border-color: #007bff;">Save
+        <button type="button" class="btn btn-primary" style="background-color: #007bff; border-color: #007bff;"
+        (click)="AddGenre()"
+        >Save
           changes</button>
       </div>
     </div>
