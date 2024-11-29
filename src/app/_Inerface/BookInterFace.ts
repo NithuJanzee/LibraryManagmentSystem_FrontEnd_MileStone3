@@ -15,7 +15,6 @@ export interface Book {
   isLending:boolean
   isRequested:boolean
   quantity:number
-
 }
 
 export interface comments {

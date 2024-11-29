@@ -70,4 +70,5 @@ export class UserBodyComponent implements OnInit {
     const decoded: any = jwtDecode(UserToken.token);
     this.UserService.LoggedUser.set(decoded)
   }
+
 }

@@ -1,10 +1,11 @@
+import { comments } from './../../_Inerface/BookInterFace';
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { BookService } from '../../_service/book.service';
 import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { Book } from '../../_Inerface/BookInterFace';
 import { CommonModule, DatePipe, NgFor } from '@angular/common';
 import { UserServiceService } from '../../_service/user-service.service';
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { LendingRequest } from '../../_Inerface/BookTransactionInterface';
 import { ToastrService } from 'ngx-toastr';
 import { jwtDecode } from 'jwt-decode';
@@ -13,7 +14,7 @@ import { jwtDecode } from 'jwt-decode';
 @Component({
   selector: 'app-book-details',
   standalone: true,
-  imports: [NgFor, FormsModule, CommonModule, DatePipe],
+  imports: [NgFor, FormsModule, CommonModule, DatePipe,],
   templateUrl: './book-details.component.html',
   styleUrl: './book-details.component.css'
 })
@@ -25,6 +26,8 @@ export class BookDetailsComponent implements OnInit {
   requestDay: number = 3;
   private toster = inject(ToastrService)
   private navigator = inject(Router)
+  Rattings:string='';
+  Comment:string='';
 
   UserService = inject(UserServiceService)
 
@@ -75,4 +78,9 @@ export class BookDetailsComponent implements OnInit {
     this.UserService.LoggedUser.set(decoded)
   }
 
+
+
+  AddReview(){
+    
+  }
 }

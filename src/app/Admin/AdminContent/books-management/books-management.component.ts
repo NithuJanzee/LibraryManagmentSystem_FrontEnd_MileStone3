@@ -1,12 +1,13 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { BookService } from '../../../_service/book.service';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-books-management',
   standalone: true,
-  imports: [RouterLink,RouterOutlet],
+  imports: [RouterLink],
   templateUrl: './books-management.component.html',
   styleUrl: './books-management.component.css'
 })

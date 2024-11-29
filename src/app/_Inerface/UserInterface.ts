@@ -31,6 +31,7 @@ export interface DecodedToken {
 }
 
 export interface UserTransactionById{
+  bookId:number
   lendID:number
   bookTitle:string
   authorName:string

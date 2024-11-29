@@ -94,7 +94,7 @@
                             [attr.data-bs-target]="'#carouselExampleDark'" [attr.data-bs-slide-to]="i"
                             [class.active]="i === 0" [attr.aria-label]="'Slide ' + (i + 1)"></button>
                     </div>
-    
+
                     <!--  Inner -->
                     <div class="carousel-inner">
                         <div *ngFor="let photo of BookById()?.photoUrls; let i = index" class="carousel-item"
@@ -115,10 +115,10 @@
                     </button>
                 </div>
             </div>
-    
-    
-    
-    
+
+
+
+
             <div class="col-md-6">
                 <!-- Main Tittle -->
                 <h1 class="mb-3">
@@ -127,7 +127,7 @@
                 </h1>
                 <div class="mb-3">
                     <span class="ms-2">
-    
+
                         <span class="rating">
                             @if(BookById()?.averageRating == 1){
                             <i class="fa-solid fa-star"></i>
@@ -160,8 +160,8 @@
                         </h3>
                     </span>
                 </div>
-    
-    
+
+
                 <div class="mb-4">
                     <h4>Details</h4>
                     <ul class="list-unstyled">
@@ -179,7 +179,7 @@
                 <p class="price mb-2">250 <span class="original-price ms-2">300</span> <span
                         class="discount ms-2">20%</span></p>
                 <p class="mb-4"><strong>Brand:</strong> Brand Here | <strong>SKU:</strong> SKU Here</p>
-    
+
                 <!-- RadioButton -->
                 @if(UserService.LoggedUser()?.role === 'FreeUser'){
                 <div class="RadioButton p">
@@ -275,9 +275,34 @@
                 <button class="btn btn-outline-warning me-2 mt-2"><i class="fas fa-bolt"></i> Buy Now</button>
             </div>
         </div>
-    
+
         <div class="row mt-5">
             <div class="col-12">
+              <!-- write review Area -->
+              @if(BookById()?.isLending == true){
+                <div class="review-form mb-4">
+                  <h3 class="mb-3">Write a Review</h3>
+                  <form>
+                      <div class="mb-3">
+                          <label for="rating" class="form-label">Your Rating:</label>
+                          <select class="form-select" id="rating" [(ngModel)]="Rattings" name="rating">
+                            <option value="5">5 Stars - Excellent</option>
+                            <option value="4">4 Stars - Very Good</option>
+                            <option value="3">3 Stars - Good</option>
+                            <option value="2">2 Stars - Fair</option>
+                            <option value="1">1 Star - Poor</option>
+                          </select>
+                      </div>
+                      <div class="mb-3">
+                          <label for="comment" class="form-label">Your Review:</label>
+                          <textarea class="form-control" id="Comment" name="Comment" rows="4" placeholder="What did you like or dislike about this product?"
+                          [(ngModel)]="Comment"></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-custom" (click)="AddReview()">Submit Review</button>
+                  </form>
+              </div>
+              <!-- end write review -->
+              }
                 <h2 class="mb-4">Customer Reviews</h2>
                 <div class="row align-items-center mb-4">
                     <div class="col-md-4 text-center">
@@ -359,7 +384,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 @for (item of BookById()?.comments; track $index) {
                 <div class="review-card mb-3">
                     <div class="d-flex mb-3">
@@ -398,7 +423,7 @@
                     <p>{{item.commentText}}</p>
                 </div>
                 }
-    
+
             </div>
         </div>
     </div>

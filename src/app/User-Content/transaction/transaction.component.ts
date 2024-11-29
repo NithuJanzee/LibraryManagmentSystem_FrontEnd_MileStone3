@@ -4,18 +4,20 @@ import { ToastrService } from 'ngx-toastr';
 import { jwtDecode } from 'jwt-decode';
 import { DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-transaction',
   standalone: true,
-  imports: [DatePipe,FormsModule],
+  imports: [DatePipe,FormsModule,],
   templateUrl: './transaction.component.html',
   styleUrl: './transaction.component.css'
 })
 export class TransactionComponent implements OnInit {
   userService = inject(UserServiceService)
   Toaster = inject(ToastrService)
+  router = inject(Router)
   searchText: string = ''
 
   ngOnInit(): void {
@@ -34,5 +36,10 @@ export class TransactionComponent implements OnInit {
   loadUserLendingBooks(searchText:string) {
     var userId = Number(this.userService.LoggedUser()?.nameid)
     this.userService.GetAllTransactionWithUserId(userId,searchText)
+  }
+
+
+  NavigateToBookDetails(bookId:number){
+    this.router.navigateByUrl(`/BookDetails/${bookId}`)
   }
 }
