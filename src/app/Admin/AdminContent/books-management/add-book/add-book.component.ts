@@ -100,7 +100,11 @@ export class AddBookComponent implements OnInit {
   }
 
   AddAuthor(){
-    this.bookService.AddNewAuthor(this.NewAuthor).subscribe({
+    let author = {
+      authorName : this.NewAuthor
+    }
+    console.log(author)
+    this.bookService.AddNewAuthor(author).subscribe({
       next:res=>{
         this.toaster.success('Author Added Successful')
       }

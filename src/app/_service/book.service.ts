@@ -52,7 +52,7 @@ export class BookService {
   })
  }
 
- AddNewAuthor(name:string){
-  return this.http.post(this.baseUrl +'Author/AddNewAuthor',name)
+ AddNewAuthor(name:any){
+  return this.http.post(this.baseUrl + `Author/AddNewAuthor`,name)
  }
 }
