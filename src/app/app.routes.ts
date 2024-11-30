@@ -18,19 +18,22 @@ import { TransactionComponent } from './User-Content/transaction/transaction.com
 import { UserBodyComponent } from './User/user-body/user-body.component';
 import { AddBookComponent } from './Admin/AdminContent/books-management/add-book/add-book.component';
 import { EditBookComponent } from './Admin/AdminContent/books-management/edit-book/edit-book.component';
+import { UserSubscriptionsComponent } from './User-Content/user-subscriptions/user-subscriptions.component';
 
 export const routes: Routes = [
-    {
-        path:'user',
-        component:NavigationComponent,
-        children:[
-            {path:'transactions',component:TransactionComponent},
-
-        ]
-    },
+  {
+    path: '',
+    component: NavigationComponent,
+    children: [
+      { path: '', redirectTo: 'userBody', pathMatch: 'full' },
+      { path: 'userBody', component: UserBodyComponent },
+      { path: 'transactions', component: TransactionComponent },
+      { path: 'Subscriptions', component: UserSubscriptionsComponent }
+    ]
+  }
+  ,
 
     {path:'admin-login',component:AdminLoginComponent},
-    {path:'',component:UserBodyComponent},
     {path:'User-Login',component:UserLoginComponent},
     {path:'User-SignUp',component:UserCreationComponent},
     {path:'BookDetails/:id',component:BookDetailsComponent,canActivate:[userGuard]},

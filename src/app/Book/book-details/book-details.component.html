@@ -1,432 +1,357 @@
-<!-- Desktop and Tablet Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="desktopNavbar">
-  <div class="container">
-    <p class="navbar-brand" id="navname">
-      <i class="bi bi-book me-2"></i>Binary Bookshelf
-    </p>
+<div class="bodycomponent">
+  <!-- Desktop and Tablet Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="desktopNavbar">
+    <div class="container">
+      <p class="navbar-brand" id="navname">
+        <i class="bi bi-book me-2"></i>Binary Bookshelf
+      </p>
 
-    <button class="navbar-toggler navtoggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <button class="navbar-toggler navtoggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-person-fill mx-1"></i>Profile</a></li>
-        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-journal-text mx-1"></i>Transactions</a></li>
-        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-people mx-1"></i>Community</a></li>
-        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-heart-fill mx-1"></i>Wishlist</a></li>
-        <li class="nav-item">
-          <div class="dropdown">
-            <button class="btn btn-link text-dark p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-person-circle fs-5"></i>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end shadow-lg rounded-3 border-0">
-              <li class="px-3 py-2">
-                <p class="mb-0 text-muted font-weight-bold"></p>
-              </li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li>
-                <button class="btn btn-outline-danger w-100 py-2">LogOut</button>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- Mobile Navbar (Offcanvas) -->
-<nav class="navbar bg-body-tertiary fixed-top d-lg-none" id="mobileNavbar">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <i class="bi bi-book me-2"></i> Binary Bookshelf
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-      aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header">
-        <a class="navbar-brand" href="#">
-          <i class="bi bi-book me-2"></i> Binary Bookshelf
-        </a>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Transactions</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Community</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Wishlist</a></li>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-person-fill mx-1"></i>Profile</a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-journal-text mx-1"></i>Transactions</a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-people mx-1"></i>Community</a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-heart-fill mx-1"></i>Wishlist</a></li>
           <li class="nav-item">
-            <button class="btn btn-danger">
-              LogOut
-            </button>
+            <div class="dropdown">
+              <button class="btn btn-link text-dark p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-circle fs-5"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end shadow-lg rounded-3 border-0">
+                <li class="px-3 py-2">
+                  <p class="mb-0 text-muted font-weight-bold"></p>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <button class="btn btn-outline-danger w-100 py-2">LogOut</button>
+                </li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<div class="body">
-
-  <div class="container mt-5">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Home</a></li>
-        <li class="breadcrumb-item"><a class="text-decoration-none">{{BookById()?.genreName}}</a></li>
-        <li class="breadcrumb-item active" aria-current="page">{{BookById()?.bookTitle}}</li>
-      </ol>
-    </nav>
-    <div class="row">
-      <!-- Image Slider  -->
-      <div class="col-md-6">
-        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-          <!--  Indicators -->
-          <div class="carousel-indicators">
-            <button type="button" *ngFor="let photo of BookById()?.photoUrls; let i = index"
-              [attr.data-bs-target]="'#carouselExampleDark'" [attr.data-bs-slide-to]="i" [class.active]="i === 0"
-              [attr.aria-label]="'Slide ' + (i + 1)"></button>
-          </div>
-
-          <!--  Inner -->
-          <div class="carousel-inner">
-            <div *ngFor="let photo of BookById()?.photoUrls; let i = index" class="carousel-item"
-              [class.active]="i === 0" data-bs-interval="10000">
-              <img [src]="photo" class="d-block w-100" alt="Book Image">
-            </div>
-          </div>
-          <!--  Controls -->
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+  <!-- Mobile Navbar (Offcanvas) -->
+  <nav class="navbar bg-body-tertiary fixed-top d-lg-none" id="mobileNavbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <i class="bi bi-book me-2"></i> Binary Bookshelf
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <a class="navbar-brand" href="#">
+            <i class="bi bi-book me-2"></i> Binary Bookshelf
+          </a>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-      </div>
-
-
-
-
-      <div class="col-md-6">
-        <!-- Main Tittle -->
-        <h1 class="mb-3">
-          <i class="bi bi-journal-richtext"></i>
-          {{BookById()?.bookTitle}}
-        </h1>
-        <div class="mb-3">
-          <span class="ms-2">
-
-            <span class="rating">
-              @if(BookById()?.averageRating == 1){
-              <i class="fa-solid fa-star"></i>
-              }
-              @if(BookById()?.averageRating == 2){
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              }
-              @if(BookById()?.averageRating == 3){
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              }
-              @if(BookById()?.averageRating == 4){
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              }
-              @if(BookById()?.averageRating == 5){
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              }
-            </span>
-            <h3>{{BookById()?.averageRating || 0}} out of 5 (Based on {{ BookById()?.totalRatings || 0 }}
-              reviews)
-            </h3>
-          </span>
-        </div>
-
-
-        <div class="mb-4">
-          <h4>Details</h4>
-          <ul class="list-unstyled">
-            <li>
-              <h5>Author : {{BookById()?.authorName}}</h5>
-            </li>
-            <li>
-              <h5>Genre : {{BookById()?.genreName}}</h5>
-            </li>
-            <li>
-              <h5>Description : {{BookById()?.description}}</h5>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Transactions</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Community</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Wishlist</a></li>
+            <li class="nav-item">
+              <button class="btn btn-danger">
+                LogOut
+              </button>
             </li>
           </ul>
         </div>
-        <!-- Price  -->
-        @if (UserService.LoggedUser()?.role === 'Premium') {
-          <p class="price mb-2"> <strong>Price:</strong>{{BookById()?.discountedPrice}} /=<span class="original-price ms-2">{{BookById()?.price}}</span> <span class="discount ms-2">20%</span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body">
+
+    <div class="container mt-5">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Home</a></li>
+          <li class="breadcrumb-item"><a class="text-decoration-none">{{BookById()?.genreName}}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{BookById()?.bookTitle}}</li>
+        </ol>
+      </nav>
+      <div class="row">
+        <!-- Image Slider  -->
+        <div class="col-md-6">
+          <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <!--  Indicators -->
+            <div class="carousel-indicators">
+              <button type="button" *ngFor="let photo of BookById()?.photoUrls; let i = index"
+                [attr.data-bs-target]="'#carouselExampleDark'" [attr.data-bs-slide-to]="i" [class.active]="i === 0"
+                [attr.aria-label]="'Slide ' + (i + 1)"></button>
+            </div>
+
+            <!--  Inner -->
+            <div class="carousel-inner">
+              <div *ngFor="let photo of BookById()?.photoUrls; let i = index" class="carousel-item"
+                [class.active]="i === 0" data-bs-interval="10000">
+                <img [src]="photo" class="d-block w-100" alt="Book Image">
+              </div>
+            </div>
+            <!--  Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+
+
+
+
+        <div class="col-md-6">
+          <!-- Main Tittle -->
+          <h1 class="mb-3">
+            <i class="bi bi-journal-richtext"></i>
+            {{BookById()?.bookTitle}}
+          </h1>
+          <div class="mb-3">
+            <span class="ms-2">
+
+              <span class="rating">
+                @if(BookById()?.averageRating == 1){
+                <i class="fa-solid fa-star"></i>
+                }
+                @if(BookById()?.averageRating == 2){
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                }
+                @if(BookById()?.averageRating == 3){
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                }
+                @if(BookById()?.averageRating == 4){
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                }
+                @if(BookById()?.averageRating == 5){
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                }
+              </span>
+              <h3>{{BookById()?.averageRating || 0}} out of 5 (Based on {{ BookById()?.totalRatings || 0 }}
+                reviews)
+              </h3>
+            </span>
+          </div>
+
+
+          <div class="mb-4">
+            <h4>Details</h4>
+            <ul class="list-unstyled">
+              <li>
+                <h5>Author : {{BookById()?.authorName}}</h5>
+              </li>
+              <li>
+                <h5>Genre : {{BookById()?.genreName}}</h5>
+              </li>
+              <li>
+                <h5>Description : {{BookById()?.description}}</h5>
+              </li>
+            </ul>
+          </div>
+          <!-- Price  -->
+          @if (UserService.LoggedUser()?.role === 'Premium') {
+          <p class="price mb-2"> <strong>Price:</strong>{{BookById()?.discountedPrice}} /=<span
+              class="original-price ms-2">{{BookById()?.price}}</span> <span class="discount ms-2">20%</span>
           </p>
           <p class="mb-4"><strong>Status:</strong> Premium User | <strong><i class="fa-solid fa-crown"></i></strong></p>
-        }@else {
+          }@else {
           <p class="price mb-2"><strong>Price:</strong> {{BookById()?.price}} /=
           </p>
           <p class="mb-4"><strong>Status:</strong> Free User | <strong><i class="fa-regular fa-user"></i></strong></p>
 
-        }
+          }
 
-        <!-- RadioButton -->
-        @if(UserService.LoggedUser()?.role === 'FreeUser'){
-        <div class="RadioButton p">
-          <div class="form-check custom-radio">
-            <input class="form-check-input" type="radio" name="requestDay" id="requestDay1" [(ngModel)]="requestDay"
-              value="3">
-            <label class="form-check-label" for="requestDay3">
-              <i class="bi bi-person-fill-check"></i>
-              3 Day
-            </label>
+          <!-- RadioButton -->
+          @if(UserService.LoggedUser()?.role === 'FreeUser'){
+          <div class="RadioButton p">
+            <div class="form-check custom-radio">
+              <input class="form-check-input" type="radio" name="requestDay" id="requestDay1" [(ngModel)]="requestDay"
+                value="3">
+              <label class="form-check-label" for="requestDay3">
+                <i class="bi bi-person-fill-check"></i>
+                3 Day
+              </label>
+            </div>
+            <div class="form-check custom-radio">
+              <input class="form-check-input" type="radio" name="requestDay" id="requestDay2" [(ngModel)]="requestDay"
+                value="7">
+              <label class="form-check-label" for="requestDay3">
+                <i class="bi bi-person-fill-check"></i>
+                7 Days
+              </label>
+            </div>
+            <div class="form-check custom-radio">
+              <input class="form-check-input" type="radio" name="requestDay" id="requestDay3" [(ngModel)]="requestDay"
+                value="10" disabled>
+              <label class="form-check-label" for="requestDay10">
+                <i class="fa-solid fa-crown"></i>
+                10 Days
+              </label>
+            </div>
+            <div class="form-check custom-radio">
+              <input class="form-check-input" type="radio" name="requestDay" id="requestDay4" [(ngModel)]="requestDay"
+                value="15" disabled>
+              <label class="form-check-label" for="requestDay4">
+                <i class="fa-solid fa-crown"></i>
+                15 Days
+              </label>
+            </div>
+            <div class="form-check custom-radio">
+              <input class="form-check-input" type="radio" name="requestDay" id="requestDay5" [(ngModel)]="requestDay"
+                value="30" disabled>
+              <label class="form-check-label" for="requestDay5">
+                <i class="fa-solid fa-crown"></i>
+                30 Days
+              </label>
+            </div>
           </div>
-          <div class="form-check custom-radio">
-            <input class="form-check-input" type="radio" name="requestDay" id="requestDay2" [(ngModel)]="requestDay"
-              value="7">
-            <label class="form-check-label" for="requestDay3">
-              <i class="bi bi-person-fill-check"></i>
-              7 Days
-            </label>
+          <!-- endRadio Free-->
+          }@else {
+          <div class="RadioButton p">
+            <div class="form-check custom-radio">
+              <input class="form-check-input" type="radio" name="requestDay" id="requestDay1" [(ngModel)]="requestDay"
+                value="3">
+              <label class="form-check-label" for="requestDay3">
+                <i class="bi bi-person-fill-check"></i>
+                3 Day
+              </label>
+            </div>
+            <div class="form-check custom-radio">
+              <input class="form-check-input" type="radio" name="requestDay" id="requestDay2" [(ngModel)]="requestDay"
+                value="7">
+              <label class="form-check-label" for="requestDay3">
+                <i class="bi bi-person-fill-check"></i>
+                7 Days
+              </label>
+            </div>
+            <div class="form-check custom-radio">
+              <input class="form-check-input" type="radio" name="requestDay" id="requestDay3" [(ngModel)]="requestDay"
+                value="10">
+              <label class="form-check-label" for="requestDay10">
+                <i class="fa-solid fa-crown"></i>
+                10 Days
+              </label>
+            </div>
+            <div class="form-check custom-radio">
+              <input class="form-check-input" type="radio" name="requestDay" id="requestDay4" [(ngModel)]="requestDay"
+                value="15">
+              <label class="form-check-label" for="requestDay4">
+                <i class="fa-solid fa-crown"></i>
+                15 Days
+              </label>
+            </div>
+            <div class="form-check custom-radio">
+              <input class="form-check-input" type="radio" name="requestDay" id="requestDay5" [(ngModel)]="requestDay"
+                value="30">
+              <label class="form-check-label" for="requestDay5">
+                <i class="fa-solid fa-crown"></i>
+                30 Days
+              </label>
+            </div>
           </div>
-          <div class="form-check custom-radio">
-            <input class="form-check-input" type="radio" name="requestDay" id="requestDay3" [(ngModel)]="requestDay"
-              value="10" disabled>
-            <label class="form-check-label" for="requestDay10">
-              <i class="fa-solid fa-crown"></i>
-              10 Days
-            </label>
-          </div>
-          <div class="form-check custom-radio">
-            <input class="form-check-input" type="radio" name="requestDay" id="requestDay4" [(ngModel)]="requestDay"
-              value="15" disabled>
-            <label class="form-check-label" for="requestDay4">
-              <i class="fa-solid fa-crown"></i>
-              15 Days
-            </label>
-          </div>
-          <div class="form-check custom-radio">
-            <input class="form-check-input" type="radio" name="requestDay" id="requestDay5" [(ngModel)]="requestDay"
-              value="30" disabled>
-            <label class="form-check-label" for="requestDay5">
-              <i class="fa-solid fa-crown"></i>
-              30 Days
-            </label>
-          </div>
+          <!-- endRadio -->
+          }
+          <button class="btn btn-success me-2 mt-2" (click)="LendingRequest()">
+            <i class="fas fa-shopping-cart"></i>LendingRequest</button>
+          <button class="btn btn-outline-warning me-2 mt-2"><i class="fas fa-bolt"></i> Buy Now</button>
         </div>
-        <!-- endRadio Free-->
-        }@else {
-        <div class="RadioButton p">
-          <div class="form-check custom-radio">
-            <input class="form-check-input" type="radio" name="requestDay" id="requestDay1" [(ngModel)]="requestDay"
-              value="3">
-            <label class="form-check-label" for="requestDay3">
-              <i class="bi bi-person-fill-check"></i>
-              3 Day
-            </label>
-          </div>
-          <div class="form-check custom-radio">
-            <input class="form-check-input" type="radio" name="requestDay" id="requestDay2" [(ngModel)]="requestDay"
-              value="7">
-            <label class="form-check-label" for="requestDay3">
-              <i class="bi bi-person-fill-check"></i>
-              7 Days
-            </label>
-          </div>
-          <div class="form-check custom-radio">
-            <input class="form-check-input" type="radio" name="requestDay" id="requestDay3" [(ngModel)]="requestDay"
-              value="10">
-            <label class="form-check-label" for="requestDay10">
-              <i class="fa-solid fa-crown"></i>
-              10 Days
-            </label>
-          </div>
-          <div class="form-check custom-radio">
-            <input class="form-check-input" type="radio" name="requestDay" id="requestDay4" [(ngModel)]="requestDay"
-              value="15">
-            <label class="form-check-label" for="requestDay4">
-              <i class="fa-solid fa-crown"></i>
-              15 Days
-            </label>
-          </div>
-          <div class="form-check custom-radio">
-            <input class="form-check-input" type="radio" name="requestDay" id="requestDay5" [(ngModel)]="requestDay"
-              value="30">
-            <label class="form-check-label" for="requestDay5">
-              <i class="fa-solid fa-crown"></i>
-              30 Days
-            </label>
-          </div>
-        </div>
-        <!-- endRadio -->
-        }
-        <button class="btn btn-success me-2 mt-2" (click)="LendingRequest()">
-          <i class="fas fa-shopping-cart"></i>LendingRequest</button>
-        <button class="btn btn-outline-warning me-2 mt-2"><i class="fas fa-bolt"></i> Buy Now</button>
       </div>
-    </div>
 
-    <div class="row mt-5">
-      <div class="col-12">
-        <!-- write review Area -->
-        @if(BookById()?.isLending == true){
-        @if (BookById()?.isRatted !=true) {
-        <div class="review-form mb-4">
-          <h3 class="mb-3">Write a Ratting</h3>
-          <form>
-            <div class="mb-3">
-              <label for="rating" class="form-label">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                Your Rating:</label>
-              <select class="form-select" id="rating" [(ngModel)]="Rattings" name="rating">
-                <option value="5">5 Stars - Excellent</option>
-                <option value="4">4 Stars - Very Good</option>
-                <option value="3">3 Stars - Good</option>
-                <option value="2">2 Stars - Fair</option>
-                <option value="1">1 Star - Poor</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn-custom" (click)="AddReview()">Submit Review</button>
-          </form>
-        </div>
-        }
-        @if (BookById()?.isCommented !=true) {
-        <div class="review-form mb-4">
-          <h3 class="mb-3">Write a Comment</h3>
-          <form>
-            <div class="mb-3">
-              <label for="comment" class="form-label">Your Review:</label>
-              <textarea class="form-control" id="Comment" name="Comment" rows="4"
-                placeholder="What did you like or dislike about this product?" [(ngModel)]="Comment"></textarea>
-            </div>
-            <button type="submit" class="btn btn-custom" (click)="AddComment()">Submit Comment</button>
-          </form>
-        </div>
-        <!-- end write review -->
-        }
-        }
-        <h2 class="mb-4">Customer Reviews</h2>
-        <div class="row align-items-center mb-4">
-          <div class="col-md-4 text-center">
-            <h3 class="display-4 mb-0">{{ BookById()?.averageRating}}</h3>
-            <div class="rating mb-2">
-              @if(BookById()?.averageRating == 1){
-              <i class="fa-solid fa-star"></i>
-              }
-              @if(BookById()?.averageRating == 2){
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              }
-              @if(BookById()?.averageRating == 3){
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              }
-              @if(BookById()?.averageRating == 4){
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              }
-              @if(BookById()?.averageRating == 5){
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              }
-            </div>
-            <p>Based on {{BookById()?.totalRatings}} reviews</p>
+      <div class="row mt-5">
+        <div class="col-12">
+          <!-- write review Area -->
+          @if(BookById()?.isLending == true){
+          @if (BookById()?.isRatted !=true) {
+          <div class="review-form mb-4">
+            <h3 class="mb-3">Write a Ratting</h3>
+            <form>
+              <div class="mb-3">
+                <label for="rating" class="form-label">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  Your Rating:</label>
+                <select class="form-select" id="rating" [(ngModel)]="Rattings" name="rating">
+                  <option value="" disabled selected>Select your rating here</option>
+                  <option value="5">5 Stars - Excellent</option>
+                  <option value="4">4 Stars - Very Good</option>
+                  <option value="3">3 Stars - Good</option>
+                  <option value="2">2 Stars - Fair</option>
+                  <option value="1">1 Star - Poor</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-custom" (click)="AddReview()">Submit Review</button>
+            </form>
           </div>
-          <div class="col-md-8">
-            <div class="d-flex align-items-center mb-2">
-              <span class="me-2">5 star</span>
-              <div class="progress flex-grow-1">
-                <div class="progress-bar" role="progressbar" [style.width.%]="BookById()?.ratingPercentages?.[5] || 0"
-                  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+          }
+          @if (BookById()?.isCommented !=true) {
+          <div class="review-form mb-4">
+            <h3 class="mb-3">Write a Comment</h3>
+            <form>
+              <div class="mb-3">
+                <label for="comment" class="form-label">Your Review:</label>
+                <textarea class="form-control" id="Comment" name="Comment" rows="4"
+                  placeholder="What did you like or dislike about this product?" [(ngModel)]="Comment"></textarea>
               </div>
-              <span class="ms-2">{{BookById()?.ratingPercentages?.[5] || 0}}</span>
-            </div>
-            <div class="d-flex align-items-center mb-2">
-              <span class="me-2">4 star</span>
-              <div class="progress flex-grow-1">
-                <div class="progress-bar" role="progressbar" [style.width.%]="BookById()?.ratingPercentages?.[4] || 0"
-                  aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-              <span class="ms-2">{{BookById()?.ratingPercentages?.[4] || 0}}</span>
-            </div>
-            <div class="d-flex align-items-center mb-2">
-              <span class="me-2">3 star</span>
-              <div class="progress flex-grow-1">
-                <div class="progress-bar" role="progressbar" [style.width.%]="BookById()?.ratingPercentages?.[3] || 0"
-                  aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-              <span class="ms-2">{{BookById()?.ratingPercentages?.[3] || 0}}</span>
-            </div>
-            <div class="d-flex align-items-center mb-2">
-              <span class="me-2">2 star</span>
-              <div class="progress flex-grow-1">
-                <div class="progress-bar" role="progressbar" [style.width.%]="BookById()?.ratingPercentages?.[2] || 0"
-                  aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-              <span class="ms-2">{{BookById()?.ratingPercentages?.[2] || 0}}</span>
-            </div>
-            <div class="d-flex align-items-center">
-              <span class="me-2">1 star</span>
-              <div class="progress flex-grow-1">
-                <div class="progress-bar" role="progressbar" [style.width.%]="BookById()?.ratingPercentages?.[1] || 0"
-                  aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-              <span class="ms-2">{{BookById()?.ratingPercentages?.[1] || 0}}</span>
-            </div>
+              <button type="submit" class="btn btn-custom" (click)="AddComment()">Submit Comment</button>
+            </form>
           </div>
-        </div>
-
-        @for (item of BookById()?.comments; track $index) {
-        <div class="review-card mb-3">
-          <div class="d-flex mb-3">
-            <div>
-              <h5 class="mb-0">{{item.userFirstName}}</h5>
-              <div class="rating">
-                @if(item.useRatting == 1){
+          <!-- end write review -->
+          }
+          }
+          <h2 class="mb-4">Customer Reviews</h2>
+          <div class="row align-items-center mb-4">
+            <div class="col-md-4 text-center">
+              <h3 class="display-4 mb-0">{{ BookById()?.averageRating}}</h3>
+              <div class="rating mb-2">
+                @if(BookById()?.averageRating == 1){
                 <i class="fa-solid fa-star"></i>
                 }
-                @if(item.useRatting == 2){
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                }
-                @if(item.useRatting == 3){
-                <i class="fa-solid fa-star"></i>
+                @if(BookById()?.averageRating == 2){
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 }
-                @if(item.useRatting == 4){
-                <i class="fa-solid fa-star"></i>
+                @if(BookById()?.averageRating == 3){
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 }
-                @if(item.useRatting == 5){
+                @if(BookById()?.averageRating == 4){
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                }
+                @if(BookById()?.averageRating == 5){
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
@@ -434,45 +359,125 @@
                 <i class="fa-solid fa-star"></i>
                 }
               </div>
-              <small class="text-muted">Reviewed on {{item.createdAt | date}}</small>
+              <p>Based on {{BookById()?.totalRatings}} reviews</p>
+            </div>
+            <div class="col-md-8">
+              <div class="d-flex align-items-center mb-2">
+                <span class="me-2">5 star</span>
+                <div class="progress flex-grow-1">
+                  <div class="progress-bar" role="progressbar" [style.width.%]="BookById()?.ratingPercentages?.[5] || 0"
+                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <span class="ms-2">{{BookById()?.ratingPercentages?.[5] || 0}}</span>
+              </div>
+              <div class="d-flex align-items-center mb-2">
+                <span class="me-2">4 star</span>
+                <div class="progress flex-grow-1">
+                  <div class="progress-bar" role="progressbar" [style.width.%]="BookById()?.ratingPercentages?.[4] || 0"
+                    aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <span class="ms-2">{{BookById()?.ratingPercentages?.[4] || 0}}</span>
+              </div>
+              <div class="d-flex align-items-center mb-2">
+                <span class="me-2">3 star</span>
+                <div class="progress flex-grow-1">
+                  <div class="progress-bar" role="progressbar" [style.width.%]="BookById()?.ratingPercentages?.[3] || 0"
+                    aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <span class="ms-2">{{BookById()?.ratingPercentages?.[3] || 0}}</span>
+              </div>
+              <div class="d-flex align-items-center mb-2">
+                <span class="me-2">2 star</span>
+                <div class="progress flex-grow-1">
+                  <div class="progress-bar" role="progressbar" [style.width.%]="BookById()?.ratingPercentages?.[2] || 0"
+                    aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <span class="ms-2">{{BookById()?.ratingPercentages?.[2] || 0}}</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <span class="me-2">1 star</span>
+                <div class="progress flex-grow-1">
+                  <div class="progress-bar" role="progressbar" [style.width.%]="BookById()?.ratingPercentages?.[1] || 0"
+                    aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <span class="ms-2">{{BookById()?.ratingPercentages?.[1] || 0}}</span>
+              </div>
             </div>
           </div>
-          <p>{{item.commentText}}</p>
-        </div>
-        }
 
+          @for (item of BookById()?.comments; track $index) {
+          <div class="review-card mb-3">
+            <div class="d-flex mb-3">
+              <div>
+                <h5 class="mb-0">{{item.userFirstName}}</h5>
+                <div class="rating">
+                  @if(item.useRatting == 1){
+                  <i class="fa-solid fa-star"></i>
+                  }
+                  @if(item.useRatting == 2){
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  }
+                  @if(item.useRatting == 3){
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  }
+                  @if(item.useRatting == 4){
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  }
+                  @if(item.useRatting == 5){
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  }
+                </div>
+                <small class="text">Reviewed on {{item.createdAt}}</small>
+              </div>
+            </div>
+            <p class="text-white">{{item.commentText}}</p>
+          </div>
+          }
+
+        </div>
       </div>
     </div>
   </div>
+
+  <footer class="bg-dark text-light mt-5 py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>About Us</h5>
+          <p>We are dedicated to providing high-quality stationery products to meet all your writing and
+            organizational needs.</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-light">Privacy Policy</a></li>
+            <li><a href="#" class="text-light">Terms of Service</a></li>
+            <li><a href="#" class="text-white">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Connect With Us</h5>
+          <div class="d-flex">
+            <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-light"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="mt-4 mb-3">
+      <p class="text-center mb-0">&copy; 2023 Stationery Pro. All rights reserved.</p>
+    </div>
+  </footer>
+
 </div>
-
-<footer class="bg-dark text-light mt-5 py-4">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <h5>About Us</h5>
-        <p>We are dedicated to providing high-quality stationery products to meet all your writing and
-          organizational needs.</p>
-      </div>
-      <div class="col-md-4">
-        <h5>Quick Links</h5>
-        <ul class="list-unstyled">
-          <li><a href="#" class="text-light">Privacy Policy</a></li>
-          <li><a href="#" class="text-light">Terms of Service</a></li>
-          <li><a href="#" class="text-white">Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="col-md-4">
-        <h5>Connect With Us</h5>
-        <div class="d-flex">
-          <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="text-light"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-      </div>
-    </div>
-    <hr class="mt-4 mb-3">
-    <p class="text-center mb-0">&copy; 2023 Stationery Pro. All rights reserved.</p>
-  </div>
-</footer>

@@ -53,7 +53,7 @@ body {
     font-size: 1.25rem;
 }
 .review-form {
-    background-color: #ffffff;
+    background: linear-gradient(to bottom, #043f2a, #0a1128);
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,.1);
@@ -64,7 +64,7 @@ body {
     margin-right: 10px;
 }
 .review-card {
-    background-color: #ffffff;
+  background: linear-gradient(to bottom, #043f2a, #0a1128);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,.1);
     padding: 20px;
@@ -100,11 +100,11 @@ body {
 }
 
 #desktopNavbar .navbar-nav .nav-link:hover {
-    color: #ffd700; 
+    color: #ffd700;
 }
 
 #desktopNavbar .navbar-toggler-icon {
-    background-color: white; 
+    background-color: white;
 }
 
 #desktopNavbar .navbar-brand {
@@ -112,26 +112,26 @@ body {
 }
 
 #desktopNavbar .dropdown-menu {
-    background-color: rgba(43, 71, 71, 1); 
+    background-color: rgba(43, 71, 71, 1);
 }
 
 
 /* Mobile Navbar */
 #mobileNavbar {
-    background-color: rgba(43, 71, 71, 1); 
+    background-color: rgba(43, 71, 71, 1);
 }
 
 /* Mobile Navbar Links */
 #mobileNavbar .navbar-nav .nav-link {
-    color: white; 
+    color: white;
 }
 
 #mobileNavbar .navbar-nav .nav-link:hover {
-    color: #ffd700; 
+    color: #ffd700;
 }
 
 #mobileNavbar .navbar-toggler-icon {
-    background-color: white; 
+    background-color: white;
 }
 
 #mobileNavbar .navbar-brand {
@@ -144,7 +144,7 @@ body {
 }
 
 #offcanvasNavbar .offcanvas-body {
-    background-color: rgba(43, 71, 71, 1); 
+    background-color: rgba(43, 71, 71, 1);
 }
 
 #offcanvasNavbar .navbar-nav .nav-link {
@@ -152,7 +152,7 @@ body {
 }
 
 #offcanvasNavbar .navbar-nav .nav-link:hover {
-    color: #ffd700; 
+    color: #ffd700;
 }
 
 #RattingStar{
@@ -177,44 +177,56 @@ body {
     border-radius: 50%;
     transition: all 0.3s ease;
   }
-  
+
   /* Hover effect */
   .custom-radio .form-check-input:hover {
     border-color: #28a745;
     cursor: pointer;
   }
-  
+
   /* Style for checked radio button */
   .custom-radio .form-check-input:checked {
     background-color: #28a745;
     border-color: #28a745;
     transition: all 0.3s ease;
   }
-  
+
   /* Style for label */
   .custom-radio .form-check-label {
     font-size: 1.2rem;
     font-weight: 500;
-    color: #333;
+    color: white;
     cursor: pointer;
     transition: color 0.3s ease;
   }
-  
+
   /* On hover, change label color */
   .custom-radio .form-check-label:hover {
     color: #28a745;
   }
-  
+
   /* Adjusting the container to make the spacing more professional */
   .RadioButton {
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
-  
+
   .fa-crown{
-    color: rgb(99, 99, 10);
+    color: rgb(255, 255, 56);
   }
   .fa-star{
-    color: gold;
+    color: rgb(255, 218, 9);
+  }
+
+
+
+
+
+  .bodycomponent {
+    background: linear-gradient(to bottom, #043f2a, #0a1128);
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
   }

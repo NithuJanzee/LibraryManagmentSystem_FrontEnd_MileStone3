@@ -1,0 +1,87 @@
+.bodyComponent {
+  background: linear-gradient(to bottom, #043f2a, #0a1128);
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  background-color: #ffffff;
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.card-header {
+  background: linear-gradient(to right, #0c8d4d, #3ab808);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-bottom: 2px solid #0a692c;
+  text-align: center;
+  padding: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pricing-card-title {
+  color: #10b981;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1rem;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.table-dark {
+  --bs-table-bg: #2e6b34;
+  --bs-table-border-color: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(23, 94, 30, 0.85);
+}
+
+.btn-custom {
+  background-color: #10b981;
+  border-color: #10b981;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-custom:hover {
+  background-color: #059669;
+  border-color: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.table-dark th, .table-dark td {
+  padding: 0.75rem;
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.table-dark th {
+  background-color: #0a692c;
+}
