@@ -84,29 +84,43 @@ export class BookDetailsComponent implements OnInit {
     const user = Number(this.UserService.LoggedUser()?.nameid)
     const book = this.ParamBookId
     const ratevalue = Number(this.Rattings)
-    const com = this.Comment
 
     let Reviewdata = {
       userId:user,
       bookId:book,
       value:ratevalue
     }
+    this.Bookservice.Postratting(Reviewdata).subscribe({
+      next:res=>{
+        this.toster.success("ratting Added succesfully")
+        setTimeout(() => {
+          window.location.reload()
+        }, 300);
+      }
+
+    })
+  }
+
+
+  AddComment(){
+    const user = Number(this.UserService.LoggedUser()?.nameid)
+    const book = this.ParamBookId
+  //  const ratevalue = Number(this.Rattings)
+    const com = this.Comment
 
     let commentData = {
-      bookId:user,
-      userId:book,
+      bookId:book,
+      userId:user,
       comment:com
     }
 
-    // this.Bookservice.Postratting(Reviewdata).subscribe({
-    //   next:res=>{
-    //     this.toster.success("ratting Added succesfully")
-    //   }
-    // })
-    console.log(commentData)
-    this.Bookservice.PostComment(commentData).subscribe({
+     // console.log(commentData)
+     this.Bookservice.PostComment(commentData).subscribe({
       next:res=>{
         this.toster.success("Comment added succesfully")
+        setTimeout(() => {
+          window.location.reload()
+        }, 300);
       }
     })
 

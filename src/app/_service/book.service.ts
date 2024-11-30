@@ -75,6 +75,6 @@ export class BookService {
   }
 
   PostComment(comment: postComment) {
-    return this.http.post(this.baseUrl + `Comment/PostComment`, comment)
+    return this.http.post(this.baseUrl + `Comment/addComment/`, comment)
   }
 }

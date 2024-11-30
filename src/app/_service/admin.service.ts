@@ -30,10 +30,10 @@ export class AdminService {
     return this.http.get<GetAllLendingRequest[]>(this.baseUrl + `BookLending/GetAllLendingRequest?searchText=${search}`).subscribe({
       next: res =>{
         this.LendingRequestSignal.set(res)
-      } 
+      }
     })
   }
-  
+
   AcceptLending(id:number)
   {
     return this.http.put(this.baseUrl + 'BookLending/UpdateLended/'+id,{})

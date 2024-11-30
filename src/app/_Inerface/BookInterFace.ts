@@ -14,6 +14,8 @@ export interface Book {
   comments : comments[]
   isLending:boolean
   isRequested:boolean
+  isRatted:boolean
+  isCommented:boolean
   quantity:number
 }
 
