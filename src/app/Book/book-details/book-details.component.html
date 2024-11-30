@@ -174,9 +174,17 @@
             </li>
           </ul>
         </div>
-        <p class="price mb-2">250 <span class="original-price ms-2">300</span> <span class="discount ms-2">20%</span>
-        </p>
-        <p class="mb-4"><strong>Brand:</strong> Brand Here | <strong>SKU:</strong> SKU Here</p>
+        <!-- Price  -->
+        @if (UserService.LoggedUser()?.role === 'Premium') {
+          <p class="price mb-2"> <strong>Price:</strong>{{BookById()?.discountedPrice}} /=<span class="original-price ms-2">{{BookById()?.price}}</span> <span class="discount ms-2">20%</span>
+          </p>
+          <p class="mb-4"><strong>Status:</strong> Premium User | <strong><i class="fa-solid fa-crown"></i></strong></p>
+        }@else {
+          <p class="price mb-2"><strong>Price:</strong> {{BookById()?.price}} /=
+          </p>
+          <p class="mb-4"><strong>Status:</strong> Free User | <strong><i class="fa-regular fa-user"></i></strong></p>
+
+        }
 
         <!-- RadioButton -->
         @if(UserService.LoggedUser()?.role === 'FreeUser'){

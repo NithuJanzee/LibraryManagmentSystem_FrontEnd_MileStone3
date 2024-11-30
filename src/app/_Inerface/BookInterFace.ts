@@ -17,6 +17,9 @@ export interface Book {
   isRatted:boolean
   isCommented:boolean
   quantity:number
+  price:number
+  isPremium:boolean
+  discountedPrice:number
 }
 
 export interface comments {

@@ -41,6 +41,22 @@
                   placeholder="Enter quantity" />
               </div>
             </div>
+            <div class="row mb-3">
+              <!-- extra  -->
+              <div class="col-md-6">
+                <label for="Price" class="form-label">Rental Price</label>
+                <input type="number" id="Price" class="form-control" formControlName="Price" />
+              </div>
+              <div class="col-md-6">
+                <label for="genre" class="form-label">IsPremium</label>
+                <select id="IsPremium" class="form-select" formControlName="IsPremium">
+                  <option value="" selected disabled>Select genre</option>
+                  <option value="true">true</option>
+                  <option value="false">false</option>
+
+                </select>
+              </div>
+            </div>
             <div class="mb-3">
               <label for="genre" class="form-label">Genre
                 <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#GenreModal">

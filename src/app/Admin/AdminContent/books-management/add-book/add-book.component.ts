@@ -30,6 +30,8 @@ export class AddBookComponent implements OnInit {
       title: ['', Validators.required],
       author: ['', Validators.required],
       publishDate: ['', Validators.required],
+      Price:['',Validators.required],
+      IsPremium:['',Validators.required],
       quantity: [1, [Validators.required, Validators.min(1)]],
       genre: ['', Validators.required],
       description: [''],
@@ -55,6 +57,8 @@ export class AddBookComponent implements OnInit {
       formData.append('quantity', this.bookForm.get('quantity')?.value);
       formData.append('genreId', this.bookForm.get('genre')?.value);
       formData.append('description', this.bookForm.get('description')?.value);
+      formData.append('Price',this.bookForm.get('Price')?.value)
+      formData.append('IsPremium',this.bookForm.get('IsPremium')?.value)
 
       this.images.forEach((image, index) => {
         formData.append('photos', image, image.name);

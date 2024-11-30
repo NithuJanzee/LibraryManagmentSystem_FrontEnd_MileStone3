@@ -123,7 +123,5 @@ export class BookDetailsComponent implements OnInit {
         }, 300);
       }
     })
-
-
   }
 }
