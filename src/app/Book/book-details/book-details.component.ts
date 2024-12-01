@@ -64,7 +64,7 @@ export class BookDetailsComponent implements OnInit {
     this.Bookservice.RequestLendingBook(Data).subscribe({
       next: res => {
         this.toster.success("Lending request successful")
-        this.navigator.navigateByUrl('user/transactions')
+        this.navigator.navigateByUrl('/transactions')
       },
       error: err => this.toster.error("You already lent this book")
     })

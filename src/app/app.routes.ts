@@ -19,6 +19,7 @@ import { UserBodyComponent } from './User/user-body/user-body.component';
 import { AddBookComponent } from './Admin/AdminContent/books-management/add-book/add-book.component';
 import { EditBookComponent } from './Admin/AdminContent/books-management/edit-book/edit-book.component';
 import { UserSubscriptionsComponent } from './User-Content/user-subscriptions/user-subscriptions.component';
+import { PaymentComponent } from './User-Content/payment/payment.component';
 
 export const routes: Routes = [
   {
@@ -28,7 +29,8 @@ export const routes: Routes = [
       { path: '', redirectTo: 'userBody', pathMatch: 'full' },
       { path: 'userBody', component: UserBodyComponent },
       { path: 'transactions', component: TransactionComponent },
-      { path: 'Subscriptions', component: UserSubscriptionsComponent }
+      { path: 'Subscriptions', component: UserSubscriptionsComponent },
+      {path:'payment',component:PaymentComponent}
     ]
   }
   ,

@@ -3,6 +3,7 @@ import { Injectable, inject, signal } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { Admin, AdminLogin, GetAllLendingRequest, GetAllReturn } from '../_Inerface/AdminInterFace';
 import { map } from 'rxjs';
+import { BookId } from '../_Inerface/BookInterFace';
 
 @Injectable({
   providedIn: 'root'
@@ -34,9 +35,11 @@ export class AdminService {
     })
   }
 
-  AcceptLending(id:number)
+  AcceptLending(id:BookId)
   {
-    return this.http.put(this.baseUrl + 'BookLending/UpdateLended/'+id,{})
+    var data= this.http.put<BookId>(this.baseUrl + `BookLending/UpdateLended`,id,{responseType: 'text' as 'json'})
+
+    return data;
   }
 
   GetAllReturn(search:string){

@@ -45,4 +45,8 @@ export class UserServiceService {
       next:res=> this.UserTransactionSignal.set(res)
     })
   }
+
+  UpdateUserToPremium(id:number){
+    return this.http.post(this.baseUrl + `User/UpdateToPremium?UserId=`,id)
+  }
 }

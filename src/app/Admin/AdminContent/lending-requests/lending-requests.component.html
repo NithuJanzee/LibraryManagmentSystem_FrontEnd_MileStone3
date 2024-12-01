@@ -5,10 +5,10 @@
     <button class="btn btn-premium" (click)="loadAllLendingRequest('Premium')">Premium Users</button>
 
     <div class="search-container">
-      <input 
-          type="text" 
-          class="form-control search-input" 
-          placeholder="Search by name, status..." 
+      <input
+          type="text"
+          class="form-control search-input"
+          placeholder="Search by name, status..."
           [(ngModel)]="searchText" />
       <button class="btn btn-search" (click)="loadAllLendingRequest(searchText)">Search</button>
   </div>
@@ -18,7 +18,7 @@
     <h1 class="h1Void">NO Request Found</h1>
   }
   <!-- Table View (Visible on Large Screens) -->
-  <div class="d-none d-xxl-block table-container">
+  <div class=" d-xxl-block table-container">
     <table class="table table-striped table-hover">
       @if (AdminService.LendingRequestSignal().length > 0) {
         <thead>
@@ -54,7 +54,7 @@
   </div>
 
   <!-- Card View (Visible on Smaller Screens) -->
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 d-xxl-none">
+  <!-- <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 d-xxl-none">
     @for (item of AdminService.LendingRequestSignal(); track $index) {
     <div class="col">
       <div class="card shadow-sm border-light rounded-3 h-100">
@@ -71,5 +71,5 @@
       </div>
     </div>
     }
-  </div>
+  </div> -->
 </div>

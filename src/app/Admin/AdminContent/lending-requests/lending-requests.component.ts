@@ -3,11 +3,12 @@ import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { BookId } from '../../../_Inerface/BookInterFace';
 
 @Component({
   selector: 'app-lending-requests',
   standalone: true,
-  imports: [RouterLink,FormsModule],
+  imports: [FormsModule],
   templateUrl: './lending-requests.component.html',
   styleUrl: './lending-requests.component.css'
 })
@@ -26,12 +27,18 @@ export class LendingRequestsComponent implements OnInit{
     this.AdminService.AllLendingRequest(search)
   }
 
-  AcceptRequest(id:number){
-    this.AdminService.AcceptLending(id).subscribe({
-      next:res => this.toster.success("Accept Successfull"),
-      error:err => {
-        this.toster.success("Accept")
-        this.loadAllLendingRequest('')
+  AcceptRequest(Bookid:number){
+    let postId = {
+      id:Bookid
+    }
+
+    this.AdminService.AcceptLending(postId).subscribe({
+      next:res=>{
+        this.toster.success("lending Accepted Succesfuly")
+      },
+      error:err=>{
+        this.toster.error(err.message)
+        console.log(err.message)
       }
     })
   }

@@ -69,3 +69,8 @@ export interface postComment{
   userId:number
   comment:string
 }
+
+
+export interface BookId{
+  id:number
+}

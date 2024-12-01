@@ -6,10 +6,10 @@
 
     <!-- Search Section -->
     <div class="search-container">
-        <input 
-            type="text" 
-            class="form-control search-input" 
-            placeholder="Search by name, status..." 
+        <input
+            type="text"
+            class="form-control search-input"
+            placeholder="Search by name, status..."
             [(ngModel)]="searchText" />
         <button class="btn btn-search" (click)="GetAllReturnBooks(searchText)">Search</button>
     </div>
@@ -17,7 +17,7 @@
 
 <div class="container my-5">
     <!-- Table for smaller screens -->
-    <div class="table-container d-none d-xxl-block">
+    <div class="table-container  d-xxl-block">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -51,7 +51,7 @@
     </div>
 
     <!-- Cards for xxl screens -->
-    <div class="card-container d-xxl-none">
+    <!-- <div class="card-container d-xxl-none">
         @for (item of AdminService.BookReturnSignal(); track $index) {
             <div class="card">
                 <div class="card-header">Book Title: The Great Gatsby</div>
@@ -68,5 +68,5 @@
                 </div>
             </div>
         }
-    </div>
+    </div> -->
 </div>
