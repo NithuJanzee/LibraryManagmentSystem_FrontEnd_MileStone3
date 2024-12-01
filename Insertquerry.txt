@@ -1,0 +1,94 @@
+SELECT TOP (1000) [Id]
+      ,[emailTypes]
+      ,[Title]
+      ,[Body]
+  FROM [LibrarySystem].[dbo].[EmailTemplates]
+
+   insert into EmailTemplates values(
+   newid(),
+   1,
+   'Otpvertification',
+    ' <html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Email</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .email-header {
+            background: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        .email-body {
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        .otp-code {
+            font-size: 20px;
+            font-weight: bold;
+            color: #4CAF50;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .email-footer {
+            background: #f4f4f4;
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            color: #888;
+        }
+        .button {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            {}
+        </div>
+        <div class="email-body">
+            <p>Dear {Name},</p>
+            <p>We received a request to verify your email. Use the code below to complete your verification:</p>
+            <div class="otp-code">
+                {Otp}
+            </div>
+            <p>If you didn’t request this, please ignore this email.</p>
+            <p>Thank you,<br>The [Your Company] Team</p>
+            <a href="[Your Support URL]" class="button">Contact Support</a>
+        </div>
+        <div class="email-footer">
+            © {}. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>
+');
+
+   select * from EmailTemplates
+   delete from EmailTemplates
