@@ -132,37 +132,6 @@ body {
   color: #ffffff;
 }
 
-/* Radio Buttons */
-.custom-radio .form-check-input {
-  width: 24px;
-  height: 24px;
-  margin-right: 10px;
-  border: 2px solid #ddd;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-}
-
-.custom-radio .form-check-input:hover {
-  border-color: #000000;
-  cursor: pointer;
-}
-
-.custom-radio .form-check-input:checked {
-  background-color: #000000;
-  border-color: #000000;
-}
-
-.custom-radio .form-check-label {
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: #000000;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.custom-radio .form-check-label:hover {
-  color: #444444;
-}
 
 /* Details List */
 .details-list h5 {
@@ -181,3 +150,45 @@ body {
   margin: 0;
   padding: 0;
 }
+  /* Radio Buttons */
+  
+  .RadioButton {
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    gap: 1rem; /* Space between radio buttons */
+  }
+  
+  .custom-radio .form-check-input {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    vertical-align: middle; /* Ensures radio buttons are aligned properly with text */
+  }
+  
+  .custom-radio .form-check-input:hover {
+    border-color: #000000;
+    cursor: pointer;
+  }
+  
+  .custom-radio .form-check-input:checked {
+    background-color: #000000;
+    border-color: #000000;
+  }
+  
+  .custom-radio .form-check-label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #000000;
+    cursor: pointer;
+    display: flex;
+    align-items: center; 
+    transition: color 0.3s ease;
+  }
+  
+  .custom-radio .form-check-label:hover {
+    color: #444444;
+  }
+  

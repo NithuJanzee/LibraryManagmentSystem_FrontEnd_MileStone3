@@ -33,12 +33,12 @@
 .card-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #000000;
+  color: #ffffff;
 }
 
 .card-text {
   font-size: 1rem;
-  color: #555555;
+  color:#ffffff;
 }
 
 .star-rating {
@@ -138,6 +138,6 @@
 
 .bodyArea {
   background: #ffffff;
-  padding: 30px;
+  padding: 10px;
   box-shadow: 0 10px 60px rgba(0, 0, 0, 0.1);
 }

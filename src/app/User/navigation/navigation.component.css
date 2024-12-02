@@ -1,119 +1,108 @@
- .nav-link {
-    color: var(--secondary-color) !important;
-    transition: color 0.3s ease;
-}
- .nav-link:hover {
-    color: var(--accent-color) !important;
+/* General navigation area styling */
+.navigationArea {
+    background-color: black; /* Solid black background */
+    padding: 10px 0;
 }
 
-
-.navbar-brand{
-    color: rgb(9, 243, 9);
+/* Navbar container styling */
+#NavigationBar {
+    background-color: black; /* Consistent black background */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle white border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
 }
 
-.navbar-brand i{
-    color: rgb(29, 231, 29);
+/* Branding styles */
+#NavigationBar .navbar-brand {
+    color: white; /* White branding text */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between brand name and icon */
 }
 
-.nav-link {
-    color: white;
+/* Navbar brand icon styling */
+#NavigationBar .navbar-brand i {
+    color: white; /* White icon */
+    font-size: 1.5rem;
+}
+
+/* Navbar links default styling */
+#NavigationBar .navbar-nav .nav-link {
+    color: white; /* White text */
     text-decoration: none;
-    position: relative;
+    position: relative; /* Positioning for hover effect underline */
     transition: color 0.3s ease;
 }
 
-.nav-link::after {
+/* Hover underline effect */
+#NavigationBar .navbar-nav .nav-link::after {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -2px; 
+    bottom: -2px;
     width: 0;
     height: 2px;
-    background-color: rgb(6, 33, 4); 
+    background-color: white; /* White underline */
     transition: width 0.3s ease;
 }
 
-.nav-link:hover {
-    color: rgb(6, 33, 4); 
-}
-
-.nav-link:hover::after {
-    width: 100%; 
-}
-
-
-.dropdown-menu {
-    width: 250px; 
-    min-width: 250px;
-}
-
-
-.dropdown-menu li p {
-    font-size: 1rem;
-    color: #495057;
-}
-
-.dropdown-menu .btn-outline-danger {
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.dropdown-menu .btn-outline-danger:hover {
-    background-color: #dc3545; 
-    color: #fff; 
-}
-
-.navigationArea{
-    background-color:rgba(43,71,71,255);
-}
-
-
-#NavigationBar {
-    background: rgba(255, 255, 255, 0.1); 
-    backdrop-filter: blur(10px); 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-}
-
-#NavigationBar .navbar-brand {
-    color: rgb(29, 231, 29); 
-    font-weight: bold; 
-}
-
-#NavigationBar .navbar-nav .nav-link {
-    color: white;
-   
-}
-
+/* Hover color and underline */
 #NavigationBar .navbar-nav .nav-link:hover {
-    color: rgb(29, 231, 29);
+    color: white; /* Maintain white text */
 }
 
+#NavigationBar .navbar-nav .nav-link:hover::after {
+    width: 100%; /* Full-width underline */
+}
+
+/* Navbar toggler button */
+.navbar-toggler-icon {
+    background-color: white; /* White hamburger menu */
+    border-radius: 2px;
+}
+
+/* Dropdown menu styling */
 #NavigationBar .dropdown-menu {
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(5px);
+    background: black; /* Black dropdown background */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border for dropdown */
 }
 
+/* Dropdown menu item styles */
 #NavigationBar .dropdown-menu .dropdown-item {
-    color: white; 
+    color: white; /* White text */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #NavigationBar .dropdown-menu .dropdown-item:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.1); /* Light gray highlight on hover */
+    color: white; /* Keep text white */
 }
 
+/* Special buttons in dropdown menu */
+#NavigationBar .dropdown-menu .btn-outline-danger {
+    border-color: white; /* White outline for button */
+    color: white; /* White text */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#NavigationBar .dropdown-menu .btn-outline-danger:hover {
+    background-color: white; /* White background on hover */
+    color: black; /* Black text on hover */
+}
+
+/* Navbar text styling */
 #navname {
     font-size: 1.5rem;
-    color: rgb(29, 231, 29);
+    color: white; /* White for special name styling */
 }
 
-.navbar-toggler-icon {
-    background-color: white;
+/* Adjust navbar text color */
+#navbarNav {
+    color: white; /* Ensure dropdown toggler text remains white */
 }
 
-
-#navbarNav{
-    color: white;
-}
-.fa-chess-king{
-    color: gold;
+/* Font Awesome icon styling */
+.fa-chess-king {
+    color: white; /* White for iconic look */
+    font-size: 1.3rem; /* Slightly larger icon */
 }
