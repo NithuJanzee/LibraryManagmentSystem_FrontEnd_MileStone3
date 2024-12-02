@@ -20,6 +20,7 @@ import { AddBookComponent } from './Admin/AdminContent/books-management/add-book
 import { EditBookComponent } from './Admin/AdminContent/books-management/edit-book/edit-book.component';
 import { UserSubscriptionsComponent } from './User-Content/user-subscriptions/user-subscriptions.component';
 import { PaymentComponent } from './User-Content/payment/payment.component';
+import { ForgotPasswordComponent } from './AccessAccount/forgot-password/forgot-password.component';
 
 export const routes: Routes = [
   {
@@ -38,6 +39,7 @@ export const routes: Routes = [
     {path:'admin-login',component:AdminLoginComponent},
     {path:'User-Login',component:UserLoginComponent},
     {path:'User-SignUp',component:UserCreationComponent},
+    {path:'forgot-password',component:ForgotPasswordComponent},
     {path:'BookDetails/:id',component:BookDetailsComponent,canActivate:[userGuard]},
 
 
