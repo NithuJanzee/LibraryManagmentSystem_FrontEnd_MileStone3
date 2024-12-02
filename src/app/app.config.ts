@@ -10,6 +10,7 @@ import { loadingScreenInterceptor } from './_interceptor/loading-screen.intercep
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { jwtInterceptor } from './_interceptor/jwt.interceptor';
 import { jwtAdminInterceptor } from './_interceptor/jwt-admin.interceptor';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -21,7 +22,7 @@ export const appConfig: ApplicationConfig = {
     provideToastr({
       positionClass: 'toast-bottom-right'
     }),
-    importProvidersFrom(NgxSpinnerModule)
+    importProvidersFrom(NgxSpinnerModule), provideAnimationsAsync()
   ]
 };
 
