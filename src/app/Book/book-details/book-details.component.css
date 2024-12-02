@@ -1,232 +1,183 @@
+/* General Body Styling */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  color: #000000;
 }
 
+/* Product Image */
 .product-image {
-    max-width: 100%;
-    height: auto;
-    box-shadow: 0 4px 6px rgba(0,0,0,.1);
-    border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
+
+.product-image:hover {
+  transform: scale(1.05);
+}
+
+/* Thumbnail Images */
 .thumbnail {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    cursor: pointer;
-    border: 2px solid #dee2e6;
-    border-radius: 4px;
-    transition: border-color 0.3s ease;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid #e0e0e0;
+  border-radius: 4px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
 }
+
 .thumbnail:hover {
-    border-color: #198754;
+  border-color: #000000;
+  transform: scale(1.1);
 }
+
+/* Price Styling */
 .price {
-    font-size: 2rem;
-    color: #198754;
-    font-weight: bold;
+  font-size: 2rem;
+  color: #000000;
+  font-weight: bold;
 }
+
 .original-price {
-    text-decoration: line-through;
-    color: #6c757d;
-    font-size: 1.25rem;
+  text-decoration: line-through;
+  color: #666666;
+  font-size: 1.25rem;
 }
+
 .discount {
-    color: #dc3545;
-    font-weight: bold;
+  color: #ff0000;
+  font-weight: bold;
 }
+
+/* Buttons */
 .btn-custom {
-    background-color: #198754;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
 .btn-custom:hover {
-    background-color: #146c43;
-    color: white;
+  background-color: #444444;
+  transform: scale(1.05);
 }
+
+/* Ratings */
 .rating {
-    color: #ffc107;
-    font-size: 1.25rem;
+  color: #ffc107;
+  font-size: 1.25rem;
 }
+
+/* Review Form */
 .review-form {
-    background: linear-gradient(to bottom, #043f2a, #0a1128);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #000000;
 }
-.feature-icon {
-    font-size: 1.5rem;
-    color: #198754;
-    margin-right: 10px;
-}
+
+/* Review Cards */
 .review-card {
-  background: linear-gradient(to bottom, #043f2a, #0a1128);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,.1);
-    padding: 20px;
-    margin-bottom: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  color: #000000;
 }
+
+/* User Avatar */
 .user-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
 }
+
+/* Progress Bar */
 .progress {
-    height: 8px;
+  height: 8px;
+  background-color: #e0e0e0;
 }
+
 .progress-bar {
-    background-color: #ffc107;
+  background-color: #000000;
 }
 
-
-
-
-
-
-
-/* Desktop Navbar */
-#desktopNavbar {
-    background-color: rgba(43, 71, 71, 1);
+/* Navbar */
+#desktopNavbar, #mobileNavbar, #offcanvasNavbar {
+  background-color: #000000;
 }
 
-/* Desktop Navbar Links */
-#desktopNavbar .navbar-nav .nav-link {
-    color: white;
-}
-
-#desktopNavbar .navbar-nav .nav-link:hover {
-    color: #ffd700;
-}
-
-#desktopNavbar .navbar-toggler-icon {
-    background-color: white;
-}
-
-#desktopNavbar .navbar-brand {
-    color: white;
-}
-
-#desktopNavbar .dropdown-menu {
-    background-color: rgba(43, 71, 71, 1);
-}
-
-
-/* Mobile Navbar */
-#mobileNavbar {
-    background-color: rgba(43, 71, 71, 1);
-}
-
-/* Mobile Navbar Links */
-#mobileNavbar .navbar-nav .nav-link {
-    color: white;
-}
-
-#mobileNavbar .navbar-nav .nav-link:hover {
-    color: #ffd700;
-}
-
-#mobileNavbar .navbar-toggler-icon {
-    background-color: white;
-}
-
-#mobileNavbar .navbar-brand {
-    color: rgb(20, 19, 19);
-}
-
-/* Offcanvas */
-#offcanvasNavbar .offcanvas-header {
-    background-color: rgba(43, 71, 71, 1);
-}
-
-#offcanvasNavbar .offcanvas-body {
-    background-color: rgba(43, 71, 71, 1);
-}
-
+#desktopNavbar .navbar-nav .nav-link,
+#mobileNavbar .navbar-nav .nav-link,
 #offcanvasNavbar .navbar-nav .nav-link {
-    color: white;
+  color: #ffffff;
 }
 
+#desktopNavbar .navbar-nav .nav-link:hover,
+#mobileNavbar .navbar-nav .nav-link:hover,
 #offcanvasNavbar .navbar-nav .nav-link:hover {
-    color: #ffd700;
+  color: #808080;
 }
 
-#RattingStar{
-    color: yellow;
+#desktopNavbar .navbar-brand,
+#mobileNavbar .navbar-brand {
+  color: #ffffff;
 }
+
+/* Radio Buttons */
+.custom-radio .form-check-input {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.custom-radio .form-check-input:hover {
+  border-color: #000000;
+  cursor: pointer;
+}
+
+.custom-radio .form-check-input:checked {
+  background-color: #000000;
+  border-color: #000000;
+}
+
+.custom-radio .form-check-label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #000000;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.custom-radio .form-check-label:hover {
+  color: #444444;
+}
+
+/* Details List */
 .details-list h5 {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
 .list-unstyled li {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
-
-
-/* Custom styling for radio buttons */
-.custom-radio .form-check-input {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-    border: 2px solid #ddd;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-  }
-
-  /* Hover effect */
-  .custom-radio .form-check-input:hover {
-    border-color: #28a745;
-    cursor: pointer;
-  }
-
-  /* Style for checked radio button */
-  .custom-radio .form-check-input:checked {
-    background-color: #28a745;
-    border-color: #28a745;
-    transition: all 0.3s ease;
-  }
-
-  /* Style for label */
-  .custom-radio .form-check-label {
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: white;
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-
-  /* On hover, change label color */
-  .custom-radio .form-check-label:hover {
-    color: #28a745;
-  }
-
-  /* Adjusting the container to make the spacing more professional */
-  .RadioButton {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .fa-crown{
-    color: rgb(255, 255, 56);
-  }
-  .fa-star{
-    color: rgb(255, 218, 9);
-  }
-
-
-
-
-
-  .bodycomponent {
-    background: linear-gradient(to bottom, #043f2a, #0a1128);
-    color: #ffffff;
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-  }
+/* Body Component */
+.bodycomponent {
+  background: #ffffff;
+  color: #000000;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
