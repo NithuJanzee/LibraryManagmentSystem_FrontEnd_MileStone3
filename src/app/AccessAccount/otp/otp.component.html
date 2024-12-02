@@ -1,0 +1,26 @@
+<div class="container height-100 d-flex justify-content-center align-items-center">
+  <div class="position-relative">
+    <div class="card p-2 text-center" id="card">
+      <h6>Please enter the one time password <br> to verify your account</h6>
+      <div>
+        <span>A code has been sent to your email</span>
+      </div>
+      <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
+        <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
+          <input class="m-2 text-center form-control rounded" type="number" id="otpInput1" maxlength="1"
+            inputmode="numeric" [(ngModel)]="otp[0]" (input)="moveFocus($event, 0)" />
+          <input class="m-2 text-center form-control rounded" type="number" id="otpInput2" maxlength="1"
+            inputmode="numeric" [(ngModel)]="otp[1]" (input)="moveFocus($event, 1)" />
+          <input class="m-2 text-center form-control rounded" type="number" id="otpInput3" maxlength="1"
+            inputmode="numeric" [(ngModel)]="otp[2]" (input)="moveFocus($event, 2)" />
+          <input class="m-2 text-center form-control rounded" type="number" id="otpInput4" maxlength="1"
+            inputmode="numeric" [(ngModel)]="otp[3]" (input)="moveFocus($event, 3)" />
+        </div>
+
+      </div>
+      <div class="mt-4">
+        <button class="btn btn-danger px-4 validate" (click)="validateOTP()">Validate</button>
+      </div>
+    </div>
+  </div>
+</div>

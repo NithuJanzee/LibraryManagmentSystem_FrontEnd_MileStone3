@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your One-Time Password (OTP)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            text-align: center;
+        }
+        .header {
+            font-size: 24px;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+        .otp {
+            font-size: 30px;
+            font-weight: bold;
+            color: #2a9d8f;
+            margin: 20px 0;
+        }
+        .expiration {
+            font-size: 14px;
+            color: #888888;
+            margin-bottom: 20px;
+        }
+        .footer {
+            font-size: 12px;
+            color: #888888;
+            margin-top: 30px;
+        }
+        .support {
+            color: #2a9d8f;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            Hi {Name} {LastName},
+        </div>
+        <p>You have requested a One-Time Password (OTP) to complete your verification process.</p>
+
+        <div class="otp">
+            {Otp}
+        </div>
+
+        <p class="expiration">
+            This OTP will expire in 7 minutes. Please use it promptly to complete your action.
+        </p>
+
+        <p>If you didnt request this OTP, please disregard this email or contact our support team.</p>
+
+        <div class="footer">
+            Best regards,<br>
+            {library} Team<br>
+            <a href="jansonnithusanofficial@gmail.com" class="support">jansonnithusanofficial@gmail.com</a>
+        </div>
+    </div>
+
+</body>
+</html>

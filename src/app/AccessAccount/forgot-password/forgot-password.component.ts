@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { UserServiceService } from '../../_service/user-service.service';
+import { ToastrService } from 'ngx-toastr';
+import { JsonPipe } from '@angular/common';
+import { password } from '../../_Inerface/UserInterface';
 
 @Component({
   selector: 'app-forgot-password',
@@ -10,27 +14,47 @@ import { RouterLink } from '@angular/router';
   styleUrl: './forgot-password.component.css'
 })
 export class ForgotPasswordComponent {
-  otp: string[] = ['', '', '', '', '', ''];
+  userService = inject(UserServiceService)
+  UserNic: string = '';
+  NewPassword: string = '';
+  toaster = inject(ToastrService)
+  router = inject(Router)
 
-  moveFocus(event: any, index: number): void {
-    if (event.target.value.length === 1 && index < 3) {
-      const nextInput = document.getElementById(`otpInput${index + 1}`) as HTMLInputElement;
-      nextInput.focus();
-    }
-
-    if (event.key === 'Backspace' && index > 0) {
-      const prevInput = document.getElementById(`otpInput${index - 1}`) as HTMLInputElement;
-      prevInput.focus();
-    }
+  OTPVerification = localStorage.getItem('verify')
+  RequestButton() {
+    this.userService.CheckUserNicForChangePassword(this.UserNic).subscribe({
+      next: res => {
+        this.toaster.success("Valid NIC")
+        localStorage.setItem('NIC', this.UserNic)
+        this.router.navigateByUrl('/otp-verification')
+      },
+      error: err => {
+        console.log(err.error)
+      }
+    })
   }
+  changePassword() {
+    if (this.NewPassword.length >= 8) {
+      let UserNIC: string | null = localStorage.getItem('NIC');
+      let UserID: string = UserNIC ?? ''
 
-  validateOTP(): void {
-    const otpCode = this.otp.join('');
-    console.log('OTP Code:', otpCode);
-    if (otpCode.length === 4) {
-      alert(otpCode);
+
+      let data: password = {
+        nic: UserID,
+        newPassword: this.NewPassword
+      }
+
+      this.userService.ChangePassword(data).subscribe({
+        next:res =>{
+          this.toaster.success("Password Updated Successful")
+          this.router.navigateByUrl('/User-Login')
+        },
+        error:err=>{
+          this.toaster.error(err.error)
+        }
+      })
     } else {
-      alert('Please enter a complete OTP');
+      this.toaster.error("password must be 8 digits or Above")
     }
   }
 }

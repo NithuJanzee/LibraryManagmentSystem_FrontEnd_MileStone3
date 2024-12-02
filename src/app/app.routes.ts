@@ -21,6 +21,8 @@ import { EditBookComponent } from './Admin/AdminContent/books-management/edit-bo
 import { UserSubscriptionsComponent } from './User-Content/user-subscriptions/user-subscriptions.component';
 import { PaymentComponent } from './User-Content/payment/payment.component';
 import { ForgotPasswordComponent } from './AccessAccount/forgot-password/forgot-password.component';
+import { OTPComponent } from './AccessAccount/otp/otp.component';
+import { forgotPasswordGuard } from './_gurard/forgot-password.guard';
 
 export const routes: Routes = [
   {
@@ -40,6 +42,7 @@ export const routes: Routes = [
     {path:'User-Login',component:UserLoginComponent},
     {path:'User-SignUp',component:UserCreationComponent},
     {path:'forgot-password',component:ForgotPasswordComponent},
+    {path:'otp-verification',component:OTPComponent,canActivate:[forgotPasswordGuard]},
     {path:'BookDetails/:id',component:BookDetailsComponent,canActivate:[userGuard]},
 
 

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { DecodedToken, LoggedUsers, UserAccount, UserLogin, UserTransactionById } from '../_Inerface/UserInterface';
+import { DecodedToken, LoggedUsers, password, UserAccount, UserLogin, UserTransactionById } from '../_Inerface/UserInterface';
 import { environment } from '../../environments/environment.development';
 import { map } from 'rxjs';
 
@@ -48,5 +48,18 @@ export class UserServiceService {
 
   UpdateUserToPremium(id:number){
     return this.http.post(this.baseUrl + `User/UpdateToPremium?UserId=`,id)
+  }
+
+  CheckUserNicForChangePassword(NIC:string){
+    return this.http.post(this.baseUrl + `User/CheckNICSentOTP?NIC=${NIC}`,{})
+  }
+
+  CheckUserOTPforChangePassword(OTP:number)
+  {
+    return this.http.post(this.baseUrl + `User/CheckOTP?otp=${OTP}`,{})
+  }
+
+  ChangePassword(password:password){
+    return this.http.post(this.baseUrl + `User/changePassword`,password)
   }
 }

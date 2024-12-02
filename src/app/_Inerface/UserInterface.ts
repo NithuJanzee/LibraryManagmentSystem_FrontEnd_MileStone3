@@ -44,3 +44,8 @@ export interface UserTransactionById{
   todayDatepluse1:string
   actualDate:string
 }
+
+export interface password{
+  nic:string
+  newPassword:string
+}
