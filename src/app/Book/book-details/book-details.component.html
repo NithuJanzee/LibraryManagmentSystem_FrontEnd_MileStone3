@@ -411,6 +411,9 @@
               <div>
                 <h5 class="mb-0">{{item.userFirstName}}</h5>
                 <div class="rating">
+                  @if (item.useRatting == 0) {
+                    <p>Not Ratted</p>
+                  }
                   @if(item.useRatting == 1){
                   <i class="fa-solid fa-star"></i>
                   }
@@ -440,7 +443,7 @@
                 <small class="text">Reviewed on {{item.createdAt}}</small>
               </div>
             </div>
-            <p class="text-white">{{item.commentText}}</p>
+            <p class="text-black">{{item.commentText}}</p>
           </div>
           }
 

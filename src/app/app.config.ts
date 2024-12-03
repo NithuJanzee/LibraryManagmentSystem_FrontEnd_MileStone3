@@ -20,7 +20,9 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(HttpClientModule, CarouselModule.forRoot()),
     provideAnimations(),
     provideToastr({
-      positionClass: 'toast-bottom-right'
+      positionClass: 'toast-bottom-right',
+      timeOut:3000,
+      progressBar:true
     }),
     importProvidersFrom(NgxSpinnerModule), provideAnimationsAsync()
   ]

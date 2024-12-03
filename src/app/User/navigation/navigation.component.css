@@ -1,36 +1,36 @@
 /* General navigation area styling */
 .navigationArea {
-    background-color: black; /* Solid black background */
+    background-color: black;
     padding: 10px 0;
 }
 
 /* Navbar container styling */
 #NavigationBar {
-    background-color: black; /* Consistent black background */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle white border */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+    background-color: black;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Branding styles */
 #NavigationBar .navbar-brand {
-    color: white; /* White branding text */
+    color: white;
     font-weight: bold;
     display: flex;
     align-items: center;
-    gap: 8px; /* Space between brand name and icon */
+    gap: 8px;
 }
 
 /* Navbar brand icon styling */
 #NavigationBar .navbar-brand i {
-    color: white; /* White icon */
+    color: white;
     font-size: 1.5rem;
 }
 
 /* Navbar links default styling */
 #NavigationBar .navbar-nav .nav-link {
-    color: white; /* White text */
+    color: white;
     text-decoration: none;
-    position: relative; /* Positioning for hover effect underline */
+    position: relative;
     transition: color 0.3s ease;
 }
 
@@ -42,67 +42,67 @@
     bottom: -2px;
     width: 0;
     height: 2px;
-    background-color: white; /* White underline */
+    background-color: white;
     transition: width 0.3s ease;
 }
 
 /* Hover color and underline */
 #NavigationBar .navbar-nav .nav-link:hover {
-    color: white; /* Maintain white text */
+    color: white;
 }
 
 #NavigationBar .navbar-nav .nav-link:hover::after {
-    width: 100%; /* Full-width underline */
+    width: 100%;
 }
 
 /* Navbar toggler button */
 .navbar-toggler-icon {
-    background-color: white; /* White hamburger menu */
+    background-color: white;
     border-radius: 2px;
 }
 
 /* Dropdown menu styling */
 #NavigationBar .dropdown-menu {
-    background: black; /* Black dropdown background */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border for dropdown */
+    background: black;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Dropdown menu item styles */
 #NavigationBar .dropdown-menu .dropdown-item {
-    color: white; /* White text */
+    color: white;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #NavigationBar .dropdown-menu .dropdown-item:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Light gray highlight on hover */
-    color: white; /* Keep text white */
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
 }
 
-/* Special buttons in dropdown menu */
+
 #NavigationBar .dropdown-menu .btn-outline-danger {
-    border-color: white; /* White outline for button */
-    color: white; /* White text */
+    border-color: white;
+    color: white;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #NavigationBar .dropdown-menu .btn-outline-danger:hover {
-    background-color: white; /* White background on hover */
-    color: black; /* Black text on hover */
+    background-color: white;
+    color: black;
 }
 
-/* Navbar text styling */
+
 #navname {
     font-size: 1.5rem;
-    color: white; /* White for special name styling */
+    color: white;
 }
 
-/* Adjust navbar text color */
+
 #navbarNav {
-    color: white; /* Ensure dropdown toggler text remains white */
+    color: white;
 }
 
-/* Font Awesome icon styling */
+
 .fa-chess-king {
-    color: white; /* White for iconic look */
-    font-size: 1.3rem; /* Slightly larger icon */
+    color: white;
+    font-size: 1.3rem;
 }

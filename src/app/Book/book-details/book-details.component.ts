@@ -1,4 +1,3 @@
-import { comments } from './../../_Inerface/BookInterFace';
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { BookService } from '../../_service/book.service';
 import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
@@ -26,8 +25,8 @@ export class BookDetailsComponent implements OnInit {
   requestDay: number = 3;
   private toster = inject(ToastrService)
   private navigator = inject(Router)
-  Rattings:string='';
-  Comment:string='';
+  Rattings: string = '';
+  Comment: string = '';
 
   UserService = inject(UserServiceService)
 
@@ -80,18 +79,19 @@ export class BookDetailsComponent implements OnInit {
 
 
 
-  AddReview(){
+  AddReview() {
     const user = Number(this.UserService.LoggedUser()?.nameid)
     const book = this.ParamBookId
     const ratevalue = Number(this.Rattings)
 
     let Reviewdata = {
-      userId:user,
-      bookId:book,
-      value:ratevalue
+      userId: user,
+      bookId: book,
+      value: ratevalue
     }
+    
     this.Bookservice.Postratting(Reviewdata).subscribe({
-      next:res=>{
+      next: res => {
         this.toster.success("ratting Added succesfully")
         setTimeout(() => {
           window.location.reload()
@@ -102,26 +102,29 @@ export class BookDetailsComponent implements OnInit {
   }
 
 
-  AddComment(){
+  AddComment() {
     const user = Number(this.UserService.LoggedUser()?.nameid)
     const book = this.ParamBookId
-  //  const ratevalue = Number(this.Rattings)
+    //  const ratevalue = Number(this.Rattings)
     const com = this.Comment
 
     let commentData = {
-      bookId:book,
-      userId:user,
-      comment:com
+      bookId: book,
+      userId: user,
+      comment: com
     }
-
-     // console.log(commentData)
-     this.Bookservice.PostComment(commentData).subscribe({
-      next:res=>{
-        this.toster.success("Comment added succesfully")
-        setTimeout(() => {
-          window.location.reload()
-        }, 300);
-      }
-    })
+    if (com.length >= 1) {
+      // console.log(commentData)
+      this.Bookservice.PostComment(commentData).subscribe({
+        next: res => {
+          this.toster.success("Comment added succesfully")
+          setTimeout(() => {
+            window.location.reload()
+          }, 300);
+        }
+      })
+    }else{
+      this.toster.error("Please leave your comments")
+    }
   }
 }

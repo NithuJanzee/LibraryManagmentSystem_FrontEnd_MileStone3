@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { BookService } from '../../_service/book.service';
 import { CommonModule } from '@angular/common';
 import { Router, RouterOutlet } from '@angular/router';
@@ -6,12 +6,13 @@ import { UserServiceService } from '../../_service/user-service.service';
 import { jwtDecode } from 'jwt-decode';
 import { NavigationComponent } from "../navigation/navigation.component";
 import { FormsModule } from '@angular/forms';
+import { Book } from '../../_Inerface/BookInterFace';
 
 
 @Component({
   selector: 'app-user-body',
   standalone: true,
-  imports: [CommonModule, NavigationComponent,FormsModule],
+  imports: [CommonModule, NavigationComponent, FormsModule],
   templateUrl: './user-body.component.html',
   styleUrl: './user-body.component.css'
 })
@@ -20,15 +21,23 @@ export class UserBodyComponent implements OnInit {
   private router = inject(Router)
   UserService = inject(UserServiceService)
   showModal: boolean = false;
-  searchQuery:string='';
+  searchQuery: string = '';
+
+  SortedBookByRatting = signal<Book[] | null>(null);
 
   ngOnInit(): void {
     if (this.BookService.Books().length == 0) this.LoadBooks('');
+    this.sortBookByAverageRatting();
     this.UserData()
   }
 
-  LoadBooks(search:string) {
+  LoadBooks(search: string) {
     this.BookService.getAllBooks(search)
+  }
+
+  sortBookByAverageRatting():void{
+    const sort = this.BookService.Books().sort((a,b)=> b.averageRating - a.averageRating);
+    this.SortedBookByRatting.set(sort)
   }
 
   trackByBookId(index: number, book: any): number {
@@ -43,7 +52,7 @@ export class UserBodyComponent implements OnInit {
   closeModal() {
     this.showModal = false;
   }
-  LoginNavigation(){
+  LoginNavigation() {
     this.router.navigateByUrl('User-Login')
   }
 
@@ -59,7 +68,7 @@ export class UserBodyComponent implements OnInit {
     ];
   }
 
-  BookDetails(bookId:number) {
+  BookDetails(bookId: number) {
     this.router.navigateByUrl(`/BookDetails/${bookId}`)
   }
 

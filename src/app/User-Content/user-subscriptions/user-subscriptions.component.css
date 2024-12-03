@@ -1,31 +1,31 @@
 .bodyComponent {
-  background: #ffffff; /* Clean white background */
-  color: #000000; /* Black text */
+  background: #ffffff;
+  color: #000000;
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
 }
 
 .card {
-  background-color: #ffffff; /* White background for contrast */
-  border: 1px solid rgba(0, 0, 0, 0.2); /* Slightly darker border for visibility */
-  border-radius: 16px; /* Softer rounded corners */
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow for better visibility */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25); /* Enhanced shadow on hover */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 
 .card-header {
-  background: #000000; /* Professional blue header */
-  color: #ffffff; /* White text for better contrast */
-  font-size: 1.75rem; /* Larger font size */
+  background: #000000;
+  color: #ffffff;
+  font-size: 1.75rem;
   font-weight: bold;
-  border-bottom: 2px solid #000000; /* Darker blue for accent */
+  border-bottom: 2px solid #000000;
   text-align: center;
   padding: 1rem;
   text-transform: uppercase;
@@ -33,12 +33,12 @@
 }
 
 .pricing-card-title {
-  color: #000000; /* Black for high visibility */
+  color: #000000;
   font-size: 2.2rem;
   font-weight: bold;
   text-align: center;
   margin-top: 1rem;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for text depth */
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
 }
 
 .table-dark {
