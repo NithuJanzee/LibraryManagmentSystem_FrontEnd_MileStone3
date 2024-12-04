@@ -49,3 +49,7 @@ export interface password{
   nic:string
   newPassword:string
 }
+
+export interface UserID{
+  userId:number
+}

@@ -13,7 +13,7 @@ import { jwtDecode } from 'jwt-decode';
 @Component({
   selector: 'app-book-details',
   standalone: true,
-  imports: [NgFor, FormsModule, CommonModule, DatePipe,],
+  imports: [NgFor, FormsModule, CommonModule],
   templateUrl: './book-details.component.html',
   styleUrl: './book-details.component.css'
 })
@@ -89,7 +89,7 @@ export class BookDetailsComponent implements OnInit {
       bookId: book,
       value: ratevalue
     }
-    
+
     this.Bookservice.Postratting(Reviewdata).subscribe({
       next: res => {
         this.toster.success("ratting Added succesfully")
