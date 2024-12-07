@@ -41,90 +41,142 @@ export class BookDetailsComponent implements OnInit {
     const user = Number(this.UserService.LoggedUser()?.nameid)
     if (this.BookById()?.bookId != this.ParamBookId)
       this.Bookservice.getBookById(this.ParamBookId, user).subscribe({
-        next: res => this.BookById.set(res)
+        next: res => {
+          this.BookById.set(res);
+          this.getValue()
+        }
+
       })
   }
   get roundedAverageRating(): number {
     return Math.round(this.bookDetails?.averageRating || 0);
   }
 
-  LendingRequest(): void {
+  book: {
+    lendingprice3Days: number;
+    lendingprice7Days: number;
+    lendingprice10Days: number;
+    lendingprice15Days: number;
+    lendingprice30Days: number;
+  } = {
+      lendingprice3Days: 0,
+      lendingprice7Days: 0,
+      lendingprice10Days: 0,
+      lendingprice15Days: 0,
+      lendingprice30Days: 0
+    };
 
-    const user = Number(this.UserService.LoggedUser()?.nameid)
+
+  getValue() {
+    const bookById = this.BookById(); 
+    if (bookById) {
+      this.book.lendingprice3Days = bookById.lendingprice3Days;
+      this.book.lendingprice7Days = bookById.lendingprice7Days;
+      this.book.lendingprice10Days = bookById.lendingprice10Days;
+      this.book.lendingprice15Days = bookById.lendingprice15Days;
+      this.book.lendingprice30Days = bookById.lendingprice30Days;
+    }
+  }
+
+    getPrice() {
+      switch (this.requestDay) {
+        case 3:
+          return this.book.lendingprice3Days;
+        case 7:
+          return this.book.lendingprice7Days;
+        case 10:
+          return this.book.lendingprice10Days;
+        case 15:
+          return this.book.lendingprice15Days;
+        case 30:
+          return this.book.lendingprice30Days;
+        default:
+          return this.book.lendingprice3Days;
+      }
+    }
+
+
+
+
+
+
+    LendingRequest(): void {
+
+      const user = Number(this.UserService.LoggedUser()?.nameid)
     const book = this.ParamBookId
     const Day = this.requestDay
 
     const Data: LendingRequest = {
-      userID: user,
-      bookID: book,
-      requestDay: Day
-    }
-
-    this.Bookservice.RequestLendingBook(Data).subscribe({
-      next: res => {
-        this.toster.success("Lending request successful")
-        this.navigator.navigateByUrl('/transactions')
-      },
-      error: err => this.toster.error("You already lent this book")
-    })
-  }
-
-  UserData() {
-    const User = localStorage.getItem('LoggedUser')
-    if (!User) return
-    const UserToken = JSON.parse(User);
-    const decoded: any = jwtDecode(UserToken.token);
-    this.UserService.LoggedUser.set(decoded)
-  }
-
-
-
-  AddReview() {
-    const user = Number(this.UserService.LoggedUser()?.nameid)
-    const book = this.ParamBookId
-    const ratevalue = Number(this.Rattings)
-
-    let Reviewdata = {
-      userId: user,
-      bookId: book,
-      value: ratevalue
-    }
-
-    this.Bookservice.Postratting(Reviewdata).subscribe({
-      next: res => {
-        this.toster.success("ratting Added succesfully")
-        setTimeout(() => {
-          window.location.reload()
-        }, 300);
+        userID: user,
+        bookID: book,
+        requestDay: Day
       }
 
-    })
-  }
-
-
-  AddComment() {
-    const user = Number(this.UserService.LoggedUser()?.nameid)
-    const book = this.ParamBookId
-    //  const ratevalue = Number(this.Rattings)
-    const com = this.Comment
-
-    let commentData = {
-      bookId: book,
-      userId: user,
-      comment: com
-    }
-    if (com.length >= 1) {
-      // console.log(commentData)
-      this.Bookservice.PostComment(commentData).subscribe({
+    this.Bookservice.RequestLendingBook(Data).subscribe({
         next: res => {
-          this.toster.success("Comment added succesfully")
+          this.toster.success("Lending request successful")
+          this.navigator.navigateByUrl('/transactions')
+        },
+        error: err => this.toster.error("You already lent this book")
+      })
+    }
+
+    UserData() {
+      const User = localStorage.getItem('LoggedUser')
+      if (!User) return
+      const UserToken = JSON.parse(User);
+      const decoded: any = jwtDecode(UserToken.token);
+      this.UserService.LoggedUser.set(decoded)
+    }
+
+
+
+    AddReview() {
+      const user = Number(this.UserService.LoggedUser()?.nameid)
+      const book = this.ParamBookId
+      const ratevalue = Number(this.Rattings)
+
+      let Reviewdata = {
+        userId: user,
+        bookId: book,
+        value: ratevalue
+      }
+
+      this.Bookservice.Postratting(Reviewdata).subscribe({
+        next: res => {
+          this.toster.success("ratting Added succesfully")
           setTimeout(() => {
             window.location.reload()
           }, 300);
         }
+
       })
-    }else{
-      this.toster.error("Please leave your comments")
+    }
+
+
+    AddComment() {
+      const user = Number(this.UserService.LoggedUser()?.nameid)
+      const book = this.ParamBookId
+      //  const ratevalue = Number(this.Rattings)
+      const com = this.Comment
+
+      let commentData = {
+        bookId: book,
+        userId: user,
+        comment: com
+      }
+      if (com.length >= 1) {
+        // console.log(commentData)
+        this.Bookservice.PostComment(commentData).subscribe({
+          next: res => {
+            this.toster.success("Comment added succesfully")
+            setTimeout(() => {
+              window.location.reload()
+            }, 300);
+          }
+        })
+      } else {
+        this.toster.error("Please leave your comments")
+      }
     }
   }
-}

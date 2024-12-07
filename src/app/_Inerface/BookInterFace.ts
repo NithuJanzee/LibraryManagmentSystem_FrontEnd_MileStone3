@@ -17,9 +17,15 @@ export interface Book {
   isRatted:boolean
   isCommented:boolean
   quantity:number
-  price:number
   isPremium:boolean
+  bookPrice:number
+  lendingprice3Days:number
+  lendingprice7Days:number
+  lendingprice10Days:number
+  lendingprice15Days:number
+  lendingprice30Days:number
   discountedPrice:number
+  isUserPremium:boolean
 }
 
 export interface comments {
