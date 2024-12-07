@@ -64,7 +64,7 @@
         @if (userService.UserTransactionSignal().length !=0) {
         <h2 class="Lending text-center mb-4">Lending Now</h2>
         } @for (item of userService.UserTransactionSignal(); track $index) { @if
-        (item.status == 1) {
+        (item.status == 2) {
         <div class="col-md-6 col-lg-4">
           <div class="card h-100 lending-card border-0 shadow-sm">
             <div class="card-body">

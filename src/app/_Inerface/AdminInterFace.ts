@@ -18,6 +18,7 @@ export interface GetAllLendingRequest{
   requestDate:string
   userStatus:string
   requestID:number
+  amount:string
 }
 
 export interface GetAllReturn{

@@ -35,7 +35,14 @@ export class AdminService {
     })
   }
 
-  AcceptLending(id:BookId)
+  ApproveLending(id:BookId)
+  {
+    var data= this.http.put<BookId>(this.baseUrl + `BookLending/BookApprove`,id,{responseType: 'text' as 'json'})
+
+    return data;
+  }
+
+  UpdateToLending(id:BookId)
   {
     var data= this.http.put<BookId>(this.baseUrl + `BookLending/UpdateLended`,id,{responseType: 'text' as 'json'})
 

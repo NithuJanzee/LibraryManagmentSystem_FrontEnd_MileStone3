@@ -24,12 +24,12 @@
         <thead>
           <tr>
             <th>Book Title</th>
-            <th>Author</th>
             <th>UserID</th>
             <th>User Name</th>
             <th>Copies Available</th>
             <th>Request Days</th>
             <th>UserStatus</th>
+            <th>Amount</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -38,12 +38,12 @@
         @for (Requests of AdminService.LendingRequestSignal(); track $index) {
         <tr>
           <td>{{Requests.bookTitle}}</td>
-          <td>{{Requests.authorName}}</td>
           <td>BB {{Requests.userId}}</td>
           <td>{{Requests.userName}} {{Requests.lastName}}</td>
           <td>{{Requests.quantity}}</td>
           <td>{{Requests.requestDate}} Days</td>
           <td>{{Requests.userStatus}}</td>
+          <td>{{Requests.amount}}</td>
           <td><button class="btn btn-primary" (click)="AcceptRequest(Requests.requestID)">Accept</button>
           <button class="btn btn-danger">Decline</button></td>
 

@@ -32,7 +32,7 @@ export class LendingRequestsComponent implements OnInit{
       id:Bookid
     }
 
-    this.AdminService.AcceptLending(postId).subscribe({
+    this.AdminService.ApproveLending(postId).subscribe({
       next:res=>{
         this.toster.success("lending Accepted Succesfuly")
       },
