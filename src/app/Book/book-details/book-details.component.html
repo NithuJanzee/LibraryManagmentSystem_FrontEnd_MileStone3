@@ -178,12 +178,12 @@
           <!-- Price  -->
           @if (UserService.LoggedUser()?.role === 'Premium') {
           <p class="price mb-2"> <strong>Price:</strong>{{ getPrice() }} /=
-            <!-- <span class="original-price ms-2">{{BookById()?.price}}</span> <span class="discount ms-2">20%</span> -->
+             <span class="discount ms-2">{{BookById()?.lendingDiscountPercentage}}%</span>
           </p>
           <p class="mb-4"><strong>Status:</strong> Premium User | <strong><i class="fa-solid fa-crown"></i></strong></p>
           }@else {
-          <!-- <p class="price mb-2"><strong>Price:</strong> {{BookById()?.price}} /= -->
-          <!-- </p> -->
+           <p class="price mb-2"><strong>Price:</strong> {{getPrice()}} /=
+          </p>
           <p class="mb-4"><strong>Status:</strong> Free User | <strong><i class="fa-regular fa-user"></i></strong></p>
 
           }
@@ -192,17 +192,15 @@
           @if(UserService.LoggedUser()?.role === 'FreeUser'){
           <div class="RadioButton p">
             <div class="form-check custom-radio">
-              <input class="form-check-input" type="radio" name="requestDay" id="requestDay1" [(ngModel)]="requestDay"
-                value="3">
-              <label class="form-check-label" for="requestDay3">
+              <input class="form-check-input" type="radio" name="requestDay" id="requestDay1" [(ngModel)]="requestDay" [value]="3">
+              <label class="form-check-label" for="requestDay1">
                 <i class="bi bi-person-fill-check"></i>
                 3 Day
               </label>
             </div>
             <div class="form-check custom-radio">
-              <input class="form-check-input" type="radio" name="requestDay" id="requestDay2" [(ngModel)]="requestDay"
-                value="7">
-              <label class="form-check-label" for="requestDay3">
+              <input class="form-check-input" type="radio" name="requestDay" id="requestDay2" [(ngModel)]="requestDay" [value]="7">
+              <label class="form-check-label" for="requestDay2">
                 <i class="bi bi-person-fill-check"></i>
                 7 Days
               </label>
@@ -273,9 +271,9 @@
             </div>
           <!-- endRadio -->
           }
-          <button class="btn btn-success me-2 mt-2" (click)="LendingRequest()">
+          <button class="btn btn-success me-2 mt-2" type="button" data-bs-toggle="modal" data-bs-target="#LendingModal">
             <i class="fas fa-shopping-cart"></i>LendingRequest</button>
-          <button class="btn btn-outline-warning me-2 mt-2"><i class="fas fa-bolt"></i> Buy Now</button>
+          <button class="btn btn-outline-warning me-2 mt-2"><i class="fas fa-bolt"></i>Own This Book</button>
         </div>
       </div>
 
@@ -479,3 +477,55 @@
   </footer>
 
 </div>
+
+
+<!-- modalForLending -->
+<div class="modal fade" id="LendingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="exampleModalLabel">Invoice Details</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <!-- Modal Body -->
+      <div class="modal-body bg-light">
+        <div class="p-4 rounded shadow-sm" style="background-color: white;">
+          <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+            <h6 class="text-secondary">User NIC</h6>
+            <p class="mb-0 fw-semibold">{{UserService.LoggedUser()?.NIC}}</p>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+            <h6 class="text-secondary">Name</h6>
+            <p class="mb-0 fw-semibold">{{UserService.LoggedUser()?.family_name}} {{UserService.LoggedUser()?.given_name}}</p>
+          </div>
+         @if (UserService.LoggedUser()?.role == 'Premium') {
+          <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+            <h6 class="text-secondary">Status</h6>
+            <p class="mb-0 fw-semibold">{{UserService.LoggedUser()?.role}} <i class="fa-solid fa-crown"></i></p>
+          </div>
+         }@else {
+          <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+            <h6 class="text-secondary">Status</h6>
+            <p class="mb-0 fw-semibold">{{UserService.LoggedUser()?.role}}</p>
+          </div>
+         }
+          <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+            <h6 class="text-secondary">Request Days</h6>
+            <p class="mb-0 fw-semibold">{{requestDay}} Days</p>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+            <h6 class="text-secondary">Amount</h6>
+            <p class="mb-0 fw-semibold" style="color: red;">{{getPrice()}}/=</p>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Footer -->
+      <div class="modal-footer bg-white border-top d-flex justify-content-between">
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success me-2 mt-2"> <i class="fas fa-shopping-cart"></i>Request</button>
+      </div>
+    </div>
+  </div>
+</div>
+

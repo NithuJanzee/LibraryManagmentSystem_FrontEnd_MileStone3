@@ -26,6 +26,8 @@ export interface Book {
   lendingprice30Days:number
   discountedPrice:number
   isUserPremium:boolean
+  lendingDiscountPercentage:number
+  bookDiscountPercentage:number
 }
 
 export interface comments {

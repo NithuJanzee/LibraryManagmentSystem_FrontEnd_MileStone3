@@ -68,7 +68,7 @@ export class BookDetailsComponent implements OnInit {
 
 
   getValue() {
-    const bookById = this.BookById(); 
+    const bookById = this.BookById();
     if (bookById) {
       this.book.lendingprice3Days = bookById.lendingprice3Days;
       this.book.lendingprice7Days = bookById.lendingprice7Days;
