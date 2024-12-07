@@ -105,10 +105,12 @@ export class BookDetailsComponent implements OnInit {
       const user = Number(this.UserService.LoggedUser()?.nameid)
     const book = this.ParamBookId
     const Day = this.requestDay
+    const Price = this.getPrice()
 
     const Data: LendingRequest = {
         userID: user,
         bookID: book,
+        amount:Price,
         requestDay: Day
       }
 
