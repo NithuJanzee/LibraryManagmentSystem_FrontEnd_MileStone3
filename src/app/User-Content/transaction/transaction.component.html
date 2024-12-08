@@ -56,13 +56,10 @@
         </div>
         } }
       </div>
-    </section>
 
 
-    <section>
-      <div class="row g-4">
+      <div class="row g-4 mt-3">
         @if (userService.UserTransactionSignal().length !=0) {
-        <h2 class="Lending text-center mb-4">Lending Now</h2>
         } @for (item of userService.UserTransactionSignal(); track $index) { @if
         (item.status == 2) {
         <div class="col-md-6 col-lg-4">
@@ -108,6 +105,10 @@
         } }
       </div>
     </section>
+
+
+
+
 
   </main>
 

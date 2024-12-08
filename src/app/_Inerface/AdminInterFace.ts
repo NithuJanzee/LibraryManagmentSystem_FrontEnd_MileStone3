@@ -8,7 +8,7 @@ export interface Admin{
 }
 
 
-export interface GetAllLendingRequest{
+export interface GetAllLendingRequestAndApproved{
   userId:number
   userName:string
   lastName:string
@@ -19,6 +19,7 @@ export interface GetAllLendingRequest{
   userStatus:string
   requestID:number
   amount:string
+
 }
 
 export interface GetAllReturn{

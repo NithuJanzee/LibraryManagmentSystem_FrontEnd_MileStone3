@@ -23,6 +23,7 @@ import { PaymentComponent } from './User-Content/payment/payment.component';
 import { ForgotPasswordComponent } from './AccessAccount/forgot-password/forgot-password.component';
 import { OTPComponent } from './AccessAccount/otp/otp.component';
 import { forgotPasswordGuard } from './_gurard/forgot-password.guard';
+import { ApprovedRequestsComponent } from './Admin/AdminContent/approved-requests/approved-requests.component';
 
 export const routes: Routes = [
   {
@@ -54,6 +55,7 @@ export const routes: Routes = [
             {path:'DashBoard',component:DashboardComponent},
             {path:'BookManageMent',component:BooksManagementComponent},
             {path:'LendingRequest',component:LendingRequestsComponent},
+            {path:'ApprovedRequests',component:ApprovedRequestsComponent},
             {path:'ReturnManagement',component:ReturnManagementComponent},
             {path:'Subscriptions',component:SubscriptionsComponent},
             {path:'PurchaseHistory',component:PurchaseHistoryComponent},

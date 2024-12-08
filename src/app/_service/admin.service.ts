@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-import { Admin, AdminLogin, GetAllLendingRequest, GetAllReturn } from '../_Inerface/AdminInterFace';
+import { Admin, AdminLogin,GetAllLendingRequestAndApproved, GetAllReturn } from '../_Inerface/AdminInterFace';
 import { map } from 'rxjs';
 import { BookId } from '../_Inerface/BookInterFace';
 
@@ -13,7 +13,8 @@ export class AdminService {
   baseUrl = environment.apiUrl;
 
   Admin = signal<Admin|null>(null)
-  LendingRequestSignal = signal<GetAllLendingRequest[]>([])
+  LendingRequestSignal = signal<GetAllLendingRequestAndApproved[]>([])
+  ApprovedBookSignal = signal<GetAllLendingRequestAndApproved[]>([])
   BookReturnSignal = signal<GetAllReturn[]>([])
 
   AdminLogin(admin:AdminLogin){
@@ -28,7 +29,7 @@ export class AdminService {
   }
 
   AllLendingRequest(search:string){
-    return this.http.get<GetAllLendingRequest[]>(this.baseUrl + `BookLending/GetAllLendingRequest?searchText=${search}`).subscribe({
+    return this.http.get<GetAllLendingRequestAndApproved[]>(this.baseUrl + `BookLending/GetAllLendingRequest?searchText=${search}`).subscribe({
       next: res =>{
         this.LendingRequestSignal.set(res)
       }
@@ -60,5 +61,13 @@ export class AdminService {
   GetBookReturn(lendId:number)
   {
     return this.http.post(this.baseUrl + `HistoryContoller/UpdateHistory/${lendId}`,{})
+  }
+
+  GetAllApprove(Text:string){
+    return this.http.get<GetAllLendingRequestAndApproved[]>(this.baseUrl +`BookLending/GetAllApproved?searchText=${Text}`).subscribe({
+      next:res=>{
+        this.ApprovedBookSignal.set(res)
+      }
+    })
   }
 }

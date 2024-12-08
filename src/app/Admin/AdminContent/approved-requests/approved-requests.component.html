@@ -1,0 +1,73 @@
+<h2 class="h2">Approved Book</h2>
+<div class="button-container">
+  <button class="btn btn-all" (click)="LoadAllApprovedBooks('')">Reload</button>
+  <button class="btn btn-free" (click)="LoadAllApprovedBooks('FreeUser')">Free Users</button>
+  <button class="btn btn-premium" (click)="LoadAllApprovedBooks('Premium')">Premium Users</button>
+
+  <div class="search-container">
+    <input type="text" class="form-control search-input" placeholder="Search by name, status..."
+      [(ngModel)]="searchText" />
+    <button class="btn btn-search" (click)="LoadAllApprovedBooks(searchText)">Search</button>
+  </div>
+</div>
+<div class="container my-4">
+  @if (AdminService.ApprovedBookSignal().length == 0) {
+  <h1 class="h1Void">NO Request Found</h1>
+  }
+  <!-- Table View (Visible on Large Screens) -->
+  <div class=" d-xxl-block table-container">
+    <table class="table table-striped table-hover">
+      @if (AdminService.ApprovedBookSignal().length > 0) {
+      <thead>
+        <tr>
+          <th>Book Title</th>
+          <th>UserID</th>
+          <th>User Name</th>
+          <th>Copies Available</th>
+          <th>Request Days</th>
+          <th>UserStatus</th>
+          <th>Amount</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      }
+      <tbody>
+        @for (Requests of AdminService.ApprovedBookSignal(); track $index) {
+        <tr>
+          <td>{{Requests.bookTitle}}</td>
+          <td>BB {{Requests.userId}}</td>
+          <td>{{Requests.userName}} {{Requests.lastName}}</td>
+          <td>{{Requests.quantity}}</td>
+          <td>{{Requests.requestDate}} Days</td>
+          <td>{{Requests.userStatus}}</td>
+          <td>{{Requests.amount}}</td>
+          <td><button class="btn btn-primary">Accept</button>
+            <button class="btn btn-danger">Decline</button>
+          </td>
+
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Card View (Visible on Smaller Screens) -->
+  <!-- <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 d-xxl-none">
+    @for (item of AdminService.LendingRequestSignal(); track $index) {
+    <div class="col">
+      <div class="card shadow-sm border-light rounded-3 h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{item.bookTitle}}</h5>
+          <p class="card-text"><strong>Author:</strong> {{item.authorName}}</p>
+          <p class="card-text"><strong>UserID:</strong> BB {{item.userId}}</p>
+          <p class="card-text"><strong>UserID:</strong>{{item.userName}}</p>
+          <p class="card-text"><strong>Copies Available:</strong> {{item.quantity}}</p>
+          <p class="card-text"><strong>Request Days:</strong> {{item.requestDate}}</p>
+          <p class="card-text"><strong>Request Days:</strong> {{item.userStatus}}</p>
+          <button class="btn btn-primary w-100">Lend</button>
+        </div>
+      </div>
+    </div>
+    }
+  </div> -->
+</div>
