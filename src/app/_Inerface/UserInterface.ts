@@ -43,6 +43,9 @@ export interface UserTransactionById{
   todayDatepluse2:string
   todayDatepluse1:string
   actualDate:string
+  approvedDate:string
+  waitingStart:string
+  waitingEnd:string
 }
 
 export interface password{
