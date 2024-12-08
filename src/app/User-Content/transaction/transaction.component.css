@@ -5,14 +5,14 @@
     margin: 0;
     padding: 0;
   }
-  
+
   .container {
     padding: 2rem;
     border-radius: 12px; /* Softer rounded corners */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     background-color: #ffffff; /* Clean white container for content visibility */
   }
-  
+
   h2 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700; /* Stronger weight for headings */
@@ -22,7 +22,7 @@
     text-align: center;
     margin-bottom: 1rem;
   }
-  
+
   .search-container {
     display: flex;
     gap: 0.5rem;
@@ -30,7 +30,7 @@
     align-items: center;
     margin-bottom: 2rem;
   }
-  
+
   .search-input {
     border: 1px solid #000000; /* Black border for contrast */
     border-radius: 50px;
@@ -39,7 +39,7 @@
     width: 60%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for clarity */
   }
-  
+
   .btn-search {
     background-color: #000000; /* Black button */
     color: white;
@@ -49,12 +49,12 @@
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Button shadow for interactivity */
   }
-  
+
   .btn-search:hover {
-    background-color: #333333; /* Slightly lighter black on hover */
-    transform: translateY(-2px);
+    background-color: #333333;
+    transform: none;
   }
-  
+
   .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     border-radius: 12px; /* Rounded corners for a premium feel */
@@ -64,12 +64,12 @@
     border: 1px solid rgba(0, 0, 0, 0.1); /* Thin black border */
     background-color: #ffffff; /* Clean white card */
   }
-  
+
   .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* Elevated hover effect */
+    transform: none;
+    box-shadow: none;
   }
-  
+
   .card .badge {
     font-size: 0.9rem;
     padding: 0.5em 1em;
@@ -77,28 +77,28 @@
     background-color: #000000; /* Black badges */
     color: #ffffff; /* White text */
   }
-  
+
   .card-body {
     padding: 1.5rem;
     background-color: #f8f8f8; /* Subtle light gray for separation */
   }
-  
+
   .card-title {
     font-size: 1.4rem;
     font-weight: 600;
     color: #000000; /* Black for prominence */
   }
-  
+
   .card-text {
     color: #555555; /* Medium gray for text */
     font-size: 1rem;
   }
-  
+
   .text-end {
     font-size: 0.95rem;
     color: #555555; /* Medium gray */
   }
-  
+
   .Lending {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
@@ -109,7 +109,7 @@
     display: inline-block;
     padding-bottom: 0.5rem;
   }
-  
+
   .Requested {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
@@ -120,4 +120,3 @@
     display: inline-block;
     padding-bottom: 0.5rem;
   }
-  
