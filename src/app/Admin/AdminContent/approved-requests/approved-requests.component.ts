@@ -1,7 +1,8 @@
-import { Component, OnInit, inject } from '@angular/core';
+ import { Component, OnInit, inject } from '@angular/core';
 import { AdminService } from '../../../_service/admin.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
+import { BookId } from '../../../_Inerface/BookInterFace';
 
 @Component({
   selector: 'app-approved-requests',
@@ -29,5 +30,23 @@ export class ApprovedRequestsComponent implements OnInit {
   conformRequest(request:any){
     this.conform = request
     console.log(this.conform)
+  }
+
+  AcceptLending(bookId:number){
+    let postId:BookId = {
+      id: bookId
+    }
+
+    this.AdminService.UpdateToLending(postId).subscribe({
+      next:res=>{
+        this.toster.success("Book Landed Successfully")
+        setTimeout(() => {
+          window.location.reload()
+        }, 1500);
+      },
+      error:err =>{
+        this.toster.error(err.error)
+      }
+    })
   }
 }
