@@ -25,4 +25,9 @@ export class ApprovedRequestsComponent implements OnInit {
     this.AdminService.GetAllApprove(text)
   }
 
+  conform:any=null;
+  conformRequest(request:any){
+    this.conform = request
+    console.log(this.conform)
+  }
 }

@@ -41,7 +41,7 @@
           <td>{{Requests.requestDate}} Days</td>
           <td>{{Requests.userStatus}}</td>
           <td>{{Requests.amount}}</td>
-          <td><button class="btn btn-primary">Accept</button>
+          <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmModal" (click)="conformRequest(Requests)">Lend-Book</button>
             <button class="btn btn-danger">Decline</button>
           </td>
 
@@ -70,4 +70,22 @@
     </div>
     }
   </div> -->
+</div>
+
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmModalLabel">Give Lend This Book</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Do you give this book for lending?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger" >Yes</button>
+      </div>
+    </div>
+  </div>
 </div>
