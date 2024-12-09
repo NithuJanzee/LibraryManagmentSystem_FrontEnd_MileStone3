@@ -25,6 +25,7 @@ export interface GetAllLendingRequestAndApproved{
 export interface GetAllReturn{
   lendID:number
   userId: number;
+  userNIC:string  
   userName: string;
   userStatus: string;
   bookTittle: string;
@@ -32,4 +33,8 @@ export interface GetAllReturn{
   requestedDayes: string;
   dueDate: string;
   returnStatus:string
+  amount:number
+  dueDays:number
+  dueAmount:number
+  totalAmount:number
 }

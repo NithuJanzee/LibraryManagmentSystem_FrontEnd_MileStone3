@@ -42,8 +42,13 @@
                         <td>{{item.lendDate | date}}</td>
                         <td>{{item.requestedDayes}} Days</td>
                         <td>{{item.dueDate |date}}</td>
-                        <td>{{item.returnStatus}}</td>
-                        <td><button class="btn btn-danger">Return</button></td>
+                        @if (item.returnStatus == 'Overdue') {
+                          <td style="color: red;">{{item.returnStatus}}</td>
+                          <td><button class="btn btn-outline-danger">Over-due</button></td>
+                        }@else {
+                          <td style="color: green;">{{item.returnStatus}}</td>
+                          <td><button class="btn btn-outline-success">Status</button></td>
+                        }
                     </tr>
                 }
             </tbody>
@@ -70,3 +75,81 @@
         }
     </div> -->
 </div>
+
+<div class="modal fade" id="bookReturnModal" tabindex="-1" aria-labelledby="bookReturnBillModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bookReturnBillModalLabel">Book Return Bill</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- User and Book Information -->
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <p><strong>User NIC:</strong> <span id="userNic">123456789</span></p>
+            <p><strong>User Name:</strong> <span id="userName">John Doe</span></p>
+            <p><strong>User Status:</strong> <span id="userStatus">Standard</span></p>
+          </div>
+          <div class="col-md-6 text-end">
+            <p><strong>Return Date:</strong> <span id="returnDate">2024-12-09</span></p>
+          </div>
+        </div>
+
+        <!-- Lend and Book Details -->
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Book Title</th>
+              <th scope="col">Lend Date</th>
+              <th scope="col">Requested Days</th>
+              <th scope="col">Due Date</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Due Days</th>
+              <th scope="col">Due Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="bookTitle">The Great Book</td>
+              <td id="lendDate">2024-11-01</td>
+              <td id="requestedDays">15</td>
+              <td id="dueDate">2024-11-15</td>
+              <td id="amount">10</td>
+              <td id="dueDays">5</td>
+              <td id="dueAmount">5</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Lend ID and Return Status -->
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <p><strong>Lend ID:</strong> <span id="lendId">12345</span></p>
+          </div>
+          <div class="col-md-6 text-end">
+            <p><strong>Return Status:</strong> <span id="returnStatus">Pending</span></p>
+          </div>
+        </div>
+
+        <!-- Total Amount -->
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <h5>Total Amount: <span id="totalAmount">15</span></h5>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="finalizeReturn()">Confirm Return</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookReturnModal">
+  Open Return Modal
+</button>
