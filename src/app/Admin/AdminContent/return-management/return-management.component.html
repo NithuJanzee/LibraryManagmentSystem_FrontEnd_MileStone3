@@ -44,10 +44,10 @@
                         <td>{{item.dueDate |date}}</td>
                         @if (item.returnStatus == 'Overdue') {
                           <td style="color: red;">{{item.returnStatus}}</td>
-                          <td><button class="btn btn-outline-danger">Over-due</button></td>
+                          <td><button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#bookReturnModal" (click)="ReturnBooks(item)">Over-due</button></td>
                         }@else {
                           <td style="color: green;">{{item.returnStatus}}</td>
-                          <td><button class="btn btn-outline-success">Status</button></td>
+                          <td><button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#bookReturnModal" (click)="ReturnBooks(item)"> Status</button></td>
                         }
                     </tr>
                 }
@@ -76,6 +76,7 @@
     </div> -->
 </div>
 
+<!-- modal  -->
 <div class="modal fade" id="bookReturnModal" tabindex="-1" aria-labelledby="bookReturnBillModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -87,12 +88,13 @@
         <!-- User and Book Information -->
         <div class="row mb-3">
           <div class="col-md-6">
-            <p><strong>User NIC:</strong> <span id="userNic">123456789</span></p>
-            <p><strong>User Name:</strong> <span id="userName">John Doe</span></p>
-            <p><strong>User Status:</strong> <span id="userStatus">Standard</span></p>
+            <p><strong>Lend ID:</strong> <span id="userNic">{{ReturnRequest?.userNIC}}</span></p>
+            <p><strong>User NIC:</strong> <span id="userNic">{{ReturnRequest?.userNIC}}</span></p>
+            <p><strong>User Name:</strong> <span id="userName">{{ReturnRequest?.userName}}</span></p>
+            <p><strong>User Status:</strong> <span id="userStatus">{{ReturnRequest?.userStatus}}</span></p>
           </div>
           <div class="col-md-6 text-end">
-            <p><strong>Return Date:</strong> <span id="returnDate">2024-12-09</span></p>
+            <p><strong>Return Date:</strong> <span id="returnDate">{{ReturnRequest?.dueDate}}</span></p>
           </div>
         </div>
 
@@ -104,20 +106,26 @@
               <th scope="col">Lend Date</th>
               <th scope="col">Requested Days</th>
               <th scope="col">Due Date</th>
-              <th scope="col">Amount</th>
               <th scope="col">Due Days</th>
               <th scope="col">Due Amount</th>
+              <th scope="col">Amount</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td id="bookTitle">The Great Book</td>
-              <td id="lendDate">2024-11-01</td>
-              <td id="requestedDays">15</td>
-              <td id="dueDate">2024-11-15</td>
-              <td id="amount">10</td>
-              <td id="dueDays">5</td>
-              <td id="dueAmount">5</td>
+              <td id="bookTitle">{{ReturnRequest?.bookTittle}}</td>
+              <td id="lendDate">{{ReturnRequest?.lendDate}}</td>
+              <td id="requestedDays">{{ReturnRequest?.requestedDayes}}</td>
+              <td id="dueDate">{{ReturnRequest?.dueDate}}</td>
+              @if (ReturnRequest?.dueAmount == null) {
+                <td id="dueDays">0</td>
+                <td id="dueAmount">0</td>
+                <td id="amount">{{ReturnRequest?.amount}}</td>
+              }@else {
+                <td id="dueDays">{{ReturnRequest?.dueDays}}</td>
+                <td id="dueAmount">{{ReturnRequest?.dueAmount}}</td>
+                <td id="amount">{{ReturnRequest?.amount}}</td>
+              }
             </tr>
           </tbody>
         </table>
@@ -125,31 +133,22 @@
         <!-- Lend ID and Return Status -->
         <div class="row mb-3">
           <div class="col-md-6">
-            <p><strong>Lend ID:</strong> <span id="lendId">12345</span></p>
-          </div>
-          <div class="col-md-6 text-end">
-            <p><strong>Return Status:</strong> <span id="returnStatus">Pending</span></p>
+            <p><strong>Return Status:</strong> <span id="returnStatus">{{ReturnRequest?.returnStatus}}</span></p>
           </div>
         </div>
 
         <!-- Total Amount -->
         <div class="row mt-3">
           <div class="col-md-6">
-            <h5>Total Amount: <span id="totalAmount">15</span></h5>
+            <h5>Total Amount: <span id="totalAmount">{{ReturnRequest?.totalAmount}}</span></h5>
           </div>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="finalizeReturn()">Confirm Return</button>
+        <button type="button" class="btn btn-primary" (click)="AcceptReturn(ReturnRequest?.lendID)">Confirm Return</button>
       </div>
     </div>
   </div>
 </div>
 
-
-
-
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookReturnModal">
-  Open Return Modal
-</button>

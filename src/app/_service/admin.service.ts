@@ -70,4 +70,8 @@ export class AdminService {
       }
     })
   }
+
+  AcceptReturn(lendId:number){
+    return this.http.post(this.baseUrl + `HistoryContoller/UpdateHistory/${lendId}`,[]);
+  }
 }
