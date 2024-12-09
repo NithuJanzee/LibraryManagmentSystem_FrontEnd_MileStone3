@@ -40,7 +40,7 @@ export class ReturnManagementComponent implements OnInit {
     })
   }
 
-  ReturnRequest: GetAllReturn = {} as GetAllReturn;
+  ReturnRequest:any='';
   ReturnBooks(data: GetAllReturn) {
     this.ReturnRequest = data;
    // console.log(this.ReturnRequest)
