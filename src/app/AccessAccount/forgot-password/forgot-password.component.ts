@@ -45,11 +45,15 @@ export class ForgotPasswordComponent {
       }
 
       this.userService.ChangePassword(data).subscribe({
-        next:res =>{
+        next: res => {
           this.toaster.success("Password Updated Successful")
-          this.router.navigateByUrl('/User-Login')
+          localStorage.removeItem('NIC');
+          localStorage.removeItem('verify')
+          setTimeout(() => {
+            this.router.navigateByUrl('/User-Login')
+          }, 300);
         },
-        error:err=>{
+        error: err => {
           this.toaster.error(err.error)
         }
       })

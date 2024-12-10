@@ -1,25 +1,92 @@
-body {
-  background-color: #f8f9fa;
+/* General container styling */
+.container {
+  font-family: 'Arial', sans-serif;
+  color: #333;
 }
-.card {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #444;
+  margin-bottom: 1.5rem;
 }
-.btn-primary {
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+
+h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
 }
-.btn-outline-secondary {
-  color: #6c757d;
-  border-color: #6c757d;
+
+/* Grid layout for book details and cover image */
+.row {
+  margin-bottom: 1.5rem;
 }
-.form-control:focus, .form-select:focus {
-  border-color: #86b7fe;
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+
+.col-md-6 {
+  padding: 15px;
 }
-#currentCover, #imagePreview {
-  max-width: 100%;
-  height: auto;
+
+/* Book Details */
+ul.list-unstyled {
+  padding-left: 0;
+  margin-bottom: 0;
 }
-#imagePreview {
-  display: none;
+
+ul.list-unstyled li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+ul.list-unstyled li strong {
+  color: #0056b3;
+  font-weight: bold;
+}
+
+/* Book Cover Image */
+.img-fluid {
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 auto;
+}
+
+/* Customer Reviews */
+ul.list-unstyled {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+ul.list-unstyled li {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+ul.list-unstyled li strong {
+  color: #0056b3;
+}
+
+/* Styling for the container */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  h4 {
+    font-size: 1.3rem;
+  }
+
+  .row {
+    margin-bottom: 1rem;
+  }
+
+  .col-md-6 {
+    padding: 10px;
+  }
+
+  .img-fluid {
+    max-height: 250px;
+  }
 }

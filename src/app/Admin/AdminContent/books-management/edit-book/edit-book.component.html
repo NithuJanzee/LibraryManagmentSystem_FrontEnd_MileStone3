@@ -1,62 +1,50 @@
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-header bg-white">
-          <h2 class="card-title mb-0">Edit Book</h2>
-        </div>
-        <div class="card-body">
-          <form [formGroup]="EditForm" (ngSubmit)="onSubmit()">
-            <div class="row mb-3">
-              <div class="col-md-6">
-                <label for="title" class="form-label">Book Title</label>
-                <input type="text" class="form-control" id="bookTitle" formControlName="bookTitle" required />
-              </div>
-              <div class="col-md-6">
-                <label for="author" class="form-label">Author</label>
-                <select class="form-select" id="author" formControlName="author" required>
-                  <option value="{{EditForm.value?.author}}">{{EditForm.value.author}}</option>
-                  @for (item of bookService.AuthorSignal(); track $index) {
-                    <option value="{{item.authorID}}">{{item.authorName}}</option>
-                  }
-                </select>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-md-6">
-                <label for="publishDate" class="form-label">Publish Date</label>
-                <input type="date" class="form-control" id="publishDate" formControlName="publishDate" required />
-              </div>
-              <div class="col-md-6">
-                <label for="quantity" class="form-label">Quantity</label>
-                <input type="number" class="form-control" id="quantity" formControlName="quantity" required />
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="genre" class="form-label">Genre</label>
-              <select class="form-select" id="genre" formControlName="genre" required>
-                <option value="{{EditForm.value?.genre}}">{{EditForm.value.genre}}</option>
-                @for (item of bookService.GenreSignal(); track $index) {
-                  <option value="{{item.genreId}}">{{item.genre}}</option>
-                }
-              </select>
-            </div>
-            <div class="mb-3">
-              <label for="description" class="form-label">Description</label>
-              <textarea class="form-control" id="description" rows="3" formControlName="description"></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="image" class="form-label">Additional Photo</label>
-              <input type="file" name="image" id="image" (change)="onFileSelect($event)">
-            </div>
-            <div class="text-end">
-              <button type="button" class="btn btn-outline-secondary me-2">Cancel</button>
-              <button type="submit" class="btn btn-primary">Save Changes</button>
-            </div>
-          </form>
+<div class="container mt-4">
+  <h2>Book Overview</h2>
+  <div class="row">
+    <!-- Book Cover Image Column -->
+    <div class="col-md-4">
+      <img src="https://res.cloudinary.com/dztdhbdw9/image/upload/v1733202366/da-net8/ef9nipxnbyvda5iv4te3.jpg"
+        alt="Book Cover" class="img-fluid img-thumbnail" style="max-height: 400px; object-fit: cover;" />
+    </div>
 
-        </div>
-      </div>
+
+    <!-- Book Details Column -->
+    <div class="col-md-8">
+      <ul class="list-unstyled">
+        <li><strong>Book ID:</strong> 2002</li>
+        <li><strong>Title:</strong> Educated</li>
+        <li><strong>Author:</strong> Memgir</li>
+        <li><strong>Genre:</strong> Education</li>
+        <li><strong>Publish Date:</strong> 2024-12-03</li>
+        <li><strong>Description:</strong> Educated is a 2018 memoir by the American author Tara Westover. Westover
+          recounts overcoming her survivalist Mormon family in order to go to college, and emphasizes the importance of
+          education in enlarging her world.</li>
+        <li><strong>Price:</strong> ₹1500.00</li>
+        <li><strong>Discounted Price:</strong> ₹1500.00</li>
+        <li><strong>Available Quantity:</strong> 94</li>
+        <li><strong>Premium Book:</strong> No</li>
+        <li><strong>User Premium:</strong> No</li>
+      </ul>
+    </div>
+
+
+  </div>
+
+  <div class="row mt-4">
+    <!-- Customer Reviews -->
+    <div class="col-12">
+      <h4>Customer Reviews</h4>
+      <ul class="list-unstyled">
+        <li>
+          <strong>Sankeerthan</strong>: Ommala nan thanda leo!!! (4 stars, 2024-12-03)
+        </li>
+        <li>
+          <strong>Branavan</strong>: apa nan yaruda!!! (4 stars, 2024-12-07)
+        </li>
+        <li>
+          <strong>Nithushan</strong>: Nice boook but i don't undestad!!! (1 stars, 2024-12-09)
+        </li>
+      </ul>
     </div>
   </div>
 </div>
