@@ -64,10 +64,54 @@
                               </td>
                           </tr>
                         }
-                      
+
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+
+
+    <!-- <div class="card">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+              <h2>Not PublishedBook </h2>
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Title <i class="bi bi-arrow-down-up ms-1"></i></th>
+                            <th class="text-center">Author <i class="bi bi-arrow-down-up ms-1"></i></th>
+                            <th class="text-center">Genre <i class="bi bi-arrow-down-up ms-1"></i></th>
+                            <th class="text-center">Publish Date</th>
+                            <th class="text-center">Quantity</th>
+                            <th class="text-center">View More details</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      @for (item of BookService.Books(); track $index) {
+                          <tr>
+                              <td class="text-center">{{item.bookTitle}}</td>
+                              <td class="text-center">{{item.authorName}}</td>
+                              <td class="text-center">{{item.genreName}}</td>
+                              <td class="text-center">{{item.publishDate}}</td>
+                              <td class="text-center">{{item.quantity}}</td>
+                              <td class="text-center"><span class="badge badge-available"><a href="">View More</a></span></td>
+
+                              <td class="text-center book-actions">
+                                  <button class="btn btn-sm btn-outline-primary me-2" [routerLink]="['/admin/edit-book/'+ item.bookId]">
+                                      <i class="bi bi-pencil"></i>
+                                  </button>
+                                  <button class="btn btn-sm btn-outline-danger" (click)="DeleteBook(item.bookId)">
+                                      <i class="bi bi-trash"></i>
+                                  </button>
+                              </td>
+                          </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div> -->
 </main>

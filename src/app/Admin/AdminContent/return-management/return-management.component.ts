@@ -9,7 +9,7 @@ import { GetAllReturn } from '../../../_Inerface/AdminInterFace';
 @Component({
   selector: 'app-return-management',
   standalone: true,
-  imports: [RouterLink, DatePipe, FormsModule],
+  imports: [DatePipe, FormsModule],
   templateUrl: './return-management.component.html',
   styleUrl: './return-management.component.css'
 })
