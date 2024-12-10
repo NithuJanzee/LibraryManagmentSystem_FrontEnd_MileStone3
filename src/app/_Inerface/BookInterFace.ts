@@ -17,7 +17,7 @@ export interface Book {
   isRatted:boolean
   isCommented:boolean
   quantity:number
-  isPremium:boolean
+  isPremium:number
   bookPrice:number
   lendingprice3Days:number
   lendingprice7Days:number

@@ -31,6 +31,7 @@
     <div class="card">
         <div class="card-body p-0">
             <div class="table-responsive">
+              <h2>LIVE BOOK</h2>
                 <table class="table table-hover mb-0">
                     <thead>
                         <tr>
@@ -45,24 +46,25 @@
                     </thead>
                     <tbody>
                       @for (item of BookService.Books(); track $index) {
-                        <tr>
-                            <td class="text-center">{{item.bookTitle}}</td>
-                            <td class="text-center">{{item.authorName}}</td>
-                            <td class="text-center">{{item.genreName}}</td>
-                            <td class="text-center">{{item.publishDate}}</td>
-                            <td class="text-center">{{item.quantity}}</td>
-                            <td class="text-center"><span class="badge badge-available"><a href="">View More</a></span></td>
+                          <tr>
+                              <td class="text-center">{{item.bookTitle}}</td>
+                              <td class="text-center">{{item.authorName}}</td>
+                              <td class="text-center">{{item.genreName}}</td>
+                              <td class="text-center">{{item.publishDate}}</td>
+                              <td class="text-center">{{item.quantity}}</td>
+                              <td class="text-center"><span class="badge badge-available"><a href="">View More</a></span></td>
 
-                            <td class="text-center book-actions">
-                                <button class="btn btn-sm btn-outline-primary me-2" [routerLink]="['/admin/edit-book/'+ item.bookId]">
-                                    <i class="bi bi-pencil"></i>
-                                </button>
-                                <button class="btn btn-sm btn-outline-danger" (click)="DeleteBook(item.bookId)">
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-                      }
+                              <td class="text-center book-actions">
+                                  <button class="btn btn-sm btn-outline-primary me-2" [routerLink]="['/admin/edit-book/'+ item.bookId]">
+                                      <i class="bi bi-pencil"></i>
+                                  </button>
+                                  <button class="btn btn-sm btn-outline-danger" (click)="DeleteBook(item.bookId)">
+                                      <i class="bi bi-trash"></i>
+                                  </button>
+                              </td>
+                          </tr>
+                        }
+                      
                     </tbody>
                 </table>
             </div>
