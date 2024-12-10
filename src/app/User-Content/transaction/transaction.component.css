@@ -1,6 +1,6 @@
 .bodyContainer {
-    background: linear-gradient(to bottom, #ffffff, #f4f4f4); /* Light gray gradient background */
-    color: #000000; /* Black text for high contrast */
+    background: linear-gradient(to bottom, #ffffff, #f4f4f4);
+    color: #000000;
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
@@ -8,15 +8,15 @@
 
   .container {
     padding: 2rem;
-    border-radius: 12px; /* Softer rounded corners */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    background-color: #ffffff; /* Clean white container for content visibility */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
   }
 
   h2 {
     font-family: 'Poppins', sans-serif;
-    font-weight: 700; /* Stronger weight for headings */
-    color: #000000; /* Black for prominence */
+    font-weight: 700;
+    color: #000000;
     text-transform: uppercase;
     letter-spacing: 1px;
     text-align: center;
@@ -32,22 +32,22 @@
   }
 
   .search-input {
-    border: 1px solid #000000; /* Black border for contrast */
+    border: 1px solid #000000;
     border-radius: 50px;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     width: 60%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for clarity */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
 
   .btn-search {
-    background-color: #000000; /* Black button */
+    background-color: #000000;
     color: white;
     border-radius: 50px;
     padding: 0.5rem 1.5rem;
     font-weight: 600;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Button shadow for interactivity */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
 
   .btn-search:hover {
@@ -57,12 +57,12 @@
 
   .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    border-radius: 12px; /* Rounded corners for a premium feel */
+    border-radius: 12px;
     margin-bottom: 1.5rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    border: 1px solid rgba(0, 0, 0, 0.1); /* Thin black border */
-    background-color: #ffffff; /* Clean white card */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
   }
 
   .card:hover {
@@ -74,29 +74,29 @@
     font-size: 0.9rem;
     padding: 0.5em 1em;
     border-radius: 20px;
-    background-color: #000000; /* Black badges */
-    color: #ffffff; /* White text */
+    background-color: #000000;
+    color: #ffffff;
   }
 
   .card-body {
     padding: 1.5rem;
-    background-color: #f8f8f8; /* Subtle light gray for separation */
+    background-color: #f8f8f8;
   }
 
   .card-title {
     font-size: 1.4rem;
     font-weight: 600;
-    color: #000000; /* Black for prominence */
+    color: #000000;
   }
 
   .card-text {
-    color: #555555; /* Medium gray for text */
+    color: #555555;
     font-size: 1rem;
   }
 
   .text-end {
     font-size: 0.95rem;
-    color: #555555; /* Medium gray */
+    color: #555555;
   }
 
   .Lending {
@@ -105,7 +105,7 @@
     color: #000000;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-bottom: 2px solid #000000; /* Black underline for section */
+    border-bottom: 2px solid #000000;
     display: inline-block;
     padding-bottom: 0.5rem;
   }
@@ -116,7 +116,7 @@
     color: #000000;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-bottom: 2px solid #000000; /* Black underline for section */
+    border-bottom: 2px solid #000000;
     display: inline-block;
     padding-bottom: 0.5rem;
   }

@@ -40,9 +40,10 @@ export class ApprovedRequestsComponent implements OnInit {
     this.AdminService.UpdateToLending(postId).subscribe({
       next:res=>{
         this.toster.success("Book Landed Successfully")
-        setTimeout(() => {
-          window.location.reload()
-        }, 1500);
+        // setTimeout(() => {
+        //   window.location.reload()
+        // }, 1500);
+        this.LoadAllApprovedBooks('')
       },
       error:err =>{
         this.toster.error(err.error)

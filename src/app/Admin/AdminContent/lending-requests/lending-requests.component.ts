@@ -36,9 +36,7 @@ export class LendingRequestsComponent implements OnInit {
     this.AdminService.ApproveLending(postId).subscribe({
       next: res => {
         this.toster.success("lending Accepted Succesfuly")
-        setTimeout(() => {
-          window.location.reload()
-        }, 1500);
+        this.loadAllLendingRequest('')
       },
       error: err => {
         this.toster.error(err.message)

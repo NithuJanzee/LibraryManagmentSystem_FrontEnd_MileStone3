@@ -36,6 +36,7 @@ export class TransactionComponent implements OnInit {
   loadUserLendingBooks(searchText:string) {
     var userId = Number(this.userService.LoggedUser()?.nameid)
     this.userService.GetAllTransactionWithUserId(userId,searchText)
+    //window.location.reload();
   }
 
 

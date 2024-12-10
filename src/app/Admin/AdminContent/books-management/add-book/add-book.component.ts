@@ -30,7 +30,6 @@ export class AddBookComponent implements OnInit {
       title: ['', Validators.required],
       author: ['', Validators.required],
       publishDate: ['', Validators.required],
-      Price:['',Validators.required],
       IsPremium:['',Validators.required],
       quantity: [1, [Validators.required, Validators.min(1)]],
       genre: ['', Validators.required],
