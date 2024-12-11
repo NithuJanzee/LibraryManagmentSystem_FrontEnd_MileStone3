@@ -5,9 +5,37 @@
   </div>
   <div class="card-body">
     <div class="row">
-      <div class="col-md-4 mb-4 mb-md-0">
-        <img src="https://res.cloudinary.com/dztdhbdw9/image/upload/v1733656656/da-net8/zjgea0kmuqufipgymtcd.jpg"
-          alt="Educated by Tara Westover" class="img-fluid rounded book-cover mb-3">
+      <div class="col-md-4 mb-4">
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+          <!-- Indicators -->
+          <div class="carousel-indicators">
+            <button type="button" *ngFor="let photo of EditBookForAdminSignal()?.photoUrls; let i = index"
+              [attr.data-bs-target]="'#carouselExampleDark'" [attr.data-bs-slide-to]="i" [class.active]="i === 0"
+              [attr.aria-label]="'Slide ' + (i + 1)">
+            </button>
+          </div>
+
+          <!-- Inner -->
+          <div class="carousel-inner">
+            <div *ngFor="let photo of EditBookForAdminSignal()?.photoUrls; let i = index" class="carousel-item"
+              [class.active]="i === 0" data-bs-interval="10000">
+              <img [src]="photo" class="d-block w-100 img-fluid" alt="Book Image"
+                style="max-height: 400px; object-fit: contain;">
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
       </div>
       <div class="col-md-8">
         <h3 class="mb-3">BookTitle: {{EditBookForAdminSignal()?.bookTitle}}
@@ -33,50 +61,50 @@
             <div class="col-sm-6">
               <h5 class="mb-3">Price/Discount</h5>
               @if (EditBookForAdminSignal()?.bookPrice == null) {
-                <p class="fs-6 fw-bold text-danger">Not Set / Not Set</p>
-                <div class="mt-3">
-                  <h5>Discounted Price</h5>
-                  <p class="fs-6 fw-bold text-success">Not Set
-                    <i class="bi bi-pencil-square edit-button" onclick="showEditAlert('Discounted Price')"></i>
-                  </p>
-                </div>
-               <button class="btn btn-primary mt-3">Add Price</button>
+              <p class="fs-6 fw-bold text-danger">Not Set / Not Set</p>
+              <div class="mt-3">
+                <h5>Discounted Price</h5>
+                <p class="fs-6 fw-bold text-success">Not Set
+                  <i class="bi bi-pencil-square edit-button" onclick="showEditAlert('Discounted Price')"></i>
+                </p>
+              </div>
+              <button class="btn btn-primary mt-3">Add Price</button>
               }@else {
-                <div class="row mb-3">
-                  <div class="col-6 d-flex align-items-center">
-                    <p class="me-2 mb-0 fs-7 fw-bold">Price:</p>
-                    <p class="mb-0 fs-6 fw-bold text-success">{{EditBookForAdminSignal()?.bookPrice}}</p>
+              <div class="row mb-3">
+                <div class="col-6 d-flex align-items-center">
+                  <p class="me-2 mb-0 fs-7 fw-bold">Price:</p>
+                  <p class="mb-0 fs-6 fw-bold text-success">{{EditBookForAdminSignal()?.bookPrice}}</p>
+                </div>
+                <div class="col-6 d-flex align-items-center">
+                  <p class="me-2 mb-0 fs-7 fw-bold"><i class="fa-solid fa-crown"></i>Discount:</p>
+                  <p class="mb-0 fs-6 fw-bold text-danger">{{EditBookForAdminSignal()?.bookDiscountPercentage}}%</p>
+                </div>
+              </div>
+
+              <div class="col-sm-12 mt-3 d-flex align-items-center">
+                <p class="me-2 mb-0 fs-7 fw-bold"><i class="fa-solid fa-crown"></i>Price for Premium:</p>
+                <p class="mb-0 fs-6 fw-bold text-success">{{EditBookForAdminSignal()?.discountedPrice}}</p>
+              </div>
+
+              <div class="mt-4">
+                <h5>Lending Price</h5>
+                <div class="row">
+                  <div class="col-4 d-flex align-items-center">
+                    <p class="me-2 mb-0 fs-7 fw-bold">Minimum(3 Days):</p>
+                    <p class="mb-0 fs-6 fw-bold text-success">{{EditBookForAdminSignal()?.lendingprice3Days}}/=</p>
                   </div>
-                  <div class="col-6 d-flex align-items-center">
-                    <p class="me-2 mb-0 fs-7 fw-bold"><i class="fa-solid fa-crown"></i>Discount:</p>
-                    <p class="mb-0 fs-6 fw-bold text-danger">{{EditBookForAdminSignal()?.bookDiscountPercentage}}%</p>
+                  <div class="col-4 d-flex align-items-center">
+                    <p class="me-2 mb-0 fs-7 fw-bold">Maximum (30 Days):</p>
+                    <p class="mb-0 fs-6 fw-bold text-success">{{EditBookForAdminSignal()?.lendingprice30Days}}/=</p>
+                  </div>
+                  <div class="col-4 d-flex align-items-center">
+                    <p class="me-2 mb-0 fs-7 fw-bold"><i class="fa-solid fa-crown"></i>Lending Discount:</p>
+                    <p class="mb-0 fs-6 fw-bold text-danger">{{EditBookForAdminSignal()?.lendingDiscountPercentage}}%
+                    </p>
                   </div>
                 </div>
-
-                <div class="col-sm-12 mt-3 d-flex align-items-center">
-                  <p class="me-2 mb-0 fs-7 fw-bold"><i class="fa-solid fa-crown"></i>Price for Premium:</p>
-                  <p class="mb-0 fs-6 fw-bold text-success">{{EditBookForAdminSignal()?.discountedPrice}}</p>
-                </div>
-
-                <div class="mt-4">
-                  <h5>Lending Price</h5>
-                  <div class="row">
-                    <div class="col-4 d-flex align-items-center">
-                      <p class="me-2 mb-0 fs-7 fw-bold">Minimum(3 Days):</p>
-                      <p class="mb-0 fs-6 fw-bold text-success">{{EditBookForAdminSignal()?.lendingprice3Days}}/=</p>
-                    </div>
-                    <div class="col-4 d-flex align-items-center">
-                      <p class="me-2 mb-0 fs-7 fw-bold">Maximum (30 Days):</p>
-                      <p class="mb-0 fs-6 fw-bold text-success">{{EditBookForAdminSignal()?.lendingprice30Days}}/=</p>
-                    </div>
-                    <div class="col-4 d-flex align-items-center">
-                      <p class="me-2 mb-0 fs-7 fw-bold"><i class="fa-solid fa-crown"></i>Lending Discount:</p>
-                      <p class="mb-0 fs-6 fw-bold text-danger">{{EditBookForAdminSignal()?.lendingDiscountPercentage}}%</p>
-                    </div>
-                  </div>
-                </div>
-                <button class="btn btn-primary mt-3">Update Price</button>
-
+              </div>
+              <button class="btn btn-primary mt-3">Update Price</button>
               }
             </div>
 

@@ -4,14 +4,14 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { BookService } from '../../../../_service/book.service';
 import { Book, GetBookForEdit } from '../../../../_Inerface/BookInterFace';
 import { ToastrService } from 'ngx-toastr';
-import { DatePipe } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 
 
 @Component({
   selector: 'app-edit-book',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule,DatePipe],
+  imports: [FormsModule, ReactiveFormsModule,DatePipe,CommonModule],
   templateUrl: './edit-book.component.html',
   styleUrl: './edit-book.component.css'
 })
