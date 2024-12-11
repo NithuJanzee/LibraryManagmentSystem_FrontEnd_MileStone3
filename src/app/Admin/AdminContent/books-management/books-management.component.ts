@@ -16,8 +16,9 @@ export class BooksManagementComponent  implements OnInit{
   toaster = inject(ToastrService)
 
   ngOnInit(): void {
-    if(this.BookService.Books().length == 0){
+    if(this.BookService.Books().length == 0 || this.BookService.NotPublishedBooksSignal().length == 0){
       this.LoadBooks()
+      this.getAllNotPublishedBook()
     }
   }
 
@@ -35,5 +36,9 @@ export class BooksManagementComponent  implements OnInit{
         this.toaster.error(err)
       }
     })
+  }
+
+  getAllNotPublishedBook(){
+    this.BookService.GetAllNotPublishedBook('')
   }
 }
