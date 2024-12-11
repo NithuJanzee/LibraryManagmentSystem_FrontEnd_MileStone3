@@ -47,3 +47,8 @@ export interface AddPriceAndDiscounts{
   individualBookPriceDiscount:number
   individualLendingPriceDiscount:number
 }
+
+export interface BookUsage {
+  name: string;
+  value: number;
+}
