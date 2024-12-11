@@ -1,4 +1,4 @@
-<div class="card mb-5 shadow">
+<div class="card mb-2 shadow">
   <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
     <h2 class="mb-0">Book Overview</h2>
     <span class="badge bg-light text-primary">ID: {{EditBookForAdminSignal()?.bookId}}</span>
@@ -38,15 +38,22 @@
         </div>
       </div>
       <div class="col-md-8">
-        <h3 class="mb-3">BookTitle: {{EditBookForAdminSignal()?.bookTitle}}
-          <i class="bi bi-pencil-square edit-button" onclick="showEditAlert('Book Title')"></i>
+        <h3 class="mb-3 d-flex align-items-center">
+          <span class="me-3">BookTitle: {{ EditBookForAdminSignal()?.bookTitle }}</span>
+          <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editBookTitle">
+            <i class="bi bi-pencil-square fs-6"></i>
+          </button>
         </h3>
-        <p class="lead">Author: Tara Westover
-          <i class="bi bi-pencil-square edit-button" onclick="showEditAlert('Author Name')"></i>
-        </p>
+        <h4 class="mb-3 d-flex align-items-center">
+          <span class="me-3">Author: {{EditBookForAdminSignal()?.authorName}}</span>
+          <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#EditBookAuthor">
+            <i class="bi bi-pencil-square fs-6"></i>
+          </button>
+        </h4>
+
+
         <div class="mb-3 book-meta">
           <p><strong>PublishedDate:</strong> {{EditBookForAdminSignal()?.publishDate | date}}
-            <i class="bi bi-pencil-square edit-button" onclick="showEditAlert('Publication Date')"></i>
           </p>
           <p class="book-description mb-4">Description: {{EditBookForAdminSignal()?.description}}
             <i class="bi bi-pencil-square edit-button" onclick="showEditAlert('Book Description')"></i>
@@ -68,7 +75,8 @@
                   <i class="bi bi-pencil-square edit-button" onclick="showEditAlert('Discounted Price')"></i>
                 </p>
               </div>
-              <button class="btn btn-primary mt-3">Add Price</button>
+              <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#priceInputModal">Add
+                Price</button>
               }@else {
               <div class="row mb-3">
                 <div class="col-6 d-flex align-items-center">
@@ -104,92 +112,218 @@
                   </div>
                 </div>
               </div>
-              <button class="btn btn-primary mt-3">Update Price</button>
+              <button class="btn btn-primary mt-3 ps-3" data-bs-toggle="modal" data-bs-target="#priceInputModal">Update
+                Price</button>
+              @if (EditBookForAdminSignal()?.ispublished == false) {
+              <button class="btn btn-outline-success mt-3 ps-3" data-bs-toggle="modal"
+                data-bs-target="#publishModal">Publish This Book</button>
+              }
+              @if(EditBookForAdminSignal()?.ispublished == true){
+              <button class="btn btn-outline-success mt-3 ps-3" data-bs-toggle="modal"
+                data-bs-target="#publishModal">Unpublish this book</button>
+              }
               }
             </div>
-
           </div>
         </div>
-
       </div>
     </div>
   </div>
+</div>
 
-  <div class="card shadow">
-    <div class="card-header bg-secondary text-white">
-      <h3 class="mb-0">Customer Reviews</h3>
+
+<div class="card shadow-sm mt-3 rounded">
+  <div class="card-header bg-light text-dark border-bottom">
+    <h4 class="mb-0 text-center fw-bold">Customer Reviews</h4>
+  </div>
+  <div class="card-body">
+    <div class="review-list">
+      @for (item of EditBookForAdminSignal()?.comments; track $index) {
+      <div class="review-card p-4 mb-4 border rounded-3 shadow-sm bg-light">
+        <div class="d-flex align-items-start mb-3">
+          <div class="me-3">
+            <h5 class="mb-1 text-primary fw-bold">{{item.userFirstName}}</h5>
+            <div class="rating text-warning mb-2">
+              @if (item.useRatting == 0) {
+              <span class="text-muted">Not Rated</span>
+              }
+              @if (item.useRatting == 1) {
+              <i class="fa-solid fa-star"></i>
+              }
+              @if (item.useRatting == 2) {
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              }
+              @if (item.useRatting == 3) {
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              }
+              @if (item.useRatting == 4) {
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i>
+              }
+              @if (item.useRatting == 5) {
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              }
+            </div>
+            <small class="text-muted">Reviewed on {{item.createdAt}}</small>
+          </div>
+        </div>
+        <p class="text-dark">{{item.commentText}}</p>
+
+      </div>
+      }
     </div>
-    <div class="card-body">
-      <div class="review mb-4">
-        <div class="d-flex justify-content-between align-items-center mb-2">
-          <div class="d-flex align-items-center">
-            <div>
-              <strong>Sankeerthan
-                <i class="bi bi-pencil-square edit-button" onclick="showEditAlert('Reviewer Name')"></i>
-              </strong>
-              <div class="star-rating">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star"></i>
-                <i class="bi bi-pencil-square edit-button" onclick="showEditAlert('Review Rating')"></i>
-              </div>
-            </div>
-          </div>
-          <small class="text-muted review-date">December 3, 2024
-            <i class="bi bi-pencil-square edit-button" onclick="showEditAlert('Review Date')"></i>
-          </small>
-        </div>
-        <p class="mb-0">Ommala nan thanda leo!!! This book is an absolute masterpiece...</p>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="priceInputModal" tabindex="-1" aria-labelledby="priceInputModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="priceInputModalLabel">Set Price Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <hr>
-      <div class="review mb-4">
-        <div class="d-flex justify-content-between align-items-center mb-2">
-          <div class="d-flex align-items-center">
-            <div>
-              <strong>Branavan
-                <i class="bi bi-pencil-square edit-button" onclick="showEditAlert('Reviewer Name')"></i>
-              </strong>
-              <div class="star-rating">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star"></i>
-                <i class="bi bi-pencil-square edit-button" onclick="showEditAlert('Review Rating')"></i>
-              </div>
+      <div class="modal-body">
+        <!-- Angular Form for price input -->
+        <form #priceForm="ngForm" (ngSubmit)="onSubmit(priceForm)" novalidate>
+          <div class="row">
+            <!-- Left side: Book Price -->
+            <div class="col-md-6 mb-3">
+              <mat-form-field class="example-full-width" style="width: 100%;">
+                <mat-label>Book Price</mat-label>
+                <input matInput placeholder="OldPrice {{EditBookForAdminSignal()?.bookPrice}}/=" [(ngModel)]="price"
+                  name="price" required>
+                <mat-error *ngIf="priceForm.submitted && !price">Book price is required.</mat-error>
+              </mat-form-field>
+            </div>
+            <!-- Right side: Book Price Discount -->
+            <div class="col-md-6 mb-3">
+              <mat-form-field class="example-full-width" style="width: 100%;">
+                <mat-label>Individual Book Price Discount (%)</mat-label>
+                <input placeholder="Old{{EditBookForAdminSignal()?.bookDiscountPercentage}}%" matInput type="number"
+                  [(ngModel)]="individualBookPriceDiscount" name="individualBookPriceDiscount" min="1" max="100"
+                  required>
+                <mat-error *ngIf="priceForm.submitted && !individualBookPriceDiscount">Discount must be between 1 and
+                  100.</mat-error>
+              </mat-form-field>
             </div>
           </div>
-          <small class="text-muted review-date">December 7, 2024
-            <i class="bi bi-pencil-square edit-button" onclick="showEditAlert('Review Date')"></i>
-          </small>
-        </div>
-        <p class="mb-0">apa nan yaruda!!! Educated is a powerful testament to the human spirit...</p>
+
+          <div class="row">
+            <!-- Left side: Minimum Lending Price -->
+            <div class="col-md-6 mb-3">
+              <mat-form-field class="example-full-width" style="width: 100%;">
+                <mat-label>Minimum Lending Price</mat-label>
+                <input placeholder="OldPrice {{EditBookForAdminSignal()?.lendingprice3Days}}/=" matInput type="number"
+                  [(ngModel)]="minimumLendingPrice" name="minimumLendingPrice" required>
+                <mat-error *ngIf="priceForm.submitted && !minimumLendingPrice">Minimum lending price is
+                  required.</mat-error>
+              </mat-form-field>
+            </div>
+            <!-- Right side: Lending Price Discount -->
+            <div class="col-md-6 mb-3">
+              <mat-form-field class="example-full-width" style="width: 100%;">
+                <mat-label>Individual Lending Price Discount (%)</mat-label>
+                <input placeholder="Old {{EditBookForAdminSignal()?.lendingDiscountPercentage}}%" matInput type="number"
+                  [(ngModel)]="individualLendingPriceDiscount" name="individualLendingPriceDiscount" min="1" max="100"
+                  required>
+                <mat-error *ngIf="priceForm.submitted && !individualLendingPriceDiscount">Discount must be between 1 and
+                  100.</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+        </form>
       </div>
-      <hr>
-      <div class="review">
-        <div class="d-flex justify-content-between align-items-center mb-2">
-          <div class="d-flex align-items-center">
-            <div>
-              <strong>Nithushan
-                <i class="bi bi-pencil-square edit-button" onclick="showEditAlert('Reviewer Name')"></i>
-              </strong>
-              <div class="star-rating">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star"></i>
-                <i class="bi bi-star"></i>
-                <i class="bi bi-star"></i>
-                <i class="bi bi-star"></i>
-                <i class="bi bi-pencil-square edit-button" onclick="showEditAlert('Review Rating')"></i>
-              </div>
-            </div>
-          </div>
-          <small class="text-muted review-date">December 9, 2024
-            <i class="bi bi-pencil-square edit-button" onclick="showEditAlert('Review Date')"></i>
-          </small>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- Disable the button until the form is valid -->
+        <button type="submit" class="btn btn-primary" [disabled]="!priceForm.valid" (click)="onSubmit(priceForm)">Save
+          Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- publishModal  -->
+
+<!-- Modal -->
+<div class="modal fade" id="publishModal" tabindex="-1" aria-labelledby="publishModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="publishModalLabel">Confirm Publishing</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        @if (EditBookForAdminSignal()?.ispublished == false) {
+        <p>Are you sure you want to publish this book?</p>
+        }@else {
+        <p>Are you sure you want to Not publish this book?</p>
+        }
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        @if (EditBookForAdminSignal()?.ispublished == false) {
+        <button type="button" class="btn btn-primary" (click)="UpdatePublishStatus()">Yes, Publish</button>
+        }@else {
+        <button type="button" class="btn btn-primary" (click)="UpdatePublishStatus()">Yes, NotPublish</button>
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EditBookTitle Modal  -->
+<div class="modal fade" id="editBookTitle" tabindex="-1" aria-labelledby="editBookModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editBookModalLabel">Edit Book Title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <mat-form-field class="example-full-width" style="width: 100%;">
+          <mat-label>Add New Title</mat-label>
+          <input placeholder="{{EditBookForAdminSignal()?.bookTitle}}" matInput type="text" [(ngModel)]="NewbookTitle"
+            name="NewbookTitle" required>
+        </mat-form-field>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="changeBookTile()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EditAuthorModal  -->
+<!-- Button to trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="EditBookAuthor" tabindex="-1" aria-labelledby="editBookModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editBookModalLabel">Edit Book Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Dropdown for Book Author -->
+        <div class="mb-3">
+          <label for="bookAuthor" class="form-label">Book Author</label>
+          <select class="form-select" id="bookAuthor">
+            <option value="author1">Author 1</option>
+            <option value="author2">Author 2</option>
+            <option value="author3">Author 3</option>
+            <option value="author4">Author 4</option>
+          </select>
         </div>
-        <p class="mb-0">Nice boook but i don't undestad!!! While the story is compelling...</p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save Changes</button>
       </div>
     </div>
   </div>

@@ -28,6 +28,7 @@ export interface Book {
   isUserPremium:boolean
   lendingDiscountPercentage:number
   bookDiscountPercentage:number
+  ispublished:boolean
 }
 
 export interface comments {

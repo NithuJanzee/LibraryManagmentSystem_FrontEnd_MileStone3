@@ -5,6 +5,7 @@ import { Author, Book, BookRatting, comments, Genre, GetBookForEdit, PostBook, p
 import { LendingRequest } from '../_Inerface/BookTransactionInterface';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { AddPriceAndDiscounts } from '../_Inerface/AdminInterFace';
 
 @Injectable({
   providedIn: 'root'
@@ -88,8 +89,20 @@ export class BookService {
   PostComment(comment: postComment) {
     return this.http.post(this.baseUrl + `Comment/addComment/`, comment)
   }
-  
+
   GetBookByIDForAdminEdit(BookId: number) {
     return this.http.get<Book>(this.baseUrl + `Book/GetBookByIdAdmin?bookid=${BookId}`)
+  }
+
+  AddBookPriceAndDiscount(data:AddPriceAndDiscounts){
+    return this.http.post<AddPriceAndDiscounts>(this.baseUrl + `BookPrice/add-or-update`,data)
+  }
+
+  ChangeThePublishData(id:number){
+    return this.http.put(this.baseUrl + `Book/change-BookPublish-Status?bookid=${id}`,{})
+  }
+
+  ChangeTheBookTitle(bookId:number, newTitle:string){
+    return this.http.put(this.baseUrl + `Book/UpdateBookTitle?bookId=${bookId}&newTitle=${newTitle}`,{})
   }
 }

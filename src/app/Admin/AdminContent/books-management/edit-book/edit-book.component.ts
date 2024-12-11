@@ -7,11 +7,16 @@ import { ToastrService } from 'ngx-toastr';
 import { CommonModule, DatePipe } from '@angular/common';
 
 
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { AddPriceAndDiscounts } from '../../../../_Inerface/AdminInterFace';
+
+
 
 @Component({
   selector: 'app-edit-book',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule,DatePipe,CommonModule],
+  imports: [FormsModule, ReactiveFormsModule,DatePipe,CommonModule,MatFormFieldModule, MatInputModule],
   templateUrl: './edit-book.component.html',
   styleUrl: './edit-book.component.css'
 })
@@ -40,6 +45,62 @@ export class EditBookComponent implements OnInit {
       },
       error: err => {
         this.toaster.error(err.message)
+      }
+    })
+  }
+
+  price: number = 0;
+  minimumLendingPrice: number = 0;
+  individualBookPriceDiscount: number = 0;
+  individualLendingPriceDiscount: number = 0;
+
+  onSubmit(form: any) {
+    if (form.valid) {
+      console.log('Form submitted', form.value);
+
+      let formData: AddPriceAndDiscounts = {
+        bookId: this.bookId,
+        price: this.price,
+        minimumLendingPrice: this.minimumLendingPrice,
+        individualBookPriceDiscount: this.individualBookPriceDiscount,
+        individualLendingPriceDiscount: this.individualLendingPriceDiscount
+      };
+
+      this.bookService.AddBookPriceAndDiscount(formData).subscribe({
+        next: (response) => {
+          this.toaster.success('Price and discounts added successfully')
+          this.GetBookByID()
+        },
+        error: (err) => {
+          this.toaster.error('Price and discounts added successfully')
+        }
+      });
+    } else {
+      this.toaster.error('Form is invalid')
+    }
+  }
+
+  UpdatePublishStatus(){
+    this.bookService.ChangeThePublishData(this.bookId).subscribe({
+      next:res=>{
+        this.toaster.success("Status Updated Successfully")
+        this.GetBookByID()
+      },
+      error:err=>{
+        this.toaster.error(err.Message)
+      }
+    })
+  }
+
+  NewbookTitle:string='';
+  changeBookTile(){
+    this.bookService.ChangeTheBookTitle(this.bookId , this.NewbookTitle).subscribe({
+      next:res=>{
+        this.toaster.success('Title updated Successfully')
+        this.GetBookByID()
+      },
+      error:err=>{
+        this.toaster.error(err.Message)
       }
     })
   }

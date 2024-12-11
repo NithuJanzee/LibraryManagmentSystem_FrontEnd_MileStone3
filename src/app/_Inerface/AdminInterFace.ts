@@ -1,3 +1,4 @@
+import { numberAttribute } from '@angular/core';
 export interface AdminLogin {
   id: String,
   password: String
@@ -25,7 +26,7 @@ export interface GetAllLendingRequestAndApproved{
 export interface GetAllReturn{
   lendID:number
   userId: number;
-  userNIC:string  
+  userNIC:string
   userName: string;
   userStatus: string;
   bookTittle: string;
@@ -37,4 +38,12 @@ export interface GetAllReturn{
   dueDays:number
   dueAmount:number
   totalAmount:number
+}
+
+export interface AddPriceAndDiscounts{
+  bookId:number
+  price:number
+  minimumLendingPrice:number
+  individualBookPriceDiscount:number
+  individualLendingPriceDiscount:number
 }
