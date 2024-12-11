@@ -105,4 +105,20 @@ export class BookService {
   ChangeTheBookTitle(bookId:number, newTitle:string){
     return this.http.put(this.baseUrl + `Book/UpdateBookTitle?bookId=${bookId}&newTitle=${newTitle}`,{})
   }
+
+  EditAuthor(bookId:number, authorId:number){
+    return this.http.put(this.baseUrl + `Book/update-author?bookId=${bookId}&authorUpdateDTO=${authorId}`,{})
+  }
+
+  UpdateGenre(bookId:number, GenreID:number){
+    return this.http.put(this.baseUrl + `Book/update-Genre?bookId=${bookId}&Genre=${GenreID}`,{})
+  }
+
+  UpdateDescription(bookId:number, NewDescription:string){
+  return this.http.put(this.baseUrl +`Book/update-Description?bookId=${bookId}&NewDescription=${NewDescription}`,{})
+  }
+
+  UpdateQuantity(bookId:number,Quantity:number){
+    return this.http.put(this.baseUrl + `Book/update-Quantity?bookId=${bookId}&Quantity=${Quantity}`,{})
+  }
 }

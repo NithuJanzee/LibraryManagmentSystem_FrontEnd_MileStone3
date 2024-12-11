@@ -7,8 +7,8 @@ import { ToastrService } from 'ngx-toastr';
 import { CommonModule, DatePipe } from '@angular/common';
 
 
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { AddPriceAndDiscounts } from '../../../../_Inerface/AdminInterFace';
 
 
@@ -16,7 +16,7 @@ import { AddPriceAndDiscounts } from '../../../../_Inerface/AdminInterFace';
 @Component({
   selector: 'app-edit-book',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule,DatePipe,CommonModule,MatFormFieldModule, MatInputModule],
+  imports: [FormsModule, ReactiveFormsModule, DatePipe, CommonModule, MatFormFieldModule, MatInputModule],
   templateUrl: './edit-book.component.html',
   styleUrl: './edit-book.component.css'
 })
@@ -80,10 +80,43 @@ export class EditBookComponent implements OnInit {
     }
   }
 
-  UpdatePublishStatus(){
+  UpdatePublishStatus() {
     this.bookService.ChangeThePublishData(this.bookId).subscribe({
-      next:res=>{
+      next: res => {
         this.toaster.success("Status Updated Successfully")
+        this.GetBookByID()
+      },
+      error: err => {
+        this.toaster.error(err.Message)
+      }
+    })
+  }
+
+  NewbookTitle: string = '';
+  changeBookTile() {
+    this.bookService.ChangeTheBookTitle(this.bookId, this.NewbookTitle).subscribe({
+      next: res => {
+        this.toaster.success('Title updated Successfully')
+        this.GetBookByID()
+      },
+      error: err => {
+        this.toaster.error(err.Message)
+      }
+    })
+  }
+
+  GetAllAuthorAndGenre() {
+    if (this.bookService.AuthorSignal().length == 0 || this.bookService.GenreSignal().length ==0) {
+      this.bookService.GetAllAuthor()
+      this.bookService.GetAllGenre()
+    }
+  }
+
+  NewAuthor:number = 0
+  UpdateNewAuthor(){
+    this.bookService.EditAuthor(this.bookId ,this.NewAuthor).subscribe({
+      next:res=>{
+        this.toaster.success("Author Updated Successfully")
         this.GetBookByID()
       },
       error:err=>{
@@ -92,11 +125,37 @@ export class EditBookComponent implements OnInit {
     })
   }
 
-  NewbookTitle:string='';
-  changeBookTile(){
-    this.bookService.ChangeTheBookTitle(this.bookId , this.NewbookTitle).subscribe({
+  NewGenre:number = 0
+  UpdateGenre(){
+    this.bookService.UpdateGenre(this.bookId, this.NewGenre).subscribe({
       next:res=>{
-        this.toaster.success('Title updated Successfully')
+        this.toaster.success("Genre UpdatedSuccessfully")
+        this.GetBookByID()
+      },
+      error:err=>{
+        this.toaster.error(err.Message)
+      }
+    })
+  }
+
+  NewDescription:string=''
+  NewQuantity:number = 0
+  UpdateTheQuantity(){
+    this.bookService.UpdateQuantity(this.bookId,this.NewQuantity).subscribe({
+      next:res=>{
+        this.toaster.success("Quantity Updated Successfully")
+        this.GetBookByID()
+      },
+      error:err=>{
+        this.toaster.error(err.Message)
+      }
+    })
+  }
+
+  UpdateTheDescription(){
+    this.bookService.UpdateDescription(this.bookId,this.NewDescription).subscribe({
+      next:res=>{
+        this.toaster.success("Description Updated successfully")
         this.GetBookByID()
       },
       error:err=>{
