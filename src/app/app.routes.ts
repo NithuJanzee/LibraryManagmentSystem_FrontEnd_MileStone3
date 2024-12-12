@@ -21,6 +21,8 @@ import { ForgotPasswordComponent } from './AccessAccount/forgot-password/forgot-
 import { OTPComponent } from './AccessAccount/otp/otp.component';
 import { forgotPasswordGuard } from './_gurard/forgot-password.guard';
 import { ApprovedRequestsComponent } from './Admin/AdminContent/approved-requests/approved-requests.component';
+import { MannualLendingComponent } from './Admin/AdminContent/mannual-lending/mannual-lending.component';
+import { ViewAllBookComponent } from './Admin/AdminContent/mannual-lending/view-all-book/view-all-book.component';
 
 export const routes: Routes = [
   {
@@ -55,7 +57,9 @@ export const routes: Routes = [
             {path:'ApprovedRequests',component:ApprovedRequestsComponent},
             {path:'ReturnManagement',component:ReturnManagementComponent},
             {path:'add-book', component:AddBookComponent},
-            {path:'edit-book/:id',component:EditBookComponent}
+            {path:'edit-book/:id',component:EditBookComponent},
+            {path:'Manual-lending',component:MannualLendingComponent},
+            {path:'View-allBook/:id',component:ViewAllBookComponent}
         ]
     }
 ];

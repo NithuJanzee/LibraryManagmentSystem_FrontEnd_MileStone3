@@ -1,0 +1,12 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  .search-bar-container {
+    margin-bottom: 20px;
+  }
+  .table-container {
+    margin-top: 30px;
+  }
+  .table th, .table td {
+    text-align: center;
+  }

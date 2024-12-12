@@ -95,11 +95,6 @@ export class BookDetailsComponent implements OnInit {
       }
     }
 
-
-
-
-
-
     LendingRequest(): void {
 
       const user = Number(this.UserService.LoggedUser()?.nameid)

@@ -12,12 +12,12 @@ import { AddPriceAndDiscounts } from '../_Inerface/AdminInterFace';
 })
 export class BookService {
   private http = inject(HttpClient)
+  toaster = inject(ToastrService)
   Books = signal<Book[]>([])
   NotPublishedBooksSignal = signal<Book[]>([])
   baseUrl = environment.apiUrl;
   GenreSignal = signal<Genre[]>([])
   AuthorSignal = signal<Author[]>([])
-  toaster = inject(ToastrService)
 
   getAllBooks(query: string) {
     return this.http.get<Book[]>(this.baseUrl + `Book/all?searchText=${query}`).subscribe({
