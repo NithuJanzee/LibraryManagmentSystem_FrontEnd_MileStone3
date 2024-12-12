@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-import { Admin, AdminLogin,GetAllLendingRequestAndApproved, GetAllReturn } from '../_Inerface/AdminInterFace';
+import { Admin, AdminLogin,AllSubscription,GetAllLendingRequestAndApproved, GetAllReturn } from '../_Inerface/AdminInterFace';
 import { map } from 'rxjs';
 import { BookId } from '../_Inerface/BookInterFace';
 
@@ -73,5 +73,9 @@ export class AdminService {
 
   AcceptReturn(lendId:number){
     return this.http.post(this.baseUrl + `HistoryContoller/UpdateHistory/${lendId}`,[]);
+  }
+
+  GetAllSubscriptionRequest(){
+    return this.http.get<AllSubscription[]>(this.baseUrl +`Payment/Subscription-Request`);
   }
 }

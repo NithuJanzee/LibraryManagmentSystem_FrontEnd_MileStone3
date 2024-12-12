@@ -16,11 +16,32 @@
     </div>
   </div>
 </section>
+
+@if (UserService.LoggedUser()?.role == 'FreeUser') {
+  <div class="subscription-banner">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-3 mb-md-0">
+                <h2>Library Lifetime Subscription</h2>
+                <p class="mb-0">Get more discounts on everything! Unlimited access and benefits.</p>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex flex-column flex-md-row justify-content-md-end align-items-md-center">
+                    <div class="price me-md-3 mb-2 mb-md-0">Only 250/=</div>
+                    <button class="btn btn-subscribe"  [routerLink]="['/Subscriptions']">Subscribe Now <i class="fa-solid fa-crown"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+}
+
+
+
 <div class="bodyArea">
   <div class="container">
     <main class="container">
       <h2 style="color: rgb(0, 0, 0); border-bottom: 2px solid rgb(0, 0, 0); display: inline-block;">Featured Books</h2>
-
       <!-- Book Cards -->
       @if(UserService.currentUser()){
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-5" id="bookList">

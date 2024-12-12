@@ -52,3 +52,10 @@ export interface BookUsage {
   name: string;
   value: number;
 }
+
+export interface AllSubscription{
+  userNIC:string
+  userName:string
+  amount:number
+  requestDate:string
+}

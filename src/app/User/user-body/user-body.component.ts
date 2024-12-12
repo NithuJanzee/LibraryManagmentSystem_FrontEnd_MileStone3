@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { BookService } from '../../_service/book.service';
 import { CommonModule } from '@angular/common';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { UserServiceService } from '../../_service/user-service.service';
 import { jwtDecode } from 'jwt-decode';
 import { NavigationComponent } from "../navigation/navigation.component";
@@ -12,7 +12,7 @@ import { Book } from '../../_Inerface/BookInterFace';
 @Component({
   selector: 'app-user-body',
   standalone: true,
-  imports: [CommonModule, NavigationComponent, FormsModule],
+  imports: [CommonModule, FormsModule,RouterModule],
   templateUrl: './user-body.component.html',
   styleUrl: './user-body.component.css'
 })

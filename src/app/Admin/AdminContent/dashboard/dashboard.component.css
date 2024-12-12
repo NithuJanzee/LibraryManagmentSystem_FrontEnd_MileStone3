@@ -1,3 +1,32 @@
+main {
+  margin: 0 auto; /* Center the main content horizontally */
+  max-width: 1200px; /* Limit the maximum width for better alignment */
+  display: flex;
+  flex-direction: column; /* Ensure child elements are stacked vertically */
+  align-items: center; /* Center child elements horizontally */
+}
+
+.row {
+  width: 100%; /* Ensure the rows span the full width of the main content */
+  justify-content: center; /* Center the rows within the main element */
+}
+
+.card.stats-card {
+  background-color: #f9f9f9; /* Light background for cards */
+  border: 1px solid #ddd; /* Add a subtle border */
+  border-radius: 8px; /* Rounded corners for a modern look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  text-align: center; /* Center-align card content */
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card i {
+  font-size: 2rem; /* Slightly larger icons for emphasis */
+}
+
 .tooltip-container {
     background: #ffffff;
     border: 1px solid #ddd;
@@ -10,8 +39,8 @@
     margin: 0;
     font-size: 14px;
   }
-  
-  /* From Uiverse.io by Spacious74 */ 
+
+  /* From Uiverse.io by Spacious74 */
 .outer {
   width: 300px;
   height: 250px;
@@ -90,4 +119,35 @@
   background: linear-gradient(45deg, #000000 4%, #fff, #000);
   background-clip: text;
   color: transparent;
+}
+
+
+
+.table-container {
+  padding: 20px;
+}
+.table {
+  background: linear-gradient(to right, #19191a, #d7dee4);
+  color: #fff;
+  border: 1px solid #444;
+}
+.table thead th {
+  background-color: #1c1c1c;
+  border-bottom: 2px solid #444;
+}
+.btn-action {
+  color: #000;
+  background-color: #fff;
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-action:hover {
+  background-color: #ccc;
+}
+thead tr th {
+  color: white;
 }

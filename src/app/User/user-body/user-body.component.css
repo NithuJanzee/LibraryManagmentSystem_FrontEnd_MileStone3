@@ -141,3 +141,41 @@
   padding: 10px;
   box-shadow: 0 10px 60px rgba(0, 0, 0, 0.1);
 }
+
+
+/* banner  */
+.subscription-banner {
+  background: linear-gradient(to right, #19191a, #d7dee4);
+  color: white;
+  padding: 20px 0;
+}
+.subscription-banner h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.subscription-banner p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+.subscription-banner .price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+.btn-subscribe {
+  background-color: #ffd700;
+  color: #333;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  transition: all 0.3s ease;
+}
+.btn-subscribe:hover {
+  background-color: #fff;
+  color: #4a90e2;
+}
+
+.fa-crown{
+  width: 50px;
+}

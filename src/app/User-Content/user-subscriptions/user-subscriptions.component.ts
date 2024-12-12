@@ -35,7 +35,6 @@ export class UserSubscriptionsComponent implements OnInit {
 
     let userId = this.DecodedToken()?.nameid
     let ID = Number(userId)
-    // console.log(typeof(ID))
     let response = {
       userId: ID
     }
