@@ -1,5 +1,5 @@
 <div class="card mb-2 shadow">
-  <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+  <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
     <h2 class="mb-0">Book Overview</h2>
     <span class="badge bg-light text-primary">ID: {{EditBookForAdminSignal()?.bookId}}</span>
   </div>
@@ -40,13 +40,13 @@
       <div class="col-md-8">
         <h3 class="mb-3 d-flex align-items-center">
           <span class="me-3">BookTitle: {{ EditBookForAdminSignal()?.bookTitle }}</span>
-          <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editBookTitle">
+          <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#editBookTitle">
             <i class="bi bi-pencil-square fs-6"></i>
           </button>
         </h3>
         <h4 class="mb-3 d-flex align-items-center">
           <span class="me-3">Author: {{EditBookForAdminSignal()?.authorName}}</span>
-          <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#EditBookAuthor"
+          <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#EditBookAuthor"
             (click)="GetAllAuthorAndGenre()">
             <i class="bi bi-pencil-square fs-6"></i>
           </button>
@@ -54,7 +54,7 @@
 
         <h4 class="mb-3 d-flex align-items-center">
           <span class="me-3">Genre: {{EditBookForAdminSignal()?.genreName}}</span>
-          <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#EditGenre"
+          <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#EditGenre"
             (click)="GetAllAuthorAndGenre()">
             <i class="bi bi-pencil-square fs-6"></i>
           </button>
@@ -85,7 +85,7 @@
               <!-- Modal Footer -->
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="saveEditGenreButton" data-bs-dismiss="modal"
+                <button type="button" class="btn btn-outline-secondary" id="saveEditGenreButton" data-bs-dismiss="modal"
                   (click)="UpdateGenre()">Save Changes</button>
               </div>
             </div>
@@ -98,7 +98,7 @@
           </p>
           <h4 class="mb-3 d-flex align-items-center">
             <span class="me-3">Description: {{EditBookForAdminSignal()?.description}}</span>
-            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#EditDescription">
+            <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#EditDescription">
               <i class="bi bi-pencil-square fs-6"></i>
             </button>
           </h4>
@@ -124,7 +124,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                  <button type="button" class="btn btn-primary" (click)="UpdateTheDescription()"
+                  <button type="button" class="btn btn-outline-secondary" (click)="UpdateTheDescription()"
                     data-bs-dismiss="modal">Save Changes</button>
                 </div>
               </div>
@@ -137,7 +137,7 @@
 
           <h4 class="mb-3 d-flex align-items-center">
             <span class="me-3">Available Quantity: {{EditBookForAdminSignal()?.quantity}}</span>
-            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#EditQuantity">
+            <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#EditQuantity">
               <i class="bi bi-pencil-square fs-6"></i>
             </button>
           </h4>
@@ -219,7 +219,7 @@
                   </div>
                 </div>
               </div>
-              <button class="btn btn-primary mt-3 ps-3" data-bs-toggle="modal" data-bs-target="#priceInputModal">Update
+              <button class="btn btn-outline-danger mt-3 ps-3" data-bs-toggle="modal" data-bs-target="#priceInputModal">Update
                 Price</button>
               @if (EditBookForAdminSignal()?.ispublished == false) {
               <button class="btn btn-outline-success mt-3 ps-3" data-bs-toggle="modal"

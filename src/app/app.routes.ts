@@ -6,7 +6,6 @@ import { DashboardComponent } from './Admin/AdminContent/dashboard/dashboard.com
 import { BooksManagementComponent } from './Admin/AdminContent/books-management/books-management.component';
 import { LendingRequestsComponent } from './Admin/AdminContent/lending-requests/lending-requests.component';
 import { ReturnManagementComponent } from './Admin/AdminContent/return-management/return-management.component';
-import { PurchaseHistoryComponent } from './Admin/AdminContent/purchase-history/purchase-history.component';
 import { BookDetailsComponent } from './Book/book-details/book-details.component';
 import { AdminLoginComponent } from './AccessAccount/admin-login/admin-login.component';
 import { adminGuard } from './_gurard/admin.guard';
@@ -55,7 +54,6 @@ export const routes: Routes = [
             {path:'LendingRequest',component:LendingRequestsComponent},
             {path:'ApprovedRequests',component:ApprovedRequestsComponent},
             {path:'ReturnManagement',component:ReturnManagementComponent},
-            {path:'PurchaseHistory',component:PurchaseHistoryComponent},
             {path:'add-book', component:AddBookComponent},
             {path:'edit-book/:id',component:EditBookComponent}
         ]

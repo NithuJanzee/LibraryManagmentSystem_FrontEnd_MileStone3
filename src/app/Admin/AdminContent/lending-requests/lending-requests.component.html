@@ -1,13 +1,13 @@
 <h2 class="h2">Book Lending Requests</h2>
 <div class="button-container">
-  <button class="btn btn-all" (click)="loadAllLendingRequest('')">Reload</button>
-  <button class="btn btn-free" (click)="loadAllLendingRequest('FreeUser')">Free Users</button>
-  <button class="btn btn-premium" (click)="loadAllLendingRequest('Premium')">Premium Users</button>
+  <button class="btn btn-outline-success" (click)="loadAllLendingRequest('')">Reload</button>
+  <button class="btn btn-outline-primary" (click)="loadAllLendingRequest('FreeUser')">Free Users</button>
+  <button class="btn btn-outline-warning" (click)="loadAllLendingRequest('Premium')">Premium Users</button>
 
   <div class="search-container">
     <input type="text" class="form-control search-input" placeholder="Search by name, status..."
       [(ngModel)]="searchText" />
-    <button class="btn btn-search" (click)="loadAllLendingRequest(searchText)">Search</button>
+    <button class="btn btn-dark" (click)="loadAllLendingRequest(searchText)">Search</button>
   </div>
 </div>
 <div class="container my-4">
@@ -46,7 +46,7 @@
               (click)="setSelectedRequest(Requests)">
               Accept
             </button>
-            <button class="btn btn-danger">Decline</button>
+            <!-- <button class="btn btn-danger">Decline</button> -->
           </td>
         </tr>
         }
