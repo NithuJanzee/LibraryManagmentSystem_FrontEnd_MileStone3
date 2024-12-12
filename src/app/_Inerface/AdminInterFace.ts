@@ -60,3 +60,15 @@ export interface AllSubscription{
   requestDate:string
   userID:number
 }
+
+export interface PaymentSummary
+{
+  amount:number
+  dueAmount:number
+  totalAmount:number
+}
+
+export interface globalDiscount{
+  bookPriceDiscount:number
+  lendingPriceDiscount:number
+}

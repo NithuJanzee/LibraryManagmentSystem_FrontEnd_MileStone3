@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-import { Admin, AdminLogin,AllSubscription,GetAllLendingRequestAndApproved, GetAllReturn } from '../_Inerface/AdminInterFace';
+import { Admin, AdminLogin,AllSubscription,GetAllLendingRequestAndApproved, GetAllReturn, PaymentSummary, globalDiscount } from '../_Inerface/AdminInterFace';
 import { map } from 'rxjs';
 import { BookId } from '../_Inerface/BookInterFace';
 
@@ -93,5 +93,13 @@ export class AdminService {
 
   ApproveSubscription(userId:any){
     return this.http.post(this.baseUrl + `Payment/BuySubscription`,userId)
+  }
+
+  Getpaymentsummary(){
+    return this.http.get<PaymentSummary[]>(this.baseUrl + `Payment/summary`)
+  }
+
+  AddglobalDiscount(data:globalDiscount){
+    return this.http.post(this.baseUrl + `BookPrice/update-all-discounts`,data)
   }
 }

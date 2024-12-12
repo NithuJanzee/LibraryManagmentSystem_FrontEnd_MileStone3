@@ -31,7 +31,7 @@
     <div class="card">
         <div class="card-body p-0">
             <div class="table-responsive">
-              <h2>LIVE BOOK</h2>
+              <h2 class="text-center">LIVE BOOK</h2>
                 <table class="table table-hover mb-0">
                     <thead>
                         <tr>
@@ -55,9 +55,6 @@
                               <td class="text-center"><span class="badge badge-available"><a href="" [routerLink]="['/admin/edit-book/'+ item.bookId]">View More</a></span></td>
 
                               <td class="text-center book-actions">
-                                  <button class="btn btn-sm btn-outline-primary me-2">
-                                      <i class="bi bi-pencil"></i>
-                                  </button>
                                   <button class="btn btn-sm btn-outline-danger" (click)="DeleteBook(item.bookId)">
                                       <i class="bi bi-trash"></i>
                                   </button>
@@ -75,7 +72,7 @@
     <div class="card">
         <div class="card-body p-0">
             <div class="table-responsive">
-              <h2>Not PublishedBook </h2>
+              <h2 class="text-center">Not PublishedBook </h2>
                 <table class="table table-hover mb-0">
                     <thead>
                         <tr>
@@ -99,9 +96,6 @@
                               <td class="text-center"><span class="badge badge-available"><a href="" [routerLink]="['/admin/edit-book/'+ item.bookId]">View More</a></span></td>
 
                               <td class="text-center book-actions">
-                                  <button class="btn btn-sm btn-outline-primary me-2">
-                                      <i class="bi bi-pencil"></i>
-                                  </button>
                                   <button class="btn btn-sm btn-outline-danger" (click)="DeleteBook(item.bookId)">
                                       <i class="bi bi-trash"></i>
                                   </button>

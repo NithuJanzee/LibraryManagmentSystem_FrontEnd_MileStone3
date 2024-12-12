@@ -202,3 +202,30 @@ thead tr th {
   background-color: #5a6268;
   border-color: #545b62;
 }
+
+/* Custom Styling */
+.modal-content {
+  border-radius: 8px;
+}
+
+.modal-header {
+  background-color: #333;
+}
+
+.modal-footer {
+  background-color: #444;
+}
+
+.btn-close-white {
+  filter: invert(1);
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-secondary {
+  background-color: #6c757d; 
+  border-color: #6c757d;
+}

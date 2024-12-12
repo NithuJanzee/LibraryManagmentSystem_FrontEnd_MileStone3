@@ -55,8 +55,50 @@
             </div>
         </div>
     </div>
-</main>
 
+    <div class="container my-5">
+      @for (item of PaymentSummarySignal(); track $index) {
+        <div class="row justify-content-center">
+          <!-- Amount Due Card -->
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="card-header">
+                Due Amounts
+              </div>
+              <div class="card-body text-center">
+                <h4 class="card-title text-white">{{item.dueAmount}}/=</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- Amount Paid Card -->
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="card-header">
+                Amount Paid
+              </div>
+              <div class="card-body text-center">
+                <h5 class="card-title">{{item.amount}}/=</h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Total Amount Card -->
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="card-header">
+                Total Amount
+              </div>
+              <div class="card-body text-center">
+                <h5 class="card-title">{{item.totalAmount}}/=</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+    <button type="button" class="btn btn-outline-secondary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Global Discount For All Book</button>
+</main>
 
 <ngx-charts-bar-vertical
   [view]="view"
@@ -148,6 +190,38 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
         <button type="button" class="btn btn-primary" (click)="ApproveSubscription()" data-bs-dismiss="modal">Accept</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- globalDiscount -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-light">
+      <div class="modal-header border-bottom border-light">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Discount Settings</h1>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Book Discount Input -->
+        <div class="mb-3">
+          <label for="bookDiscount" class="form-label">Book Discount</label>
+          <input type="number" class="form-control" id="bookDiscount" placeholder="Enter book discount" min="0" max="100" [(ngModel)]="bookDiscount">
+        </div>
+        <!-- Lending Discount Input -->
+        <div class="mb-3">
+          <label for="lendingDiscount" class="form-label">Lending Discount</label>
+          <input type="number" class="form-control" id="lendingDiscount" placeholder="Enter lending discount" min="0" max="100" [(ngModel)]="BookLendingDiscount">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="AddGlobalDiscount()">Save changes</button>
       </div>
     </div>
   </div>
