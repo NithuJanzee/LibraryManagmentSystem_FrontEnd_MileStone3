@@ -58,4 +58,5 @@ export interface AllSubscription{
   userName:string
   amount:number
   requestDate:string
+  userID:number
 }

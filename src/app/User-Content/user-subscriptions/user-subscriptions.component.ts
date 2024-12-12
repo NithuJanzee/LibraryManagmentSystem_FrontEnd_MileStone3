@@ -44,7 +44,7 @@ export class UserSubscriptionsComponent implements OnInit {
         this.toaster.success("Request Successfully")
       },
       error: err => {
-        this.toaster.error(err.error)
+        this.toaster.error("You Already Requested")
       }
     })
   }

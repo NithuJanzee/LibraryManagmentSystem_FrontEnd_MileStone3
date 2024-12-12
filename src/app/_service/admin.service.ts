@@ -78,4 +78,20 @@ export class AdminService {
   GetAllSubscriptionRequest(){
     return this.http.get<AllSubscription[]>(this.baseUrl +`Payment/Subscription-Request`);
   }
+
+  GetAllUserCount(){
+    return this.http.get<number>(this.baseUrl +`HistoryContoller/GetAll-UsersCount`)
+  }
+
+  GetAllBookCount(){
+    return this.http.get<number>(this.baseUrl + `HistoryContoller/GetAll-BookCount`)
+  }
+
+  GetAllApprovedBookCount(){
+    return this.http.get<number>(this.baseUrl + `HistoryContoller/GetAll-Approved-Books`)
+  }
+
+  ApproveSubscription(userId:any){
+    return this.http.post(this.baseUrl + `Payment/BuySubscription`,userId)
+  }
 }

@@ -132,7 +132,7 @@ main {
   border: 1px solid #444;
 }
 .table thead th {
-  background-color: #1c1c1c;
+  background-color: #383737;
   border-bottom: 2px solid #444;
 }
 .btn-action {
@@ -150,4 +150,55 @@ main {
 }
 thead tr th {
   color: white;
+}
+
+
+/* Modal window  */
+
+.modal-content {
+  background-color: #ffffff;
+  color: #333333;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.modal-header, .modal-footer {
+  border: none;
+  background-color: #f8f9fa;
+}
+.modal-title {
+  font-weight: bold;
+  color: #333;
+}
+.bill-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+.bill-item-label {
+  font-weight: 500;
+  color: #555;
+}
+.bill-total {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 2px solid #ddd;
+}
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
 }
