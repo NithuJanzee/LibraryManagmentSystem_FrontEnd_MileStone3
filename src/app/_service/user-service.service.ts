@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { DecodedToken, LoggedUsers, password, UserAccount, UserID, UserLogin, UserTransactionById } from '../_Inerface/UserInterface';
+import { DecodedToken, LoggedUsers, password, UserAccount, UserHistory, UserID, UserLogin, UserTransactionById } from '../_Inerface/UserInterface';
 import { environment } from '../../environments/environment.development';
 import { map } from 'rxjs';
 
@@ -66,5 +66,9 @@ export class UserServiceService {
 
   RequestForSubscriptions(UserID:UserID){
     return this.http.post(this.baseUrl + `Payment/Request`, UserID)
+  }
+
+  GetUserHistory(id:number){
+    return this.http.get<UserHistory[]>(this.baseUrl + `HistoryContoller/GetHistoryByUserId?userId=${id}`)
   }
 }

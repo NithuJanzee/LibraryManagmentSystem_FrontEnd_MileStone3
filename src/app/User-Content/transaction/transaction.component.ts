@@ -1,16 +1,17 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { UserServiceService } from '../../_service/user-service.service';
 import { ToastrService } from 'ngx-toastr';
 import { jwtDecode } from 'jwt-decode';
 import { DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
+import { UserHistory } from '../../_Inerface/UserInterface';
 
 
 @Component({
   selector: 'app-transaction',
   standalone: true,
-  imports: [DatePipe,FormsModule,],
+  imports: [DatePipe,FormsModule,DatePipe],
   templateUrl: './transaction.component.html',
   styleUrl: './transaction.component.css'
 })
@@ -19,10 +20,12 @@ export class TransactionComponent implements OnInit {
   Toaster = inject(ToastrService)
   router = inject(Router)
   searchText: string = ''
+  userHistorySignal = signal<UserHistory[]|null>(null)
 
   ngOnInit(): void {
     this.DecodedData()
     this.loadUserLendingBooks('')
+    this.GetUserHistory();
   }
 
   DecodedData() {
@@ -42,5 +45,15 @@ export class TransactionComponent implements OnInit {
 
   NavigateToBookDetails(bookId:number){
     this.router.navigateByUrl(`/BookDetails/${bookId}`)
+  }
+
+  GetUserHistory(){
+    var userId = Number(this.userService.LoggedUser()?.nameid)
+    this.userService.GetUserHistory(userId).subscribe({
+      next:res=>{
+        this.userHistorySignal.set(res)
+        console.log(this.userHistorySignal())
+      }
+    })
   }
 }

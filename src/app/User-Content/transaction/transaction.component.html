@@ -18,7 +18,7 @@
     <section>
       <div class="row g-4 mt-3">
         @if (userService.UserTransactionSignal().length !=0) {
-        <h2 class="Requested text-center mb-4">Requested</h2>
+        <h2 class="Requested text-center mb-4">Live Transactions</h2>
         } @for (item of userService.UserTransactionSignal(); track $index)
         { @if
         (item.status == 0) {
@@ -82,7 +82,7 @@
                       <p style="color: red;">Waiting Period</p>
                       <i class="bi bi-calendar me-1"></i>:
                       {{ item.waitingStart| date }}
-                     -to-
+                      -to-
                       {{ item.waitingEnd | date }}
                     </small>
                     <br />
@@ -141,11 +141,50 @@
         } }
       </div>
     </section>
-
-
-
-
-
   </main>
+</div>
 
+<div class="table-container">
+  <h2>Your Transactions History</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Book Name</th>
+        <th>Request Date</th>
+        <th>Request Days</th>
+        <th>Approved Date</th>
+        <th>Lending Date</th>
+        <th>Due Date</th>
+        <th>Return Date</th>
+        <th>Status</th>
+        <th class="currency">Amount</th>
+        <th class="currency">Due Amount</th>
+        <th class="currency">Total Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of userHistorySignal(); track $index) {
+      <tr>
+        <td>{{$index + 1}}</td>
+        <td>{{item.bookName}}</td>
+        <td>{{item.requestDate | date}}</td>
+        <td>{{item.requestDays}}</td>
+        <td>{{item.approvedDate |date}}</td>
+        <td>{{item.lendingDate |date}}</td>
+        <td>{{item.dueDate |date}}</td>
+        <td>{{item.returnDate |date}}</td>
+        @if (item.status == 'On Time') {
+        <td style="color: green;">{{item.status}}</td>
+        }
+        @if (item.status == 'Overdue') {
+        <td style="color: red;">{{item.status}}</td>
+        }
+        <td style="color: green;">{{item.amount}}/=</td>
+        <td style="color: red;">{{item.dueAmount}} /=</td>
+        <td style="color: green;">{{item.totalAmount}}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
 </div>

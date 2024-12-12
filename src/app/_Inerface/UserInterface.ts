@@ -56,3 +56,17 @@ export interface password{
 export interface UserID{
   userId:number
 }
+
+export interface UserHistory{
+  bookName:string
+  requestDate:string
+  requestDays:string
+  approvedDate:string
+  lendingDate:string
+  dueDate:string
+  returnDate:string
+  status:string
+  amount:number
+  dueAmount:number
+  totalAmount:number
+}
