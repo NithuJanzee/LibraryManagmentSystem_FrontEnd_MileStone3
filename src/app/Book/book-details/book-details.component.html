@@ -223,8 +223,17 @@
           </div>
           <!-- endRadio -->
           }
+          @if (BookById()?.isLending || BookById()?.isRequested) {
+          <button class="btn btn-success me-2 mt-2" type="button" data-bs-toggle="modal" data-bs-target="#LendingModal"
+            disabled>
+            <i class="fas fa-shopping-cart"></i> Lending Request
+          </button>
+
+          }@else {
           <button class="btn btn-success me-2 mt-2" type="button" data-bs-toggle="modal" data-bs-target="#LendingModal">
-            <i class="fas fa-shopping-cart"></i>LendingRequest</button>
+            <i class="fas fa-shopping-cart"></i>Lending Request</button>
+
+          }
         </div>
       </div>
 
@@ -397,7 +406,7 @@
   </div>
 
   <footer class="bg-dark text-light mt-5 py-4">
-   
+
   </footer>
 
 </div>
