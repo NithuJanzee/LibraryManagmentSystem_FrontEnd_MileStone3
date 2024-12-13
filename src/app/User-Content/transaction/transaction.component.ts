@@ -56,4 +56,16 @@ export class TransactionComponent implements OnInit {
       }
     })
   }
+
+  CancelLeggingRequest(id:number){
+    this.userService.RemoveLendingRequest(id).subscribe({
+      next:res=>{
+        this.Toaster.success("Lending Request Removed")
+        this.loadUserLendingBooks('');
+      },
+      error:err=>{
+        this.Toaster.error(err)
+      }
+    })
+  }
 }

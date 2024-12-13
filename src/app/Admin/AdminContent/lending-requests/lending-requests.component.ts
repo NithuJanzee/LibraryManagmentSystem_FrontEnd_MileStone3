@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink, ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { BookId } from '../../../_Inerface/BookInterFace';
+import { UserServiceService } from '../../../_service/user-service.service';
 
 @Component({
   selector: 'app-lending-requests',
@@ -14,6 +15,7 @@ import { BookId } from '../../../_Inerface/BookInterFace';
 })
 export class LendingRequestsComponent implements OnInit {
   AdminService = inject(AdminService)
+  UserService = inject(UserServiceService)
   toster = inject(ToastrService)
   searchText: string = ''
   router = inject(Router)
@@ -49,6 +51,18 @@ export class LendingRequestsComponent implements OnInit {
 
   setSelectedRequest(request: any) {
     this.selectedRequest = request;
+  }
+
+  CancelLendingrequest(id:number){
+    this.UserService.RemoveLendingRequest(id).subscribe({
+      next:res=>{
+        this.toster.success("Lending request Removed")
+        this.loadAllLendingRequest('');
+      },
+      error:err=>{
+        this.toster.error(err)
+      }
+    })
   }
 
 }

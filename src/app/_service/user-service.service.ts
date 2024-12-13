@@ -71,4 +71,8 @@ export class UserServiceService {
   GetUserHistory(id:number){
     return this.http.get<UserHistory[]>(this.baseUrl + `HistoryContoller/GetHistoryByUserId?userId=${id}`)
   }
+
+  RemoveLendingRequest(lendID:number){
+    return this.http.delete(this.baseUrl + `BookLending/DeleteLendingRecord?lendID=${lendID}`)
+  }
 }

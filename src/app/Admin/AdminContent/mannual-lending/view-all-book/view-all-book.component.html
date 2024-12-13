@@ -3,13 +3,13 @@
     <div class="text-center">
       <h2>Choose Book For Lending</h2>
     </div>
-  
+
     <!-- Search Bar and Search Button -->
     <div class="search-bar-container d-flex justify-content-center">
       <input type="text" class="form-control w-50" placeholder="Search for a book..."  [(ngModel)]="searchQuery">
-      <button class="btn btn-primary ml-2" (click)="LoadAllBooks(searchQuery)">Search</button>
+      <button class="btn btn-info ml-2" (click)="LoadAllBooks(searchQuery)">Search</button>
     </div>
-  
+
     <!-- Book Details Table -->
     <div class="table-container">
       <table class="table table-bordered table-striped">
@@ -44,37 +44,68 @@
 
 
   <!-- Modal -->
-<div class="modal fade" id="lendingPriceModal" tabindex="-1" aria-labelledby="lendingPriceModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="lendingPriceModalLabel">Lending Prices</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p><strong>Price for 3 Days:</strong> {{bookDetailSignal()?.lendingprice3Days}}/=</p>
-        <p><strong>Price for 7 Days:</strong> {{bookDetailSignal()?.lendingprice7Days}}/=</p>
-        <p><strong>Price for 10 Days:</strong> {{bookDetailSignal()?.lendingprice10Days}}/=</p>
-        <p><strong>Price for 15 Days:</strong> {{bookDetailSignal()?.lendingprice15Days}}/=</p>
-        <p><strong>Price for 30 Days:</strong> {{bookDetailSignal()?.lendingprice30Days}}/=</p>
+  <div class="modal fade" id="lendingPriceModal" tabindex="-1" aria-labelledby="lendingPriceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content shadow-lg">
+        <!-- Modal Header -->
+        <div class="modal-header bg-dark text-white">
+          <h5 class="modal-title" id="lendingPriceModalLabel">Lending Prices</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
 
-        <form id="lendingForm">
-          <div class="mb-3">
-            <label for="lendingDays" class="form-label">Lending Days</label>
-            <input type="number" class="form-control" id="lendingDays" name="lendingDays" placeholder="Enter the number of days" required [(ngModel)]="LendingDays">
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <div class="pricing-details mb-4">
+            <p><strong>Price for 3 Days:</strong> {{bookDetailSignal()?.lendingprice3Days}}/=</p>
+            <p><strong>Price for 7 Days:</strong> {{bookDetailSignal()?.lendingprice7Days}}/=</p>
+            <p><strong>Price for 10 Days:</strong> {{bookDetailSignal()?.lendingprice10Days}}/=</p>
+            <p><strong>Price for 15 Days:</strong> {{bookDetailSignal()?.lendingprice15Days}}/=</p>
+            <p><strong>Price for 30 Days:</strong> {{bookDetailSignal()?.lendingprice30Days}}/=</p>
           </div>
-          <div class="mb-3">
-            <label for="amount" class="form-label">Amount</label>
-            <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter the amount" required [(ngModel)]="Amount">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click)="GiveLendTheBook()" 
-        data-bs-dismiss="modal">Submit</button>
+
+          <form id="lendingForm" class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="lendingDays" class="form-label">Lending Days</label>
+              <input
+                type="number"
+                class="form-control"
+                id="lendingDays"
+                name="lendingDays"
+                placeholder="Enter the number of days"
+                required
+                [(ngModel)]="LendingDays"
+              />
+              <div class="invalid-feedback">Please enter a valid number of days.</div>
+            </div>
+            <div class="mb-3">
+              <label for="amount" class="form-label">Amount</label>
+              <input
+                type="number"
+                class="form-control"
+                id="amount"
+                name="amount"
+                placeholder="Enter the amount"
+                required
+                [(ngModel)]="Amount"
+              />
+              <div class="invalid-feedback">Please enter a valid amount.</div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button
+            type="button"
+            class="btn btn-success"
+            (click)="GiveLendTheBook()"
+            data-bs-dismiss="modal"
+          >
+            Submit
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 

@@ -1,13 +1,13 @@
 <h2 class="h2">Approved Book</h2>
 <div class="button-container">
-  <button class="btn btn-all" (click)="LoadAllApprovedBooks('')">Reload</button>
-  <button class="btn btn-free" (click)="LoadAllApprovedBooks('FreeUser')">Free Users</button>
-  <button class="btn btn-premium" (click)="LoadAllApprovedBooks('Premium')">Premium Users</button>
+  <button class="btn btn-outline-success" (click)="LoadAllApprovedBooks('')">Reload</button>
+  <button class="btn btn-outline-primary" (click)="LoadAllApprovedBooks('FreeUser')">Free Users</button>
+  <button class="btn btn-outline-warning" (click)="LoadAllApprovedBooks('Premium')">Premium Users</button>
 
   <div class="search-container">
     <input type="text" class="form-control search-input" placeholder="Search by name, status..."
       [(ngModel)]="searchText" />
-    <button class="btn btn-search" (click)="LoadAllApprovedBooks(searchText)">Search</button>
+    <button class="btn btn-dark" (click)="LoadAllApprovedBooks(searchText)">Search</button>
   </div>
 </div>
 <div class="container my-4">

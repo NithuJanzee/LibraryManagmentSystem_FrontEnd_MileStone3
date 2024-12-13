@@ -53,11 +53,12 @@ export class ViewAllBookComponent implements OnInit {
     this.ManualLendingService.LendBookByAdmin(this.ParamUserId, BookID, this.LendingDays, this.Amount).subscribe({
       next: res => {
         this.toaster.success("Book Landed Successful");
+        this.LoadAllBooks('')
       },
       error: err => {
         this.toaster.error(err.Message);
       }
     });
   }
-  
+
 }

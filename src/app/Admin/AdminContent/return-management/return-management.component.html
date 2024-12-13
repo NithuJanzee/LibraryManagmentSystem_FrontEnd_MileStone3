@@ -1,65 +1,64 @@
 <h2 class="h2">Book Return Management</h2>
 <div class="button-container">
-    <button class="btn btn-all" (click)="GetAllReturnBooks('')">Reload</button>
-    <button class="btn btn-free" (click)="GetAllReturnBooks('free')">Free Users</button>
-    <button class="btn btn-premium" (click)="GetAllReturnBooks('Premium')">Premium Users</button>
+  <button class="btn btn-outline-success" (click)="GetAllReturnBooks('')">Reload</button>
+  <button class="btn btn-outline-primary" (click)="GetAllReturnBooks('free')">Free Users</button>
+  <button class="btn btn-outline-warning" (click)="GetAllReturnBooks('Premium')">Premium Users</button>
 
-    <!-- Search Section -->
-    <div class="search-container">
-        <input
-            type="text"
-            class="form-control search-input"
-            placeholder="Search by name, status..."
-            [(ngModel)]="searchText" />
-        <button class="btn btn-search" (click)="GetAllReturnBooks(searchText)">Search</button>
-    </div>
+  <!-- Search Section -->
+  <div class="search-container">
+    <input type="text" class="form-control search-input" placeholder="Search by name, status..."
+      [(ngModel)]="searchText" />
+    <button class="btn btn-dark" (click)="GetAllReturnBooks(searchText)">Search</button>
+  </div>
 </div>
 
 <div class="container my-5">
-    <!-- Table for smaller screens -->
-    <div class="table-container  d-xxl-block">
-        <table class="table table-striped">
-          @if (AdminService.BookReturnSignal().length == 0) {
-            <h1 class="h1Void">NO Request Found</h1>
-            }
-            <thead>
-                <tr>
-                    <th>Book Title</th>
-                    <th>User ID</th>
-                    <th>User Name</th>
-                    <th>User Status</th>
-                    <th>Lend Date</th>
-                    <th>Requested Days</th>
-                    <th>Due Date</th>
-                    <th>Return Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @for (item of AdminService.BookReturnSignal(); track $index) {
-                    <tr>
-                        <td>{{item.bookTittle}}</td>
-                        <td>{{item.userId}}</td>
-                        <td>{{item.userName}}</td>
-                        <td>{{item.userStatus}}</td>
-                        <td>{{item.lendDate | date}}</td>
-                        <td>{{item.requestedDayes}} Days</td>
-                        <td>{{item.dueDate |date}}</td>
-                        @if (item.returnStatus == 'Overdue') {
-                          <td style="color: red;">{{item.returnStatus}}</td>
-                          <td><button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#bookReturnModal" (click)="ReturnBooks(item)">Over-due</button></td>
-                        }@else {
-                          <td style="color: green;">{{item.returnStatus}}</td>
-                          <td><button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#bookReturnModal" (click)="ReturnBooks(item)"> Status</button></td>
-                        }
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+  <!-- Table for smaller screens -->
+  <div class="table-container  d-xxl-block">
+    @if (AdminService.BookReturnSignal().length == 0) {
+    <h1 class="h1Void">NO Request Found</h1>
+    }
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Book Title</th>
+          <th>User ID</th>
+          <th>User Name</th>
+          <th>User Status</th>
+          <th>Lend Date</th>
+          <th>Requested Days</th>
+          <th>Due Date</th>
+          <th>Return Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of AdminService.BookReturnSignal(); track $index) {
+        <tr>
+          <td>{{item.bookTittle}}</td>
+          <td>{{item.userId}}</td>
+          <td>{{item.userName}}</td>
+          <td>{{item.userStatus}}</td>
+          <td>{{item.lendDate | date}}</td>
+          <td>{{item.requestedDayes}} Days</td>
+          <td>{{item.dueDate |date}}</td>
+          @if (item.returnStatus == 'Overdue') {
+          <td style="color: red;">{{item.returnStatus}}</td>
+          <td><button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#bookReturnModal"
+              (click)="ReturnBooks(item)">Over-due</button></td>
+          }@else {
+          <td style="color: green;">{{item.returnStatus}}</td>
+          <td><button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#bookReturnModal"
+              (click)="ReturnBooks(item)"> Status</button></td>
+          }
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
 
-    <!-- Cards for xxl screens -->
-    <!-- <div class="card-container d-xxl-none">
+  <!-- Cards for xxl screens -->
+  <!-- <div class="card-container d-xxl-none">
         @for (item of AdminService.BookReturnSignal(); track $index) {
             <div class="card">
                 <div class="card-header">Book Title: The Great Gatsby</div>
@@ -80,7 +79,8 @@
 </div>
 
 <!-- modal  -->
-<div class="modal fade" id="bookReturnModal" tabindex="-1" aria-labelledby="bookReturnBillModalLabel" aria-hidden="true">
+<div class="modal fade" id="bookReturnModal" tabindex="-1" aria-labelledby="bookReturnBillModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <!-- Modal Header -->
@@ -128,13 +128,13 @@
                 <td id="requestedDays">{{ReturnRequest?.requestedDayes}}</td>
                 <td id="dueDate">{{ReturnRequest?.dueDate}}</td>
                 @if (ReturnRequest?.dueAmount == null) {
-                  <td id="dueDays">0</td>
-                  <td id="dueAmount">0</td>
-                  <td id="amount">{{ReturnRequest?.amount}}</td>
+                <td id="dueDays">0</td>
+                <td id="dueAmount">0</td>
+                <td id="amount">{{ReturnRequest?.amount}}</td>
                 } @else {
-                  <td id="dueDays">{{ReturnRequest?.dueDays}}</td>
-                  <td id="dueAmount">{{ReturnRequest?.dueAmount}}</td>
-                  <td id="amount">{{ReturnRequest?.amount}}</td>
+                <td id="dueDays">{{ReturnRequest?.dueDays}}</td>
+                <td id="dueAmount">{{ReturnRequest?.dueAmount}}</td>
+                <td id="amount">{{ReturnRequest?.amount}}</td>
                 }
               </tr>
             </tbody>
@@ -162,10 +162,9 @@
       <!-- Modal Footer -->
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click)="AcceptReturn(ReturnRequest?.lendID)" data-bs-dismiss="modal">Confirm Return</button>
+        <button type="button" class="btn btn-primary" (click)="AcceptReturn(ReturnRequest?.lendID)"
+          data-bs-dismiss="modal">Confirm Return</button>
       </div>
     </div>
   </div>
 </div>
-
-

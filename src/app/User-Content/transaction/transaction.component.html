@@ -45,6 +45,10 @@
               <p class="small text-muted mt-2">
                 This book is currently requested.
               </p>
+              <div class="d-flex justify-content-end">
+                <button class="btn btn-danger rounded-pill" (click)="CancelLeggingRequest(item.lendID)">Remove Request</button>
+              </div>
+
               <!-- Small note -->
             </div>
           </div>
@@ -148,7 +152,7 @@
   <h2>Your Transactions History</h2>
   <table>
     <thead>
-      <tr>
+      <tr class="text-center">
         <th>#</th>
         <th>Book Name</th>
         <th>Request Date</th>
@@ -165,7 +169,7 @@
     </thead>
     <tbody>
       @for (item of userHistorySignal(); track $index) {
-      <tr>
+      <tr class="text-center">
         <td>{{$index + 1}}</td>
         <td>{{item.bookName}}</td>
         <td>{{item.requestDate | date}}</td>
@@ -182,7 +186,7 @@
         }
         <td style="color: green;">{{item.amount}}/=</td>
         <td style="color: red;">{{item.dueAmount}} /=</td>
-        <td style="color: green;">{{item.totalAmount}}</td>
+        <td style="color: green;">{{item.totalAmount}}/=</td>
       </tr>
       }
     </tbody>

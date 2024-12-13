@@ -1,12 +1,12 @@
 <h1>Manual Lending</h1>
 <div class="text-end me-4">
-    <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#userInputModal">+ Add New User</button>
+    <button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#userInputModal">+ Add New User</button>
 </div>
 <div class="header-section">
     <h2>User Details</h2>
     <div class="input-group" style="width: 300px;">
         <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchText">
-        <button class="btn btn-primary" type="button" (click)="loadAllUsers(searchText)">Search</button>
+        <button class="btn btn-outline-success" type="button" (click)="loadAllUsers(searchText)">Search</button>
     </div>
 </div>
 <table class="table table-striped">
@@ -32,7 +32,7 @@
                 <td>{{item.email}}</td>
                 <td>{{item.phone}}</td>
                 <td>{{item.status}}</td>
-                <td><button class="btn btn-primary" (click)="ViewBookDetails(item.userId)">Lend A Book</button></td>
+                <td><button class="btn btn-outline-success" (click)="ViewBookDetails(item.userId)">Lend A Book</button></td>
             </tr>
         }
     </tbody>
@@ -72,14 +72,13 @@
                           <label for="password" class="form-label">Password</label>
                           <input type="password" class="form-control" id="password" formControlName="password" required>
                         </div>
-                        <button type="submit" class="btn btn-success" [disabled]="!userForm.valid">Save User</button>
+                        <button type="submit" class="btn btn-outline-success" [disabled]="!userForm.valid">Save User</button>
                       </form>
-                      
+
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
-    
